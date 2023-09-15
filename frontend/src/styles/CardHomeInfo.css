@@ -1,0 +1,34 @@
+.card-home-info {
+    min-width: 23rem;
+    max-width: 67rem;
+    height: 68rem;
+    margin-bottom: 50px;
+}
+
+.card-home-info-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'MonteCarlo', cursive;
+    font-size: 60px;
+}
+
+.card-home-info-img {
+    width: auto;
+    height: 26rem;
+}
+
+.card-home-info-body {
+    background-image: url(../images/Background-card-info.jpg);
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+    overflow: scroll;
+    padding-left: 70px;
+    padding-right: 70px;
+
+}
+
+li {
+    margin-left: 45px;
+}

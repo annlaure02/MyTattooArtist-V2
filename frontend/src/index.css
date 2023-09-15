@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url(../src/images/background.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+p {
+    font-family: 'Ysabeau Office Regular';
+}
+
+@font-face {
+    font-family: 'Brother Tattoo demo';
+    src: local('Brother Tattoo demo'), 
+    url('../src/fonts/brother-tattoo/BrotherTattoo_Demo.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Ysabeau Office Regular';
+    src: local('Ysabeau Office Regular'), 
+    url('../src/fonts/Ysabeau_Office/static/YsabeauOffice-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MonteCarlo Regular';
+    src: local('MonteCarlo Regular'), 
+    url('../src/fonts/MonteCarlo/MonteCarlo-Regular.ttf') format('truetype');
+}

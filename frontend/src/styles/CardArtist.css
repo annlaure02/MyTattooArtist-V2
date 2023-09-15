@@ -1,0 +1,116 @@
+.custom-card-artist {
+    padding: 25px 35px 0 35px;
+    background-image: url(../images/Backgroun-card.jpg);
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.card-title.card-artist {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid black;
+}
+
+.profile-picture.card-artist {
+    height: 170px;
+    width: 170px;
+    border-radius: 100%;
+    border: 1px solid #DCDCDC;
+    filter: drop-shadow(16px -2px 6px rgb(91, 86, 86));
+}
+
+.card-artist-name.card-artist {
+    font-size: 70px;
+    font-family: 'MonteCarlo', cursive;
+}
+
+.card-fields.card-artist {
+    margin-top: 25px;
+}
+
+.card-infos.card-artist {
+    padding-left: 20px;
+    height: 100%;
+}
+
+.field-contact.card-artist {
+    display: flex;
+    align-items: center;
+}
+
+.card-contact-home.card-artist {
+    display: flex;
+    align-items: first baseline;
+    gap: 10px;
+    padding-left: 20px;
+}
+
+.card-contact.card-artist {
+    display: flex;
+    align-items: first baseline;
+    gap: 10px;
+}
+
+.all-styles.card-artist {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.styles.card-artist {
+    background-color: #D3D3D3;
+    margin: 8px;
+    border-radius: 30px;
+    height: 40px;
+}
+
+.style-item.card-artist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    padding: 4px 10px 0 10px;
+}
+
+.album.card-artist {
+    min-width: 20em;
+    max-height: 360px;
+    padding-left: 50px;
+    padding-right: 50px;
+    overflow: scroll;
+    background-color: white;
+}
+
+.album-picture.card-artist  {
+    margin: 15px 7px 15px 7px;
+    height: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #DCDCDC;
+}
+  
+.drawing.card-artist  {
+    min-width: 20em;
+    max-height: 360px;
+    padding-left: 50px;
+    padding-right: 50px;
+    overflow: scroll;
+    background-color: white;
+}
+.drawing-picture.card-artist  {
+    margin: 15px 7px 15px 7px;
+    height: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #DCDCDC;
+}
+
+.real-size {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 700px;
+}

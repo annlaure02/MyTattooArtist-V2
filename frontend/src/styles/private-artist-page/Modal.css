@@ -1,0 +1,61 @@
+#artist-modal {
+    top: 15%;
+}
+
+.custom-modal-artist {
+    background: linear-gradient(#696969, #DCDCDC);
+    border-radius: 7px;
+}
+
+.form-container-artist {
+    margin: 30px 40px 30px;
+}
+
+.space-between-label {
+    margin-top: 28px;
+  }
+
+.custom-button-validate {
+    margin-left: 9.2em;
+}
+
+.custom-button-validate-photo {
+    margin-left: 20em;
+}
+
+.studio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.container.photo{
+    background-color: white;
+}
+.container.photo div{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    margin: 0;
+}
+
+.container.photo:hover {
+    opacity: 75%;
+}
+
+.container.photo aside{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.input-photo {
+    background-color:rgba(0, 0, 0, 0);
+    border: none;
+}

@@ -1,0 +1,50 @@
+/* icon plus */
+
+.plus-icon {
+    color: #1aa314;
+    font-size: 33px;
+}
+
+.add-button {
+    background-color:rgba(0, 0, 0, 0);
+    width: 45px;
+    height: 45px;
+    border: none;
+    padding-top: 4px;
+}
+
+.add-button:hover{
+    opacity: 75%;
+}
+
+.add-button:active {
+    transform: translate(0px,2px);
+    -webkit-transform: translate(0px,2px);
+    -moz-transform: translate(0px,2px);
+}
+
+/* icon modify */
+
+.pencil-icon {
+/*     color: #cac6c2;  */
+/*     color: #ba9d84; */
+    color: rgb(141, 109, 22);
+    font-size: 29px;
+}
+
+.pencil-button {
+    background-color:rgba(0, 0, 0, 0);
+    width: 45px;
+    height: 45px;
+    border: none;
+}
+
+.pencil-button:hover{
+    opacity: 75%;
+}
+
+.pencil-button:active {
+    transform: translate(0px,2px);
+    -webkit-transform: translate(0px,2px);
+    -moz-transform: translate(0px,2px);
+}

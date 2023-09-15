@@ -1,0 +1,138 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  height: 170px;
+  border-bottom: 2px solid white;
+}
+
+.navbar-logo {
+  display: flex;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.logo-image {
+  height: 90px;
+  padding-bottom: 25px;
+}
+
+.logo-title {
+  font-family: 'Brother Tattoo demo';
+  font-size: 65px;
+  color: red;
+  padding-top: 2px;
+}
+
+.menu-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu-to-toggle {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}
+ul {
+  padding: 0;
+}
+.menu-content {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-item {
+  display: block;
+  position: relative;
+  top: 40px;
+  font-family: 'Ysabeau Office Regular';
+  font-size: 25px;
+}
+
+.nav-links {
+  color: white;
+  text-decoration: none;
+  margin: 0;
+}
+
+.nav-links:hover {
+  color: rgb(136, 136, 129);
+  border-radius: 4px;
+}
+
+.navbar-connection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-artist {
+  color: white;
+  font-size: 16px;
+}
+
+.button-connect {
+  display: flex;
+  gap: 10px;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@media screen and (max-width: 1240px) {
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-connection {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+    justify-content: left;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+  }
+
+  .menu-to-toggle.active {
+    background-color: rgb(80, 79, 79);
+    display: block;
+    position: absolute;
+    top: 40px;
+    min-width: 330px;
+    max-width: 500px;
+    height: 340px;
+    z-index: 1;
+  }
+
+  .navbar-menu.active {
+    display: block;
+    flex-direction: column;
+    padding-left: 40px;
+    height: 150px;
+    z-index: 1;
+  }
+
+  .navbar-connection.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    background-color: rgb(80, 79, 79);
+  }
+}

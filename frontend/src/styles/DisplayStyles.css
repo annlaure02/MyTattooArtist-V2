@@ -1,0 +1,31 @@
+.custom-styles-page {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 90px;
+    margin-bottom: 40px;
+    column-gap: 40px;
+}
+
+.card-style {
+    width: 23rem;
+    height: 40rem;
+    padding: 10px 8px 10px 8px;
+    margin-bottom: 50px;
+    overflow: auto;
+    background-image: url(../images/Backgroun-card.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+
+.card-style-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-family: 'MonteCarlo', cursive;
+}
+
+.card-style-description {
+    padding: 0 10px 0 10px;
+}
