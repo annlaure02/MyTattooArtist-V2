@@ -1,0 +1,22 @@
+/* Section Photo Flash */
+.photo-flash-section {
+    background-color: black;
+    color: #c6c1c1;
+    margin: 90px 90px 50px 90px;
+}
+
+.display-photo-flash {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: #262424;
+    border-radius: 10px;
+}
+
+.photo-flash-picture {
+    height: 200px;
+    border-radius: 10px;
+    border: 1px solid #c6c1c1;
+}

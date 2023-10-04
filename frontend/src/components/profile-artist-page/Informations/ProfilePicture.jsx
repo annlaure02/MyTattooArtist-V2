@@ -5,9 +5,11 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
-import { ArtistContext } from '../header/ArtistAuth';
-import '../../styles/private-artist-page/Modal.css'
-import '../../styles/private-artist-page/Buttons.css'
+import { ArtistContext } from '../../header/ArtistAuth';
+import '../../../styles/private-artist-page/Modal.css';
+import '../../../styles/private-artist-page/Buttons.css';
+import AppareilPhotos from '../../../images/appareil-photos.jpg'
+
 
 function ProfilePicture({ dataUpdated, artist }) {
   const [show, setShow] = useState(false);
@@ -50,16 +52,26 @@ function ProfilePicture({ dataUpdated, artist }) {
 
   return (
     <>
-      <div>
-        {artist && artist.profile_picture ? (
-          <button className='pencil-button' onClick={handleShow}>
-            <BsPencilFill className='pencil-icon' />
-          </button>
-        ) : (
-          <button className='add-button' onClick={handleShow}>
-            <FaPlus className='plus-icon' />
-          </button>
-        )}
+        <div className="add-profile-picture" onClick={handleShow}>
+          {artist && artist.profile_picture ? (
+            <img
+              src={`http://127.0.0.1:8000${artist.profile_picture}`}
+              alt=""
+              className='custom-profile-picture'
+            />
+          ) : (
+            <img
+              src={AppareilPhotos}
+              alt=""
+              className='custom-profile-picture'
+            />
+          )}
+          {artist && artist.profile_picture ? (
+            <BsPencilFill className='pencil-icon-profile' />
+          ) : (
+            <FaPlus className='plus-icon-profile' />
+          )}
+        </div>
         <Modal
           show={show}
           onHide={handleClose}
@@ -82,7 +94,6 @@ function ProfilePicture({ dataUpdated, artist }) {
             </form>
           </div>
         </Modal>
-      </div>
     </>
   )
 }

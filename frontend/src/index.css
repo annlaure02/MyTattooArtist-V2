@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    font-family: 'Ysabeau Office Regular';
 }
 
 body {
@@ -31,4 +32,10 @@ p {
     font-family: 'MonteCarlo Regular';
     src: local('MonteCarlo Regular'), 
     url('../src/fonts/MonteCarlo/MonteCarlo-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Quattrocento Regular';
+    src: local('Quattrocento Regular'), 
+    url('../src/fonts/Quattrocento/Quattrocento-Regular.ttf') format('truetype');
 }

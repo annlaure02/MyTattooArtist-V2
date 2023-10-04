@@ -6,11 +6,11 @@ import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
-import { ArtistContext } from '../header/ArtistAuth';
-import '../../styles/private-artist-page/Modal.css'
-import '../../styles/private-artist-page/Buttons.css'
+import { ArtistContext } from '../../header/ArtistAuth';
+import '../../../styles/private-artist-page/Modal.css';
+import '../../../styles/private-artist-page/Buttons.css';
 
-function Phone({ dataUpdated, artist }) {
+function Instagram({ dataUpdated, artist }) {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);;
@@ -47,44 +47,42 @@ function Phone({ dataUpdated, artist }) {
     handleClose();
   };
 
-  if (artist && artist.phone) {
-    setValue('phone', artist.phone);
+  if (artist && artist.instagram) {
+    setValue('instagram', artist.instagram);
   }
 
   return (
     <>
-      <div>
-        {artist && artist.phone ? (
-          <button className='pencil-button' onClick={handleShow}>
-            <BsPencilFill className='pencil-icon' />
-          </button>
-        ) : (
-          <button className='add-button' onClick={handleShow}>
-            <FaPlus className='plus-icon' />
-          </button>
-        )}
-        <Modal
-          show={show}
-          onHide={handleClose}
-          id='artist-modal'
-        >
-          <div className='custom-modal-artist'>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Modal.Body>
-                <div className='form-container-artist'>
-                  <FloatingLabel controlId="phone" label="Numéro de téléphone*" className="mb-3">
-                    <Form.Control type="text" placeholder="" {...register('phone')} />
-                  </FloatingLabel>
-                  <Button variant="primary" className='custom-button-validate' type='submit'>
-                    Valider</Button>
-                </div>
-              </Modal.Body>
-            </form>
-          </div>
-        </Modal>
-      </div>
+      {artist && artist.instagram ? (
+        <button className='pencil-button' onClick={handleShow}>
+          <BsPencilFill className='pencil-icon' />
+        </button>
+      ) : (
+        <button className='add-button' onClick={handleShow}>
+          <FaPlus className='plus-icon' />
+        </button>
+      )}
+      <Modal
+        show={show}
+        onHide={handleClose}
+        id='artist-modal'
+      >
+        <div className='custom-modal-artist'>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Modal.Body>
+              <div className='form-container-artist'>
+                <FloatingLabel controlId="instagram" label="instagram" className="mb-3">
+                  <Form.Control type="text" placeholder="" {...register('instagram')} />
+                </FloatingLabel>
+                <Button variant="primary" className='custom-button-validate' type='submit'>
+                  Valider</Button>
+              </div>
+            </Modal.Body>
+          </form>
+        </div>
+      </Modal>
     </>
   )
 }
 
-export default Phone
+export default Instagram

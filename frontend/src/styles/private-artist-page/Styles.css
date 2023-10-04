@@ -1,0 +1,59 @@
+/* ---------- Section Tattoo Styles ---------- */
+
+/* form Selectionne tes styles */
+
+.select-styles-container {
+    margin-top: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.select-styles-form h2 {
+    font-size: 34px;
+    margin-bottom: 30px;
+}
+.select-styles {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    width: 100%;
+    max-height: 20rem;
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+.select-styles-validat-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* display styles in the page */
+.styles-section {
+    color: #c6c1c1;
+    margin-top: 120px;
+    margin-left: 90px;
+    width: 800px;
+}
+
+.all-styles {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    row-gap: 15px;
+    column-gap: 20px;
+}
+.styles {
+    background-color: #D3D3D3;
+    border-radius: 30px;
+}
+
+.style-item {
+    color: black;
+    padding: 6px 15px;
+    font-size: 22px;
+    margin: 0;
+}

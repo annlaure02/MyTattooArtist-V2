@@ -1,0 +1,62 @@
+/* Section My Informations */
+.informations-section {
+    color: #c6c1c1;
+    margin-bottom: 50px;
+}
+
+.all-informations {
+    margin-top: 120px;
+    margin-left: 90px;
+}
+
+.all-informations h1 {
+    margin-bottom: 40px;
+}
+
+.all-informations h1::after {
+    content: "";
+    border: 2px solid #c6c1c1;
+}
+
+.personal-infos {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.inline-infos {
+    display: inline-flex;
+    margin-bottom: 15px;
+}
+
+.inline-infos h2 {
+    font-size: 25px;
+    font-style: italic;
+}
+
+.inline-infos h2 span {
+    margin-left: 5px;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.inline-infos h2 a {
+    margin-left: 5px;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: #c6c1c1;
+}
+
+.block-biography {
+    margin-left: 20px;
+}
+.text-biography{
+    max-width: 45rem;
+    font-size: 27px;
+    font-style: normal;
+    word-wrap: break-word;
+    
+}

@@ -1,0 +1,90 @@
+.page-column {
+    display: flex;
+    width: 100%;
+    min-height: 65rem;
+    background: black;
+    margin: 0;
+    padding: 0;
+}
+
+/* Formating 1st section, menu on left */
+
+.menu-section {
+    background-color: lightgrey;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    min-width: 25rem;
+    max-width: 25rem;
+}
+
+.menu-artist-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 90px 25px 10px 25px;
+}
+
+/* Formating profile picture */
+
+.custom-profile-picture{
+    height: 190px;
+    width: 190px;
+    border-radius: 100%;
+    border: 2px solid black;
+}
+
+.add-profile-picture {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+  
+  .add-profile-picture:hover{
+    opacity: 85%;
+  }
+
+/* Formating artist name */
+
+.artist-infos {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-right: 15px;
+}
+
+.artist-infos h1 {
+    font-family: 'MonteCarlo Regular';
+    font-size: 44px;
+    display: inline-block;
+    word-break: break-word;
+}
+
+/* Formating list of links */
+.list-items {
+    list-style: none;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.list-items:last-child {
+    margin-bottom: 0;
+}
+.menu-link {
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+}
+
+.menu-link:hover {
+    color: blue;
+}
+
+/* Formating button Déconnexion */
+.btn-disconnect {
+    margin-top: 50px;
+    font-size: 20px;
+}

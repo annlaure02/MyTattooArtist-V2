@@ -34,7 +34,7 @@ function Login() {
       const artistData = await artistResponse.json();
       console.log(artistData);
 
-      const redirectUrl = `/ma-page-artiste/${artistId}`;
+      const redirectUrl = `/ma-page-artiste/mes-informations/${artistId}`;
       redirectArtistPage(redirectUrl);
 
     } catch (error) {

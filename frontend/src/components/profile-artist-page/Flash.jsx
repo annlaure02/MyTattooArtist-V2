@@ -8,7 +8,7 @@ import { ArtistContext } from '../header/ArtistAuth';
 import '../../styles/private-artist-page/Modal.css'
 import '../../styles/private-artist-page/Buttons.css'
 
-function Drawing({ dataUpdated }) {
+function Flash({ dataUpdated }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => {
@@ -27,10 +27,10 @@ function Drawing({ dataUpdated }) {
 
   const onSubmit = async (data) => {
     const formData = new FormData();
-    formData.append('image', data.drawing[0]);
+    formData.append('image', data.flash[0]);
 
     for (let i = 0; i < selectedFiles.length; i++) {
-      formData.append('uploaded_images_drawing', selectedFiles[i]);
+      formData.append('uploaded_images_flash', selectedFiles[i]);
     }
 
     const url = `http://127.0.0.1:8000/user_artist/api/ma-page-artiste/${artistId}/`
@@ -92,8 +92,8 @@ function Drawing({ dataUpdated }) {
   return (
     <>
       <div>
-        <button className='add-button' onClick={handleShow}>
-          <FaPlus className='plus-icon' />
+        <button className='add-button-photo-flash' onClick={handleShow}>
+          <FaPlus className='plus-icon-photo-flash' />
         </button>
         <Modal
           size="lg"
@@ -108,7 +108,7 @@ function Drawing({ dataUpdated }) {
                   <section className="container photo">
                     <div {...getRootProps({ className: 'dropzone' })}>
                       <input {...getInputProps()} />
-                      <p>Glissez vos dessins ou Cliquez pour les sélectionner</p>
+                      <p>Glissez vos flashs ou Cliquez pour les sélectionner</p>
                       <em>10 fichiers maximum à la fois</em> <br/>
                       <em>Format: JPG, JPEG ou PNG </em>
                     </div>
@@ -116,7 +116,7 @@ function Drawing({ dataUpdated }) {
                       {previewFile}
                     </aside>
                   </section>
-                  <input name="drawing" {...register("drawing")} hidden/> <br />
+                  <input name="flash" {...register("flash")} hidden/> <br />
                   <Button variant="primary" className='custom-button-validate-photo' type='submit'>
                     Valider</Button>
                 </div>
@@ -129,4 +129,4 @@ function Drawing({ dataUpdated }) {
   )
 }
 
-export default Drawing
+export default Flash

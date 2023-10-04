@@ -93,8 +93,8 @@ function Album({ dataUpdated }) {
   return (
     <>
       <div>
-        <button className='add-button' onClick={handleShow}>
-          <FaPlus className='plus-icon' />
+        <button className='add-button-photo-flash' onClick={handleShow}>
+          <FaPlus className='plus-icon-photo-flash' />
         </button>
         <Modal
           size="lg"

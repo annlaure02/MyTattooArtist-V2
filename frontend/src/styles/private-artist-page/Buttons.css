@@ -1,16 +1,52 @@
+/* --------------- section menu --------------- */
+
+/* Plus icon for profile picture */
+.add-profile-picture .plus-icon-profile {
+    position: absolute;
+    top: 38%;
+    left: 38%;
+    width: 45px;
+    height: 45px;
+    color: #040474;
+    z-index: 1;
+}
+
+/* Pencil icon for profile picture */
+.add-profile-picture .pencil-icon-profile {
+    position: absolute;
+    color: black;
+    bottom: 12px;
+    left: 85%;
+    width: 22px;
+    height: 22px;
+    z-index: 1;
+}
+/* Icon pencil for artist name */
+.pencil-icon-artist-name {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: 35%;
+    left: 25%;
+    color: black;
+}
+
+/* --------------- section informations --------------- */
 /* icon plus */
 
 .plus-icon {
-    color: #1aa314;
-    font-size: 33px;
+    position: absolute;
+    color: #1b45b8;
+    width: 21px;
+    height: 21px;
+    top: 21%;
 }
 
 .add-button {
-    background-color:rgba(0, 0, 0, 0);
-    width: 45px;
-    height: 45px;
+    position: relative;
+    background-color: transparent;
+    margin-left: 8px;
     border: none;
-    padding-top: 4px;
 }
 
 .add-button:hover{
@@ -19,25 +55,25 @@
 
 .add-button:active {
     transform: translate(0px,2px);
-    -webkit-transform: translate(0px,2px);
-    -moz-transform: translate(0px,2px);
 }
 
-/* icon modify */
+/* icon pencil */
 
 .pencil-icon {
-/*     color: #cac6c2;  */
-/*     color: #ba9d84; */
-    color: rgb(141, 109, 22);
-    font-size: 29px;
+    position: absolute;
+    color: rgb(131, 115, 115);
+    width: 20px;
+    height: 20px;
+    top: 18%;
 }
 
 .pencil-button {
-    background-color:rgba(0, 0, 0, 0);
-    width: 45px;
-    height: 45px;
+    position: relative;
+    background-color: transparent;
+    margin-left: 15px;
     border: none;
 }
+
 
 .pencil-button:hover{
     opacity: 75%;
@@ -47,4 +83,23 @@
     transform: translate(0px,2px);
     -webkit-transform: translate(0px,2px);
     -moz-transform: translate(0px,2px);
+}
+
+
+/* --------------- section photo-flash --------------- */
+/* Icon plus */
+
+.plus-icon-photo-flash {
+    position: absolute;
+    color: #1b45b8;
+    width: 25px;
+    height: 25px;
+}
+
+.add-button-photo-flash {
+    position: relative;
+    background-color: transparent;
+    margin-left: 10px;
+    border: none;
+    bottom: 5px;
 }

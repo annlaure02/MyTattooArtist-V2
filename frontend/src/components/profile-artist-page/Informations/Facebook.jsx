@@ -6,14 +6,14 @@ import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
-import { ArtistContext } from '../header/ArtistAuth';
-import '../../styles/private-artist-page/Modal.css'
-import '../../styles/private-artist-page/Buttons.css'
+import { ArtistContext } from '../../header/ArtistAuth';
+import '../../../styles/private-artist-page/Modal.css';
+import '../../../styles/private-artist-page/Buttons.css';
 
-function Biography({ dataUpdated, artist }) {
+function Facebook({ dataUpdated, artist }) {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);;
 
   const { register, handleSubmit, setValue } = useForm();
 
@@ -33,6 +33,7 @@ function Biography({ dataUpdated, artist }) {
 
         if (updateResponse.ok) {
           const responseData = await updateResponse.json();
+          console.log(responseData)
           dataUpdated(responseData);
         }
         else {
@@ -46,14 +47,13 @@ function Biography({ dataUpdated, artist }) {
     handleClose();
   };
 
-  if (artist && artist.biography) {
-    setValue('biography', artist.biography);
+  if (artist && artist.facebook) {
+    setValue('facebook', artist.facebook);
   }
 
   return (
     <>
-      <div>
-        {artist && artist.biography ? (
+        {artist && artist.facebook ? (
           <button className='pencil-button' onClick={handleShow}>
             <BsPencilFill className='pencil-icon' />
           </button>
@@ -71,8 +71,8 @@ function Biography({ dataUpdated, artist }) {
             <form onSubmit={handleSubmit(onSubmit)}>
               <Modal.Body>
                 <div className='form-container-artist'>
-                  <FloatingLabel controlId="biography" label="Ma biographie" className="mb-3" >
-                    <Form.Control as="textarea" placeholder="" style={{ height: '200px' }} {...register('biography', { required: true })} />
+                  <FloatingLabel controlId="facebook" label="Facebook" className="mb-3">
+                    <Form.Control type="text" placeholder="" {...register('facebook')} />
                   </FloatingLabel>
                   <Button variant="primary" className='custom-button-validate' type='submit'>
                     Valider</Button>
@@ -81,9 +81,8 @@ function Biography({ dataUpdated, artist }) {
             </form>
           </div>
         </Modal>
-      </div>
     </>
   )
 }
 
-export default Biography
+export default Facebook

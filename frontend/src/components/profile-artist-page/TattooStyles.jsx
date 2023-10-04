@@ -1,18 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { FaPlus } from 'react-icons/fa';
-import { BsPencilFill } from 'react-icons/bs';
-import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
 import { ArtistContext } from '../header/ArtistAuth';
-import '../../styles/private-artist-page/Modal.css'
-import '../../styles/private-artist-page/Buttons.css'
+import '../../styles/private-artist-page/Styles.css'
 
 function TattooStyles({ dataUpdated, artist }) {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const [styles, setStyles] = useState([])
 
@@ -24,7 +17,8 @@ function TattooStyles({ dataUpdated, artist }) {
     const fetchData = async () => {
       const response = await fetch(`http://127.0.0.1:8000/project/api/tattoo-style/`)
       const data = await response.json()
-      setStyles(data)
+      const sortedStyles = data.sort((a, b) => a.style_name.localeCompare(b.style_name));
+      setStyles(sortedStyles);
     };
     fetchData()
   }, [])
@@ -61,7 +55,6 @@ function TattooStyles({ dataUpdated, artist }) {
     catch (error) {
       console.error('An error is produced during the request:', error);
     }
-    handleClose();
   };
 
   if (artist && artist.tattoo_style && artist.tattoo_style.length > 0) {
@@ -72,44 +65,31 @@ function TattooStyles({ dataUpdated, artist }) {
   return (
     <>
       <div>
-        {artist && artist.tattoo_style && artist.tattoo_style.length > 0 ? (
-          <button className='pencil-button' onClick={handleShow}>
-            <BsPencilFill className='pencil-icon' />
-          </button>
-        ) : (
-          <button className='add-button' onClick={handleShow}>
-            <FaPlus className='plus-icon' />
-          </button>
-        )}
-        <Modal
-          show={show}
-          onHide={handleClose}
-        >
-          <div className='custom-modal-artist'>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Modal.Body>
-                <div className='form-container-artist'>
-                  <Form.Group>
-                    <h3>Sélectionne tes styles</h3>
-                    {styles.map(style => (
-                      <Form.Check
-                        key={style.id}
-                        type="checkbox"
-                        id={`style-${style.id}`}
-                        label={style.style_name}
-                        value={style.style_name}
-                        {...register('tattoo_style')}
-                      />
-                    ))}
-                  </Form.Group>
-                  <br />
-                  <Button variant="primary" className='custom-button-validate' type='submit'>
-                    Valider</Button>
+        <div className='select-styles-container'>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className='select-styles-form'>
+              <Form.Group>
+                <h2>Sélectionne tes styles</h2>
+                <div className='select-styles'>
+                  {styles.map(style => (
+                    <Form.Check
+                      key={style.id}
+                      type="checkbox"
+                      id={`style-${style.id}`}
+                      label={style.style_name}
+                      value={style.style_name}
+                      {...register('tattoo_style')}
+                    />
+                  ))}
                 </div>
-              </Modal.Body>
-            </form>
-          </div>
-        </Modal>
+              </Form.Group>
+              <div className='select-styles-validat-btn'>
+                <Button variant="primary" type='submit'>
+                  Valider</Button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   )
