@@ -125,17 +125,23 @@ class StudioCityFilter(filters.BaseFilterBackend):
             queryset = queryset.filter(studio_city=style_param)
         return queryset
     
-class StudioStateFilter(filters.BaseFilterBackend):
+class StudioDepartmentFilter(filters.BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
-        style_param = request.query_params.get('studio_state')
+        style_param = request.query_params.get('studio_department')
         if style_param:
-            queryset = queryset.filter(studio_state=style_param)
+            queryset = queryset.filter(studio_department=style_param)
         return queryset
 
+class StudioRegionFilter(filters.BaseFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        style_param = request.query_params.get('studio_region')
+        if style_param:
+            queryset = queryset.filter(studio_region=style_param)
+        return queryset
 
 class UserArtistAPIView(generics.ListCreateAPIView):
     queryset = UserArtist.objects.filter(is_superuser=False)
     serializer_class = UserArtistSerializer
-    filter_backends = [TattooStyleFilter, ArtistNameFilter, StudioStateFilter, StudioCityFilter, filters.SearchFilter]
+    filter_backends = [TattooStyleFilter, ArtistNameFilter, StudioDepartmentFilter, StudioCityFilter, StudioRegionFilter, filters.SearchFilter]
     permission_classes = (AllowAny,)
         

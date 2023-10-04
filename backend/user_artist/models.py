@@ -40,7 +40,7 @@ class UserArtist(AbstractUser):
     phone = models.CharField(max_length=10, blank=True)
     email = models.EmailField(unique=True)
     profile_picture = models.ImageField(upload_to='profile_picture/', blank=True, null=True)
-    biography = models.TextField(max_length=1000, blank=True)
+    biography = models.TextField(max_length=2500, blank=True)
     facebook = models.CharField(max_length=255, blank=True)
     instagram = models.CharField(max_length=255, blank=True)
     x = models.CharField(max_length=255, blank=True)

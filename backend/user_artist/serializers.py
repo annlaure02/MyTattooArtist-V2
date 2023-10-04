@@ -44,8 +44,8 @@ class UserArtistSerializer(serializers.ModelSerializer):
     uploaded_images_album = serializers.ListField(
         child=serializers.ImageField(allow_empty_file=False, use_url=False),
         write_only=True, required=False)
-    drawing = UserArtistFlashSerializer(many=True, required=False, read_only=True, source='userartistdrawing_set')
-    uploaded_images_drawing = serializers.ListField(
+    flash = UserArtistFlashSerializer(many=True, required=False, read_only=True, source='userartistflash_set')
+    uploaded_images_flash = serializers.ListField(
         child=serializers.ImageField(allow_empty_file=False, use_url=False),
         write_only=True, required=False)
 
@@ -57,7 +57,7 @@ class UserArtistSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         tattoo_data = validated_data.pop('tattoo_style', [])
         uploaded_images_album = validated_data.pop("uploaded_images_album", [])
-        uploaded_images_drawing = validated_data.pop("uploaded_images_drawing", [])
+        uploaded_images_flash = validated_data.pop("uploaded_images_flash", [])
 
         user_artist = UserArtist.objects.create(**validated_data)
 
@@ -70,7 +70,7 @@ class UserArtistSerializer(serializers.ModelSerializer):
         for image in uploaded_images_album:
             UserArtistAlbum.objects.create(user_artist=user_artist, image=image)
 
-        for image in uploaded_images_drawing:
+        for image in uploaded_images_flash:
             UserArtistFlash.objects.create(user_artist=user_artist, image=image)
 
         return user_artist
@@ -78,7 +78,7 @@ class UserArtistSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         tattoo_data = validated_data.pop('tattoo_style', [])
         uploaded_images_album = validated_data.pop('uploaded_images_album', [])
-        uploaded_images_drawing = validated_data.pop('uploaded_images_drawing', [])
+        uploaded_images_flash = validated_data.pop('uploaded_images_flash', [])
 
         instance = super().update(instance, validated_data)
 
@@ -92,7 +92,7 @@ class UserArtistSerializer(serializers.ModelSerializer):
         for image in uploaded_images_album:
             UserArtistAlbum.objects.get_or_create(user_artist=instance, image=image)
 
-        for image in uploaded_images_drawing:
+        for image in uploaded_images_flash:
             UserArtistFlash.objects.get_or_create(user_artist=instance, image=image)
 
         return instance

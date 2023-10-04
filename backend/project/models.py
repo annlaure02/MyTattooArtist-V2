@@ -23,7 +23,7 @@ class Studio(models.Model):
     studio_region = models.CharField(max_length=100, blank=True)
     studio_country = models.CharField(max_length=50, blank=True)
     studio_siret = models.CharField(max_length=18, blank=True)
-    opening_hours = models.JSONField(default=dict)
+    opening_hours = models.JSONField(default=dict, blank=True)
 
     def __str__(self):
         return self.studio_name
