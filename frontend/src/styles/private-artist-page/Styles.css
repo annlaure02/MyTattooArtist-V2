@@ -1,5 +1,11 @@
 /* ---------- Section Tattoo Styles ---------- */
-
+/* Section tattoo styles */
+.select-styles {
+    color: #c6b7bb;
+}
+.styles-section h1{
+    color: #cf0736;
+}
 /* form Selectionne tes styles */
 
 .select-styles-container {
@@ -11,6 +17,7 @@
 }
 
 .select-styles-form h2 {
+    color: #ba0a51;
     font-size: 34px;
     margin-bottom: 30px;
 }
@@ -25,15 +32,40 @@
     margin-bottom: 40px;
 }
 
+.form-check-input:checked {
+    background-color: #ba0a51 !important;
+    border-color: #930941 !important;
+}
+
+.form-check-input {
+    background-color: #c6b7bb !important;
+    border-color: #930941 !important;
+}
+
+.form-check-input:focus {
+    border-color: #930940ab !important;
+    box-shadow: none !important;
+}
+
 .select-styles-validat-btn {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.select-styles-validat-btn .btn-validate {
+    font-size: 20px;
+    font-weight: bold;
+    color: #6F2232;
+    background-color: #c6b7bb;
+}
+
+.select-styles-validat-btn .btn-validate:hover {
+    opacity: 80%;
+}
+
 /* display styles in the page */
 .styles-section {
-    color: #c6c1c1;
     margin-top: 120px;
     margin-left: 90px;
     width: 800px;
@@ -47,13 +79,13 @@
     column-gap: 20px;
 }
 .styles {
-    background-color: #D3D3D3;
+    background-color: #6F2232;
     border-radius: 30px;
 }
 
 .style-item {
-    color: black;
+    color: #c6b7bb;
     padding: 6px 15px;
-    font-size: 22px;
+    font-size: 23px;
     margin: 0;
 }

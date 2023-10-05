@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     min-height: 65rem;
-    background: black;
+    background: #1A1A1D;
     margin: 0;
     padding: 0;
 }
@@ -10,7 +10,8 @@
 /* Formating 1st section, menu on left */
 
 .menu-section {
-    background-color: lightgrey;
+    background-color: #4E4E50;
+    color: #DCDCDC;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     min-width: 25rem;
@@ -75,12 +76,12 @@
 }
 .menu-link {
     text-decoration: none;
-    color: black;
+    color: #DCDCDC;
     font-size: 24px;
 }
 
 .menu-link:hover {
-    color: blue;
+    color: #1A1A1D;
 }
 
 /* Formating button Déconnexion */

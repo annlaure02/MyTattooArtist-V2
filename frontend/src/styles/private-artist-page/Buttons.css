@@ -7,14 +7,14 @@
     left: 38%;
     width: 45px;
     height: 45px;
-    color: #040474;
+    color: #1A1A1D;
     z-index: 1;
 }
 
 /* Pencil icon for profile picture */
 .add-profile-picture .pencil-icon-profile {
     position: absolute;
-    color: black;
+    color: #1A1A1D;
     bottom: 12px;
     left: 85%;
     width: 22px;
@@ -28,7 +28,7 @@
     height: 22px;
     top: 35%;
     left: 25%;
-    color: black;
+    color: #1A1A1D;
 }
 
 /* --------------- section informations --------------- */
@@ -36,7 +36,7 @@
 
 .plus-icon {
     position: absolute;
-    color: #1b45b8;
+    color: #c6b7bb;
     width: 21px;
     height: 21px;
     top: 21%;
@@ -61,7 +61,7 @@
 
 .pencil-icon {
     position: absolute;
-    color: rgb(131, 115, 115);
+    color: #626264;
     width: 20px;
     height: 20px;
     top: 18%;
@@ -91,7 +91,7 @@
 
 .plus-icon-photo-flash {
     position: absolute;
-    color: #1b45b8;
+    color: #c6b7bb;
     width: 25px;
     height: 25px;
 }
@@ -99,7 +99,7 @@
 .add-button-photo-flash {
     position: relative;
     background-color: transparent;
-    margin-left: 10px;
+    margin-left: 15px;
     border: none;
-    bottom: 5px;
+    bottom: 2px;
 }
