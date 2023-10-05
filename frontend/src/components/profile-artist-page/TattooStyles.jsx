@@ -8,9 +8,7 @@ import '../../styles/private-artist-page/Styles.css'
 function TattooStyles({ dataUpdated, artist }) {
 
   const [styles, setStyles] = useState([])
-
   const { register, handleSubmit, setValue } = useForm();
-
   const { artistId } = useContext(ArtistContext)
 
   useEffect(() => {
@@ -73,7 +71,6 @@ function TattooStyles({ dataUpdated, artist }) {
                 <div className='select-styles'>
                   {styles.map(style => (
                     <Form.Check
-                      key={style.id}
                       type="checkbox"
                       id={`style-${style.id}`}
                       label={style.style_name}
@@ -84,7 +81,7 @@ function TattooStyles({ dataUpdated, artist }) {
                 </div>
               </Form.Group>
               <div className='select-styles-validat-btn'>
-                <Button variant="primary" type='submit'>
+                <Button className='btn-validate' variant="light" type='submit'>
                   Valider</Button>
               </div>
             </div>

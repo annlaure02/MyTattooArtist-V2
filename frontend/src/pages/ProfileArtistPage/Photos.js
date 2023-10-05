@@ -68,7 +68,7 @@ function ProfileArtistPagePhotos() {
             </ul>
           </div>
           <div>
-            <Button className='btn-disconnect' variant="secondary" onClick={Logout}>
+            <Button className='btn-disconnect' variant="dark" onClick={Logout}>
               Déconnexion
             </Button>
           </div>

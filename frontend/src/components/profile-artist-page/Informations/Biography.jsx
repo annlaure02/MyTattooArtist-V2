@@ -71,7 +71,11 @@ function Biography({ dataUpdated, artist }) {
             <Modal.Body>
               <div className='form-container-artist'>
                 <FloatingLabel controlId="biography" label="Ma biographie" className="mb-3" >
-                  <Form.Control as="textarea" placeholder="" style={{ height: '200px' }} {...register('biography', { required: true })} />
+                  <Form.Control 
+                  as="textarea" 
+                  placeholder="" 
+                  maxLength={2500}
+                  {...register('biography', { required: true })} />
                 </FloatingLabel>
                 <Button variant="primary" className='custom-button-validate' type='submit'>
                   Valider</Button>

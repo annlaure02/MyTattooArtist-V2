@@ -12,21 +12,21 @@ function Home() {
   };
 
   return (
-    <div>
-      <div className="container" >
-      <div>
+    <div className="container">
+      <header>
         <Navbar />
-      </div>
+      </header>
+      <body>
         <div>
           <h1 className='home-title'>Trouve le tatoueur qui te convient</h1>
         </div>
         <div>
-          <SearchBar onSearch={handleSearch}/>
+          <SearchBar onSearch={handleSearch} />
         </div>
         <div className='card-home'>
           {!showResults && <CardHomeInfo />}
         </div>
-      </div>
+      </body>
     </div>
   );
 }

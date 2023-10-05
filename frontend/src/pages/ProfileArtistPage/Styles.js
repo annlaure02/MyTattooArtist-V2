@@ -68,7 +68,7 @@ function ProfileArtistPageStyles() {
             </ul>
           </div>
           <div>
-            <Button className='btn-disconnect' variant="secondary" onClick={Logout}>
+            <Button className='btn-disconnect' variant="dark" onClick={Logout}>
               Déconnexion
             </Button>
           </div>
@@ -82,7 +82,10 @@ function ProfileArtistPageStyles() {
         <div className=''>
           {artist.tattoo_style ? (
             <div className='all-styles'>
-              {artist.tattoo_style.map(style => (
+              {artist.tattoo_style
+                .slice()
+                .sort((a, b) => a.style_name.localeCompare(b.style_name))
+                .map(style => (
                 <div className='styles' key={style.id}>
                   <p className='style-item'>{style.style_name}</p>
                 </div>
