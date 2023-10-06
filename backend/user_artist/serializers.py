@@ -2,8 +2,8 @@ from rest_framework import serializers
 from django.contrib.auth import authenticate
 from django.core.exceptions import ValidationError
 from .models import UserArtist, UserArtistAlbum, UserArtistFlash
-from project.serializers import TattooStyleSerializer
-from project.models import TattooStyle
+from project.serializers import TattooStyleSerializer, StudioSerializer
+from project.models import TattooStyle, Studio
 
 
 
@@ -40,6 +40,7 @@ class UserArtistFlashSerializer(serializers.ModelSerializer):
 
 class UserArtistSerializer(serializers.ModelSerializer):
     tattoo_style = TattooStyleSerializer(many=True, required=False)
+    studio = StudioSerializer(many=True, required=False)
     album = UserArtistAlbumSerializer(many=True, required=False, read_only=True, source='userartistalbum_set')
     uploaded_images_album = serializers.ListField(
         child=serializers.ImageField(allow_empty_file=False, use_url=False),
@@ -56,6 +57,7 @@ class UserArtistSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         tattoo_data = validated_data.pop('tattoo_style', [])
+        studio_all_data = validated_data.pop('studio', [])
         uploaded_images_album = validated_data.pop("uploaded_images_album", [])
         uploaded_images_flash = validated_data.pop("uploaded_images_flash", [])
 
@@ -67,6 +69,12 @@ class UserArtistSerializer(serializers.ModelSerializer):
             tattoo_obj.append(tattoo)
         user_artist.tattoo_style.set(tattoo_obj)
 
+        studio_obj = []
+        for studio_data in studio_all_data:
+            studio, created = Studio.objects.get_or_create(**studio_data)
+            studio_obj.append(studio)
+        user_artist.studio.set(studio_obj)
+
         for image in uploaded_images_album:
             UserArtistAlbum.objects.create(user_artist=user_artist, image=image)
 
@@ -77,6 +85,7 @@ class UserArtistSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         tattoo_data = validated_data.pop('tattoo_style', [])
+        studio_all_data = validated_data.pop('studio', [])
         uploaded_images_album = validated_data.pop('uploaded_images_album', [])
         uploaded_images_flash = validated_data.pop('uploaded_images_flash', [])
 
@@ -88,6 +97,13 @@ class UserArtistSerializer(serializers.ModelSerializer):
                 tattoo, created = TattooStyle.objects.get_or_create(**tattoo_style_data)
                 tattoo_obj.append(tattoo)
             instance.tattoo_style.set(tattoo_obj)
+        
+        if studio_all_data:
+            studio_obj = []
+            for studio_data in studio_all_data:
+                studio, created = Studio.objects.get_or_create(**studio_data)
+                studio_obj.append(studio)
+            instance.studio.set(studio_obj)
 
         for image in uploaded_images_album:
             UserArtistAlbum.objects.get_or_create(user_artist=instance, image=image)
