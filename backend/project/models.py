@@ -21,7 +21,8 @@ class Studio(models.Model):
     studio_city = models.CharField(max_length=100, blank=True)
     studio_department = models.CharField(max_length=100, blank=True)
     studio_region = models.CharField(max_length=100, blank=True)
-    studio_country = models.CharField(max_length=50, blank=True)
+    studio_country = models.CharField(max_length=100, blank=True)
+    studio_website = models.CharField(max_length=100, blank=True)
     studio_siret = models.CharField(max_length=18, blank=True)
     opening_hours = models.JSONField(default=dict, blank=True)
 

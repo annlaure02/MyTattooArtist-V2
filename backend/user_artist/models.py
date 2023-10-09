@@ -44,6 +44,7 @@ class UserArtist(AbstractUser):
     facebook = models.CharField(max_length=255, blank=True)
     instagram = models.CharField(max_length=255, blank=True)
     x = models.CharField(max_length=255, blank=True)
+    snapchat = models.CharField(max_length=255, blank=True)
     status = models.CharField(max_length=75, blank=True)
     actif = models.BooleanField(default=False)
     tattoo_style = models.ManyToManyField(TattooStyle, blank=True)
