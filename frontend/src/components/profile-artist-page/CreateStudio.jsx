@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react'
 import { FaPlus } from 'react-icons/fa';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import { useForm } from 'react-hook-form';
 import { ArtistContext } from '../header/ArtistAuth';
 import '../../styles/private-artist-page/Modal.css'
@@ -56,7 +57,7 @@ function CreateStudio({ dataUpdated, artist }) {
           console.log('An error is produced during the request PUT');
         }
       } else {
-        console.error('An error occurred during the studio creation.');
+        console.log('An error occurred during the studio creation.');
       }
     } catch (error) {
       console.error('An error is produced during the request:', error);
@@ -68,89 +69,153 @@ function CreateStudio({ dataUpdated, artist }) {
   return (
     <>
       <div>
-        <button className='add-button' onClick={handleShow}>
-          <FaPlus className='plus-icon' />
+        <button className='add-button-studio' onClick={handleShow}>
+          <FaPlus className='plus-icon-studio' />
         </button>
         <Modal
           show={show}
           onHide={handleClose}
-          id='artist-modal-studio'
+          keyboard={false}
+          backdrop="static"
+          size="lg"
+          aria-labelledby="modal to add and update informations"
+          dialogClassName='modal-informations'
+          centered
         >
-          <div className='custom-modal-artist'>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Modal.Body>
-                <div className='form-container-artist'>
-                  <h2 className='studio'>Coordonnées du Studio</h2>
-                  <div>
-                    <FloatingLabel controlId="studio_name" label="Nom du studio*" className="mb-3">
-                      <Form.Control type="text" placeholder="" {...register('studio_name', { required: true })} />
-                    </FloatingLabel>
-                  </div>
+          <div className='inside-modal'>
+            <Modal.Header closeButton>
+              <Modal.Title>Coordonnées du Studio</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form onSubmit={handleSubmit(onSubmit)}>
+                <Row className="mb-3">
+                  <Form.Group as={Col} sm={6} controlId="studio_name">
+                    <Form.Label>Nom du studio*</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="ex Tattoo Ink"
+                      aria-label='Nom du studio'
+                      autoFocus
+                      {...register('studio_name', { required: true })} />
+                  </Form.Group>
                   {errors.studio_name && <p className="error-message">Ce champ est obligatoire.</p>}
-                  <div className='space-between-label'>
-                    <FloatingLabel controlId="studio_siret" label="Numéro SIREN (les 9 premiers chiffres)" className="mb-3">
-                      <Form.Control type="text" placeholder="" maxLength="9" {...register('studio_siret')} />
-                    </FloatingLabel>
-                  </div>
-                  <div className='space-between-label'>
-                    <FloatingLabel controlId="studio_number_street" label="Numéro*" className="mb-3">
-                      <Form.Control type="text" placeholder="" {...register('studio_number_street', { required: true })} />
-                    </FloatingLabel>
-                  </div>
+
+                  <Form.Group as={Col} sm={4} controlId="studio_siret">
+                    <Form.Label>SIRET</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="ex 111 111 111 000 11"
+                      aria-label='numéro SIRET'
+                      maxLength="17"
+                      {...register('studio_siret')} />
+                  </Form.Group>
+                </Row>
+
+                <Row className="mb-3">
+                  <Form.Group as={Col} sm={2} controlId="studio_number_street">
+                    <Form.Label>Numéro*</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="ex 122"
+                      aria-label='numéro de rue'
+                      {...register('studio_number_street', { required: true })} />
+                  </Form.Group>
                   {errors.studio_number_street && <p className="error-message">Ce champ est obligatoire.</p>}
-                  <div className='space-between-label'>
-                    <FloatingLabel controlId="studio_street" label="Rue*" className="mb-3">
-                      <Form.Control type="text" placeholder="" {...register('studio_street', { required: true })} />
-                    </FloatingLabel>
-                  </div>
+
+                  <Form.Group as={Col} controlId="studio_street">
+                    <Form.Label>Rue*</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="ex rue Martin"
+                      aria-label='rue'
+                      {...register('studio_street', { required: true })} />
+                  </Form.Group>
                   {errors.studio_street && <p className="error-message">Ce champ est obligatoire.</p>}
-                  <div className='space-between-label'>
-                    <FloatingLabel controlId="studio_address_complement" label="Complément d'adresse" className="mb-3">
-                      <Form.Control type="text" placeholder="" {...register('studio_address_complement')} />
-                    </FloatingLabel>
-                  </div>
-                  <div className='space-between-label'>
-                    <FloatingLabel controlId="studio_post_code" label="Code Postal*" className="mb-3">
-                      <Form.Control type="text" placeholder="" maxLength="5" {...register('studio_post_code', { required: true })} />
-                    </FloatingLabel>
-                  </div>
+
+                  <Form.Group as={Col} controlId="studio_address_complement">
+                    <Form.Label>Adresse 2</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="ex Bat A - Etage 1"
+                      aria-label="Complément d'adresse"
+                      {...register('studio_address_complement')} />
+                  </Form.Group>
+                </Row>
+
+                <Row className="mb-3">
+                  <Form.Group as={Col} sm={2} controlId="studio_post_code">
+                    <Form.Label>Code Post*</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="ex 75001"
+                      aria-label='Code postal'
+                      maxLength="5"
+                      {...register('studio_post_code', { required: true })} />
+                  </Form.Group>
                   {errors.studio_post_code && <p className="error-message">Ce champ est obligatoire.</p>}
-                  <div className='space-between-label'>
-                    <FloatingLabel controlId="studio_city" label="Ville*" className="mb-3">
-                      <Form.Control type="text" placeholder="" {...register('studio_city', { required: true })} />
-                    </FloatingLabel>
-                  </div>
+
+                  <Form.Group as={Col} sm={7} controlId="studio_city">
+                    <Form.Label>Ville*</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="ex Paris"
+                      aria-label='Ville'
+                      {...register('studio_city', { required: true })} />
+                  </Form.Group>
                   {errors.studio_city && <p className="error-message">Ce champ est obligatoire.</p>}
-                  <div className='space-between-label'>
-                    <FloatingLabel controlId="studio_department" label="Numéro de département*" className="mb-3">
-                      <Form.Control type="text" placeholder="" maxLength="3" {...register('studio_department', { required: true })} />
-                    </FloatingLabel>
-                  </div>
+                </Row>
+
+                <Row className="mb-3">
+                  <Form.Group as={Col} sm={5} controlId="studio_department">
+                    <Form.Label>Département*</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="ex 75"
+                      aria-label='Département'
+                      maxLength="3"
+                      {...register('studio_department', { required: true })} />
+                  </Form.Group>
                   {errors.studio_department && <p className="error-message">Ce champ est obligatoire.</p>}
-                  <div className='space-between-label'>
-                    <FloatingLabel controlId="studio_region" label="Région*" className="mb-3">
-                      <Form.Control type="text" placeholder=""  {...register('studio_region', { required: true })} />
-                    </FloatingLabel>
-                  </div>
+
+                  <Form.Group as={Col} sm={5} controlId="studio_region">
+                    <Form.Label>Région*</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="ex Ile-de-France"
+                      aria-label='région'
+                      {...register('studio_region', { required: true })} />
+                  </Form.Group>
                   {errors.studio_region && <p className="error-message">Ce champ est obligatoire.</p>}
-                  <div className='space-between-label'>
-                    <FloatingLabel controlId="studio_country" label="Pays*" className="mb-3">
-                      <Form.Control type="text" defaultValue='France' placeholder="" {...register('studio_country', { required: true })} />
-                    </FloatingLabel>
-                  </div>
-                  <div className='space-between-label'>
-                    <FloatingLabel controlId="studio_website" label="Site web" className="mb-3">
-                      <Form.Control type="text" placeholder="" {...register('studio_website')} />
-                    </FloatingLabel>
-                  </div>
-                  <Button variant="primary" className='custom-button-validate' type='submit'>
-                    Valider</Button>
-                </div>
-              </Modal.Body>
-            </form>
+
+                  <Form.Group as={Col} controlId="studio_country">
+                    <Form.Label>Pays*</Form.Label>
+                    <Form.Control
+                      type="text"
+                      defaultValue='France'
+                      placeholder=""
+                      aria-label='Pays'
+                      {...register('studio_country', { required: true })} />
+                  </Form.Group>
+                </Row>
+
+                <Row className="mb-3">
+                  <Form.Group as={Col} sm={6} controlId="studio_website">
+                    <Form.Label>Site web</Form.Label>
+                    <Form.Control type="text" placeholder="" {...register('studio_website')} />
+                  </Form.Group>
+                </Row>
+                <Modal.Footer>
+                  <Button variant="secondary" className='btn-annuler' onClick={handleClose}>
+                    Annuler
+                  </Button>
+                  <Button variant="danger" className='btn-enregistrer' type='submit'>
+                    Enregistrer</Button>
+                </Modal.Footer>
+              </Form>
+            </Modal.Body>
           </div>
-        </Modal>
-      </div>
+        </Modal >
+      </div >
     </>
   )
 }

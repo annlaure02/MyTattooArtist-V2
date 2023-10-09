@@ -61,13 +61,9 @@ function InformationsAddUpdate({ dataUpdated, artist }) {
 
   return (
     <>
-      {artist && artist.first_name ? (
-        <Button variant='light' className='add-update-btn' onClick={handleShow}>
-          Ajouter/Modifier
-        </Button>
-      ) : (
-        null
-      )}
+      <Button variant='light' className='add-update-btn' onClick={handleShow}>
+        Ajouter/Modifier
+      </Button>
       <Modal
         show={show}
         onHide={handleClose}
@@ -91,7 +87,7 @@ function InformationsAddUpdate({ dataUpdated, artist }) {
                     type="text"
                     placeholder="Votre prénom"
                     aria-label='Prénom'
-                    {...register('first_name')} 
+                    {...register('first_name')}
                     autoFocus />
                 </Form.Group>
 
@@ -110,7 +106,7 @@ function InformationsAddUpdate({ dataUpdated, artist }) {
                     aria-label="Sélectionne ton status"
                     placeholder=""
                     {...register('status')}>
-                    <option disabled>Sélectionner votre status professionnel</option>
+                    <option disabled>Sélectionner votre status</option>
                     <option value="Gérant du studio">Gérant du studio</option>
                     <option value="Indépendant">Indépendant</option>
                     <option value="Salarié">Salarié</option>
@@ -119,7 +115,7 @@ function InformationsAddUpdate({ dataUpdated, artist }) {
               </Row>
 
               <Row className="mb-3">
-                <Form.Group as={Col} controlId="artist_name">
+                <Form.Group as={Col} sm={4} controlId="artist_name">
                   <Form.Label>Nom d'artiste</Form.Label>
                   <Form.Control
                     type="text"
@@ -128,21 +124,22 @@ function InformationsAddUpdate({ dataUpdated, artist }) {
                     {...register('artist_name', { required: true })} />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="email">
+                <Form.Group as={Col} sm={5} controlId="email">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     type="email"
-                    placeholder="exemple@email.com"
+                    placeholder="ex exemple@email.com"
                     aria-label='Email'
                     {...register('email')} />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="phone">
+                <Form.Group as={Col} sm={3} controlId="phone">
                   <Form.Label>Téléphone</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="06........"
+                    placeholder="ex 06........"
                     aria-label='Téléphone'
+                    maxLength={10}
                     {...register('phone')} />
                 </Form.Group>
               </Row>
@@ -157,13 +154,13 @@ function InformationsAddUpdate({ dataUpdated, artist }) {
                   {...register('biography')} />
               </Form.Group>
 
-              <h3>Réseaux sociaux</h3>
+              <h3 className="mb-3">Réseaux sociaux</h3>
               <Row className="mb-3">
-                <Form.Group as={Col} controlId="facebook">
+                <Form.Group as={Col}  controlId="facebook">
                   <Form.Label>Facebook</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="https://www.facebook.com/..."
+                    placeholder="ex https://www.facebook.com/..."
                     aria-label='Facebook'
                     {...register('facebook')} />
                 </Form.Group>
@@ -172,27 +169,27 @@ function InformationsAddUpdate({ dataUpdated, artist }) {
                   <Form.Label>Instagram</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="https://www.instagram.com/..."
+                    placeholder="ex https://www.instagram.com/..."
                     aria-label='Instagram'
                     {...register('instagram')} />
                 </Form.Group>
-              </Row>
 
-              <Row className="mb-3">
                 <Form.Group as={Col} controlId="x">
                   <Form.Label>X (ex Twitter)</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="https://twitter.com/"
+                    placeholder="ex https://twitter.com/"
                     aria-label='Twitter'
                     {...register('x')} />
                 </Form.Group>
+              </Row>
 
-                <Form.Group as={Col} controlId="snapchat">
+              <Row className="mb-3">
+                <Form.Group as={Col} sm={4} controlId="snapchat">
                   <Form.Label>Snapchat</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="https://www.snapchat.com/..."
+                    placeholder="ex https://www.snapchat.com/..."
                     aria-label='Snapchat'
                     {...register('snapchat')} />
                 </Form.Group>
