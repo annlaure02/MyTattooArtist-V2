@@ -74,7 +74,7 @@ function ProfileArtistPageStudio() {
         </div>
       </section>
       <section className='studio-section'>
-        <div className='inline-infos'>
+        <div className='studio-title'>
           <h1>Mon studio</h1>
           <CreateStudio dataUpdated={handleUpdate} artist={artist} />
         </div>
@@ -96,7 +96,7 @@ function ProfileArtistPageStudio() {
                       <div className='infos'>
                         {/* <p>Horaires d'ouvertures:</p>
                         <p>{studio.opening_hours}</p> */}
-                        <p>SIREN: {studio.studio_siret}</p>
+                        <p>SIRET: {studio.studio_siret}</p>
                         <p>Site web: <b><a href={studio.studio_website}>{studio.studio_website}</a></b></p>
                       </div>
                     </div>
