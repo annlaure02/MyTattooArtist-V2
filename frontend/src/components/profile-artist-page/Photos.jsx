@@ -8,7 +8,7 @@ import { ArtistContext } from '../header/ArtistAuth';
 import '../../styles/private-artist-page/Modal.css'
 import '../../styles/private-artist-page/Buttons.css'
 
-function Album({ dataUpdated }) {
+function Photos({ dataUpdated }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => {
@@ -81,7 +81,7 @@ function Album({ dataUpdated }) {
         alt={file.path}
         onLoad={() => { URL.revokeObjectURL(file.preview) }}
         height={100}
-        />
+      />
     </div>
   ));
 
@@ -97,32 +97,43 @@ function Album({ dataUpdated }) {
           <FaPlus className='plus-icon-photo-flash' />
         </button>
         <Modal
-          size="lg"
           show={show}
           onHide={handleClose}
-          id='artist-modal'
+          keyboard={false}
+          backdrop="static"
+          size="lg"
+          aria-labelledby="modal to add and update informations"
+          dialogClassName='modal-photos-flashs'
         >
-          <div className='custom-modal-artist'>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Modal.Body>
-                <div className='form-container-artist'>
-                  <section className="container photo">
+          <div className='inside-modal'>
+            <Modal.Header closeButton>
+              <Modal.Title>Ajouter des Photos</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div>
+                  <section className="container-photo-flashs">
                     <div {...getRootProps({ className: 'dropzone' })}>
                       <input {...getInputProps()} />
                       <p>Glissez vos photos ou Cliquez pour les sélectionner</p>
-                      <em>10 fichiers maximum à la fois</em> <br/>
+                      <em>10 fichiers maximum à la fois</em> <br />
                       <em>Format: JPG, JPEG ou PNG </em>
                     </div>
-                    <aside>
+                    <aside className='preview-photos-flashs'>
                       {previewFile}
                     </aside>
                   </section>
-                  <input className='input-album' name="album" {...register("album")} hidden/> <br />
-                  <Button variant="primary" className='custom-button-validate-photo' type='submit'>
-                    Valider</Button>
+                  <Modal.Footer>
+                    <input className='input-album' name="album" {...register("album")} hidden />
+                    <Button variant="secondary" className='btn-annuler' onClick={handleClose}>
+                      Annuler
+                    </Button>
+                    <Button variant="danger" className='btn-enregistrer' type='submit'>
+                      Enregistrer</Button>
+                  </Modal.Footer>
                 </div>
-              </Modal.Body>
-            </form>
+              </form>
+            </Modal.Body>
           </div>
         </Modal>
       </div>
@@ -130,4 +141,4 @@ function Album({ dataUpdated }) {
   )
 }
 
-export default Album
+export default Photos

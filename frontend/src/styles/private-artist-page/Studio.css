@@ -1,0 +1,63 @@
+/* ---------- Section Studio ---------- */
+.studio-section {
+    color: #c6b7bb;
+    margin-top: 120px;
+    margin-left: 90px;
+}
+
+.studio-section h1{
+    color: #cf0736;
+}
+
+.all-studio-infos {
+    margin-left: 30px;
+}
+
+.studio-infos {
+    border-bottom: 2px solid #c6b7bb;
+    width: 100%;
+}
+
+.studio-infos h2 {
+    color: #ba0a51;
+    font-size: 33px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.studio-adress p {
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+
+.studio-more-informations {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.studio-more-informations h3 {
+    color: #a90748;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.studio-more-informations .infos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 15px;
+    font-size: 23px;
+}
+
+.studio-more-informations p {
+    margin-bottom: 0;
+}
+.studio-more-informations .infos a {
+    text-decoration: none;
+    color: #c6b7bb;
+}
+
+.studio-more-informations .infos a:hover {
+    opacity: 80%;
+}

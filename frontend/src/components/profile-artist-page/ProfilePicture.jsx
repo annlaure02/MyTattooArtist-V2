@@ -5,10 +5,10 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
-import { ArtistContext } from '../../header/ArtistAuth';
-import '../../../styles/private-artist-page/Modal.css';
-import '../../../styles/private-artist-page/Buttons.css';
-import AppareilPhotos from '../../../images/appareil-photos.jpg'
+import { ArtistContext } from '../header/ArtistAuth';
+import '../../styles/private-artist-page/Modal.css';
+import '../../styles/private-artist-page/Buttons.css';
+import AppareilPhotos from '../../images/appareil-photos.jpg'
 
 
 function ProfilePicture({ dataUpdated, artist }) {
@@ -75,20 +75,23 @@ function ProfilePicture({ dataUpdated, artist }) {
         <Modal
           show={show}
           onHide={handleClose}
-          id='artist-modal'
+          aria-labelledby="update the profile picture"
+          dialogClassName='modal-profile-picture'
+          keyboard={false}
         >
-          <div className='custom-modal-artist'>
+          <div className='inside-modal-profile-picture'>
             <form onSubmit={handleSubmit(onSubmit)}>
               <Modal.Body>
-                <div className='form-container'>
-                  <Form.Group controlId="profile_picture" className="mb-3">
-                    <Form.Label><b>Photo de profil</b></Form.Label>
+              <div className='input-artist-name'>
+                  <Form.Group controlId="profile_picture" >
+                    <Form.Label>Photo de profil</Form.Label>
                     <Form.Control
                       type="file"
                       {...register('profile_picture', { required: true })} />
                   </Form.Group>
-                  <Button variant="primary" className='custom-button-validate' type='submit'>
-                    Valider</Button>
+
+                  <Button variant="danger" className='btn-enregistrer-profile-picture' type='submit'>
+                  Enregistrer</Button> 
                 </div>
               </Modal.Body>
             </form>

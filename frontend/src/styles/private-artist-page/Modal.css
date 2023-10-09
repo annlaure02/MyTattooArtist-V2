@@ -1,61 +1,133 @@
-#artist-modal {
-    top: 15%;
-}
-
-.custom-modal-artist {
-    background: linear-gradient(#696969, #DCDCDC);
+/* Modal Ajouter/Modifier my informations */
+.inside-modal {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bold;
+    color: #6F2232;
+    background-color: #c6b7bb;
     border-radius: 7px;
 }
 
-.form-container-artist {
-    margin: 30px 40px 30px;
-}
-
-.space-between-label {
-    margin-top: 28px;
-  }
-
-.custom-button-validate {
-    margin-left: 9.2em;
-}
-
-.custom-button-validate-photo {
-    margin-left: 20em;
-}
-
-.studio {
-    display: flex;
-    align-items: center;
+.modal-header {
     justify-content: center;
-    margin-bottom: 30px;
 }
 
-.container.photo{
-    background-color: white;
+.modal-header .btn-close {
+    position: absolute;
+    right: 30px;
 }
-.container.photo div{
+.modal-title {
+    font-size: 35px;
+    margin-left: 0;
+}
+
+.form-label {
+    font-size: 19px;
+}
+
+.form-control {
+    font-size: 19px;
+}
+
+.form-select {
+    font-size: 19px;
+}
+
+.textarea.form-control {
+    min-height: 160px;
+}
+
+.modal-footer {
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.btn-annuler {
+    font-size: 18px;
+}
+
+.btn-enregistrer {
+    background-color: #6F2232;
+    border: #6F2232;
+    font-size: 18px;
+}
+
+.btn-enregistrer:hover {
+    background-color: #6F2232;
+    border: #6F2232;
+    opacity: 80%;
+}
+
+/* Modal artist name */
+.modal-artist-name {
+    top: 100px;
+}
+
+.input-artist-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+/* Modal profil picture */
+.inside-modal-profile-picture{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+    color: #6F2232;
+    background-color: #c6b7bb;
+    border-radius: 7px;
+}
+
+.modal-profile-picture {
+    top: 100px;
+}
+
+.input-artist-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.btn-enregistrer-profile-picture {
+    background-color: #6F2232;
+    border: #6F2232;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+/* Modal Photos/Flashs */
+.modal-photos-flashs {
+    top: 70px;
+}
+
+.container-photo-flashs {
+    background-color: white;
+    margin-bottom: 20px;
+}
+.container-photo-flashs .dropzone{
     color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 200px;
-    margin: 0;
 }
 
-.container.photo:hover {
-    opacity: 75%;
+.container-photo-flashs:hover {
+    background-color: #eeeaea;
 }
 
-.container.photo aside{
+.container-photo-flashs .preview-photos-flashs {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-flow: row wrap;
     justify-content: center;
-    gap: 20px;
+    column-gap: 20px;
+    row-gap: 20px;
+    padding-bottom: 30px;
 }
 
 .input-photo {
-    background-color:rgba(0, 0, 0, 0);
     border: none;
 }

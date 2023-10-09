@@ -3,8 +3,8 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import '../../styles/private-artist-page/MenuSection.css'
 import '../../styles/private-artist-page/PhotosFlash.css';
-import ProfilePicture from '../../components/profile-artist-page/Informations/ProfilePicture';
-import ArtistName from '../../components/profile-artist-page/Informations/ArtistName';
+import ProfilePicture from '../../components/profile-artist-page/ProfilePicture';
+import ArtistName from '../../components/profile-artist-page/ArtistName';
 import Flash from '../../components/profile-artist-page/Flash';
 
 function ProfileArtistPageFlash() {
@@ -75,7 +75,7 @@ function ProfileArtistPageFlash() {
         </div>
       </section>
       <section className='photo-flash-section'>
-        <div className='inline-infos'>
+        <div className='title-photos-flashs'>
           <h1>Mes flashs</h1>
           <Flash dataUpdated={handleUpdate} artist={artist} />
         </div>

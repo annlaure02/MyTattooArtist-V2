@@ -3,9 +3,9 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import '../../styles/private-artist-page/MenuSection.css'
 import '../../styles/private-artist-page/Styles.css';
-import ProfilePicture from '../../components/profile-artist-page/Informations/ProfilePicture';
-import ArtistName from '../../components/profile-artist-page/Informations/ArtistName';
-import TattooStyles from '../../components/profile-artist-page/TattooStyles';
+import ProfilePicture from '../../components/profile-artist-page/ProfilePicture';
+import ArtistName from '../../components/profile-artist-page/ArtistName';
+import Styles from '../../components/profile-artist-page/Styles';
 
 function ProfileArtistPageStyles() {
   const { artistId } = useParams();
@@ -77,7 +77,7 @@ function ProfileArtistPageStyles() {
       <section className='styles-section'>
         <div className=''>
           <h1>Mes styles de tatouage</h1>
-          <TattooStyles dataUpdated={handleUpdate} artist={artist} />
+          <Styles dataUpdated={handleUpdate} artist={artist} />
         </div>
         <div className=''>
           {artist.tattoo_style ? (

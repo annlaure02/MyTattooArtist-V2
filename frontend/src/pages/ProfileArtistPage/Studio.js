@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import '../../styles/private-artist-page/MenuSection.css'
-import '../../styles/private-artist-page/Styles.css';
-import ProfilePicture from '../../components/profile-artist-page/Informations/ProfilePicture';
-import ArtistName from '../../components/profile-artist-page/Informations/ArtistName';
-import TattooStyles from '../../components/profile-artist-page/TattooStyles';
+import '../../styles/private-artist-page/Studio.css';
+import ProfilePicture from '../../components/profile-artist-page/ProfilePicture';
+import ArtistName from '../../components/profile-artist-page/ArtistName';
+import CreateStudio from '../../components/profile-artist-page/CreateStudio';
 
 function ProfileArtistPageStudio() {
   const { artistId } = useParams();
@@ -34,7 +34,6 @@ function ProfileArtistPageStudio() {
   };
 
   const handleUpdate = (dataUpdated) => {
-    console.log(dataUpdated);
     setArtist(dataUpdated);
   };
 
@@ -74,17 +73,34 @@ function ProfileArtistPageStudio() {
           </div>
         </div>
       </section>
-      <section className='styles-section'>
-        <div className=''>
+      <section className='studio-section'>
+        <div className='inline-infos'>
           <h1>Mon studio</h1>
-          <TattooStyles dataUpdated={handleUpdate} artist={artist} />
+          <CreateStudio dataUpdated={handleUpdate} artist={artist} />
         </div>
-        <div className=''>
-          {artist.tattoo_style ? (
-            <div className='all-styles'>
-              {artist.tattoo_style.map(style => (
-                <div className='styles' key={style.id}>
-                  <p className='style-item'>{style.style_name}</p>
+        <div className='all-studio-infos'>
+          {artist.studio ? (
+            <div className=''>
+              {artist.studio.map(studio => (
+                <div className='studio-infos' key={studio.id}>
+                  <div>
+                    <h2>{studio.studio_name}</h2>
+                    <div className='studio-adress'>
+                      <p>{studio.studio_number_street} {studio.studio_street}</p>
+                      <p>{studio.studio_address_complement}</p>
+                      <p>{studio.studio_post_code} {studio.studio_city}</p>
+                      <p>{studio.studio_country}</p>
+                    </div>
+                    <div className='studio-more-informations'>
+                      <h3>Informations</h3>
+                      <div className='infos'>
+                        {/* <p>Horaires d'ouvertures:</p>
+                        <p>{studio.opening_hours}</p> */}
+                        <p>SIREN: {studio.studio_siret}</p>
+                        <p>Site web: <b><a href={studio.studio_website}>{studio.studio_website}</a></b></p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

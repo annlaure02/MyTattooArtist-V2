@@ -4,23 +4,25 @@
 .informations-section {
     color: #ba0a51;
     margin-bottom: 50px;
-}
-
-/* the block of all informations */
-.all-informations {
     margin-top: 120px;
     margin-left: 90px;
 }
 
-.all-informations h1 {
+/* the block of all informations */
+.informations-title {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.informations-title h1 {
     color: #cf0736;
     margin-bottom: 40px;
 }
 
-.all-informations h1::after {
+/* .informations-title h1::after {
     content: "";
     border: 2px solid #c6c1c1;
-}
+} */
 
 .personal-infos {
     display: flex;
@@ -29,25 +31,27 @@
 }
 
 /* Artist informations */
-.inline-infos {
-    display: inline-flex;
+.display-informations {
+    display: flex;
+    flex-flow: column wrap;
+    row-gap: 15px;
     margin-bottom: 15px;
 }
 
-.inline-infos h2 {
-    font-size: 25px;
+.display-informations h2 {
+    font-size: 27px;
     font-style: italic;
 }
 
-.inline-infos h2 span {
+.display-informations h2 span {
     margin-left: 5px;
-    font-size: 26px;
+    font-size: 27px;
     font-style: normal;
     font-weight: bold;
     color: #c6b7bb;
 }
 
-.inline-infos h2 a {
+.display-informations h2 a {
     margin-left: 5px;
     font-size: 27px;
     font-style: normal;
@@ -57,14 +61,29 @@
 }
 
 /* Biography part*/
-
-.block-biography {
-    margin-left: 20px;
-}
 .text-biography{
+    margin-left: 20px;
     max-width: 45rem;
     font-size: 27px;
     font-style: normal;
     word-wrap: break-word;
     color: #c6b7bb;    
+}
+
+/* Button Ajouter/Modifier */
+.add-update-btn {
+    margin-left: 25px;
+    height: 44px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #6F2232;
+    background-color: #c6b7bb;
+    border-color: #6F2232;
+    margin-top: 2px;
+}
+
+.add-update-btn:hover {
+    background-color: #c6b7bb;
+    color: #6F2232;
+    opacity: 80%;
 }

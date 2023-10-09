@@ -4,6 +4,11 @@
     margin: 90px 90px 50px 90px;
 }
 
+.title-photos-flashs {
+    display: flex;
+    margin-bottom: 30px;
+}
+
 .display-photo-flash {
     display: flex;
     flex-flow: row wrap;

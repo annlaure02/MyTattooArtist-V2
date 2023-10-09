@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { ArtistContext } from '../header/ArtistAuth';
 import '../../styles/private-artist-page/Styles.css'
 
-function TattooStyles({ dataUpdated, artist }) {
+function Styles({ dataUpdated, artist }) {
 
   const [styles, setStyles] = useState([])
   const { register, handleSubmit, setValue } = useForm();
@@ -56,7 +56,7 @@ function TattooStyles({ dataUpdated, artist }) {
   };
 
   if (artist && artist.tattoo_style && artist.tattoo_style.length > 0) {
-    const selectedStyles = artist.tattoo_style.map((style) => style.style_name);
+    const selectedStyles = artist.tattoo_style.map(style => style.style_name);
     setValue('tattoo_style', selectedStyles);
   }
 
@@ -72,6 +72,7 @@ function TattooStyles({ dataUpdated, artist }) {
                   {styles.map(style => (
                     <Form.Check
                       type="checkbox"
+                      key={style.id}
                       id={`style-${style.id}`}
                       label={style.style_name}
                       value={style.style_name}
@@ -92,4 +93,4 @@ function TattooStyles({ dataUpdated, artist }) {
   )
 }
 
-export default TattooStyles
+export default Styles

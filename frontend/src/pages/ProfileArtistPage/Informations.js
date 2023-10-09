@@ -3,18 +3,9 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import '../../styles/private-artist-page/MenuSection.css'
 import '../../styles/private-artist-page/Informations.css';
-import ProfilePicture from '../../components/profile-artist-page/Informations/ProfilePicture';
-import ArtistName from '../../components/profile-artist-page/Informations/ArtistName';
-import FirstName from '../../components/profile-artist-page/Informations/FirstName';
-import LastName from '../../components/profile-artist-page/Informations/LastName';
-import Biography from '../../components/profile-artist-page/Informations/Biography';
-import Email from '../../components/profile-artist-page/Informations/Email';
-import Phone from '../../components/profile-artist-page/Informations/Phone';
-import Status from '../../components/profile-artist-page/Informations/Status';
-import Facebook from '../../components/profile-artist-page/Informations/Facebook';
-import Instagram from '../../components/profile-artist-page/Informations/Instagram';
-import X from '../../components/profile-artist-page/Informations/X';
-import Snapchat from '../../components/profile-artist-page/Informations/Snapchat';
+import ProfilePicture from '../../components/profile-artist-page/ProfilePicture';
+import ArtistName from '../../components/profile-artist-page/ArtistName';
+import InformationsAddUpdate from '../../components/profile-artist-page/InformationsAddUpdate';
 
 function ProfileArtistPageInformations() {
   const { artistId } = useParams();
@@ -84,54 +75,23 @@ function ProfileArtistPageInformations() {
         </div>
       </section>
       <section className='informations-section'>
-        <div className='all-informations'>
+        <div className='informations-title'>
           <h1>Mes informations</h1>
-          <div className='personal-infos'>
-            <div className='inline-infos'>
-              <h2>Prénom: <span>{artist.first_name}</span></h2>
-              <FirstName dataUpdated={handleUpdate} artist={artist} />
-            </div>
-            <div className='inline-infos'>
-              <h2>Nom: <span>{artist.last_name}</span></h2>
-              <LastName dataUpdated={handleUpdate} artist={artist} />
-            </div>
-            <div className='inline-infos'>
-              <h2>Status: <span>{artist.status}</span></h2>
-              <Status dataUpdated={handleUpdate} artist={artist} />
-            </div>
-            <div className='inline-infos'>
-              <h2>Email: <span>{artist.email}</span></h2>
-              <Email dataUpdated={handleUpdate} artist={artist} />
-            </div>
-            <div className='inline-infos'>
-              <h2>Téléphone: <span>{artist.phone}</span></h2>
-              <Phone dataUpdated={handleUpdate} artist={artist} />
-            </div>
-            <div className='inline-infos'>
-              <h2>Facebook: <a href={artist.facebook}>{artist.facebook}</a></h2>
-              <Facebook dataUpdated={handleUpdate} artist={artist} />
-            </div>
-            <div className='inline-infos'>
-              <h2>Instagram: <a href={artist.instagram}>{artist.instagram}</a></h2>
-              <Instagram dataUpdated={handleUpdate} artist={artist} />
-            </div>
-            <div className='inline-infos'>
-              <h2>X: <a href={artist.x}>{artist.x}</a></h2>
-              <X dataUpdated={handleUpdate} artist={artist} />
-            </div>
-            <div className='inline-infos'>
-              <h2>Snapchat: <a href={artist.snapchat}>{artist.snapchat}</a></h2>
-              <Snapchat dataUpdated={handleUpdate} artist={artist} />
-            </div>
-            <div>
-              <div className='inline-infos biography'>
-                <h2>Biographie courte: </h2>
-                <Biography dataUpdated={handleUpdate} artist={artist} />
-              </div>
-              <div className='block-biography'>
-                <p className='text-biography'>{artist.biography}</p>
-              </div>
-            </div>
+          <InformationsAddUpdate dataUpdated={handleUpdate} artist={artist} />
+        </div>
+        <div className='personal-infos'>
+          <div className='display-informations'>
+            <h2>Prénom: <span>{artist.first_name}</span></h2>
+            <h2>Nom: <span>{artist.last_name}</span></h2>
+            <h2>Status: <span>{artist.status}</span></h2>
+            <h2>Email: <span>{artist.email}</span></h2>
+            <h2>Téléphone: <span>{artist.phone}</span></h2>
+            <h2>Facebook: <a href={artist.facebook}>{artist.facebook}</a></h2>
+            <h2>Instagram: <a href={artist.instagram}>{artist.instagram}</a></h2>
+            <h2>X: <a href={artist.x}>{artist.x}</a></h2>
+            <h2>Snapchat: <a href={artist.snapchat}>{artist.snapchat}</a></h2>
+            <h2>Biographie:</h2>
+              <p className='text-biography'>{artist.biography}</p>
           </div>
         </div>
       </section>

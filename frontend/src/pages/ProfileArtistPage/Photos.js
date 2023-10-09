@@ -3,9 +3,9 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import '../../styles/private-artist-page/MenuSection.css'
 import '../../styles/private-artist-page/PhotosFlash.css';
-import ProfilePicture from '../../components/profile-artist-page/Informations/ProfilePicture';
-import ArtistName from '../../components/profile-artist-page/Informations/ArtistName';
-import Album from '../../components/profile-artist-page/Album';
+import ProfilePicture from '../../components/profile-artist-page/ProfilePicture';
+import ArtistName from '../../components/profile-artist-page/ArtistName';
+import Photos from '../../components/profile-artist-page/Photos';
 
 function ProfileArtistPagePhotos() {
   const { artistId } = useParams();
@@ -75,9 +75,9 @@ function ProfileArtistPagePhotos() {
         </div>
       </section>
       <section className='photo-flash-section'>
-        <div className='inline-infos'>
+        <div className='title-photos-flashs'>
           <h1>Mes photos</h1>
-          <Album dataUpdated={handleUpdate} artist={artist} />
+          <Photos dataUpdated={handleUpdate} artist={artist} />
         </div>
         <div>
           <div className='display-photo-flash'>
