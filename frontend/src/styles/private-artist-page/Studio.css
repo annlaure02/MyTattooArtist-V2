@@ -5,7 +5,12 @@
     margin-left: 90px;
 }
 
-.studio-section h1{
+.studio-title {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.studio-title h1{
     color: #cf0736;
 }
 

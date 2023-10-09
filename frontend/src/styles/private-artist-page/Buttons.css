@@ -71,12 +71,25 @@
     transform: translate(0px,3px);
 }
 
-/* --------------- section informations --------------- */
+/* --------------- section Studio --------------- */
+/* Icon plus */
+.plus-icon-studio {
+    position: absolute;
+    color: #c6b7bb;
+    width: 25px;
+    height: 25px;
+}
 
+.add-button-studio {
+    position: relative;
+    background-color: transparent;
+    margin-left: 15px;
+    border: none;
+    bottom: 2px;
+}
 
 /* --------------- section photo-flash --------------- */
 /* Icon plus */
-
 .plus-icon-photo-flash {
     position: absolute;
     color: #c6b7bb;

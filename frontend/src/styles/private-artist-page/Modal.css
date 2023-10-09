@@ -1,4 +1,4 @@
-/* Modal Ajouter/Modifier my informations */
+/* ---------- Modal Ajouter/Modifier Informations and Studio ---------- */
 .inside-modal {
     padding-left: 20px;
     padding-right: 20px;
@@ -7,7 +7,7 @@
     background-color: #c6b7bb;
     border-radius: 7px;
 }
-
+/* Modal header  */
 .modal-header {
     justify-content: center;
 }
@@ -20,7 +20,7 @@
     font-size: 35px;
     margin-left: 0;
 }
-
+/* Modal body - Formulaire */
 .form-label {
     font-size: 19px;
 }
@@ -29,6 +29,9 @@
     font-size: 19px;
 }
 
+.form-control::placeholder {
+    opacity: 50%;
+}
 .form-select {
     font-size: 19px;
 }
@@ -36,6 +39,8 @@
 .textarea.form-control {
     min-height: 160px;
 }
+
+/* Modal footer  */
 
 .modal-footer {
     justify-content: center;
@@ -59,7 +64,7 @@
     opacity: 80%;
 }
 
-/* Modal artist name */
+/* ---------- Modal artist name ---------- */
 .modal-artist-name {
     top: 100px;
 }
@@ -70,7 +75,7 @@
     align-items: flex-end;
 }
 
-/* Modal profil picture */
+/* ---------- Modal profil picture ---------- */
 .inside-modal-profile-picture{
     padding-left: 10px;
     padding-right: 10px;
@@ -97,14 +102,15 @@
     margin-left: 10px;
 }
 
-/* Modal Photos/Flashs */
+/* ---------- Modal Photos/Flashs ---------- */
 .modal-photos-flashs {
-    top: 70px;
+    top: 60px;
 }
 
 .container-photo-flashs {
     background-color: white;
     margin-bottom: 20px;
+    border-radius: 7px;
 }
 .container-photo-flashs .dropzone{
     color: black;
