@@ -13,9 +13,11 @@ body {
     background-attachment: scroll;
     background-size: cover;
 }
+
 p {
     font-family: 'Ysabeau Office Regular';
 }
+
 /* general font */
 @font-face {
     font-family: 'Ysabeau Office Regular';
