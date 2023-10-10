@@ -123,7 +123,7 @@ function Flash({ dataUpdated }) {
                     </aside>
                   </section>
                   <Modal.Footer>
-                    <input className='input-album' name="flash" {...register("flash")} hidden />
+                    <input className='input-photo-flash' name="flash" {...register("flash")} />
                     <Button variant="secondary" className='btn-annuler' onClick={handleClose}>
                       Annuler
                     </Button>

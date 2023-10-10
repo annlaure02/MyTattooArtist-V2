@@ -124,7 +124,7 @@ function Photos({ dataUpdated }) {
                     </aside>
                   </section>
                   <Modal.Footer>
-                    <input className='input-album' name="album" {...register("album")} hidden />
+                    <input className='input-photo-flash' name="album" {...register("album")} />
                     <Button variant="secondary" className='btn-annuler' onClick={handleClose}>
                       Annuler
                     </Button>
