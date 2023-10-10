@@ -1,0 +1,120 @@
+/* --------- Display all artists in the artist page --------- */
+/* --- display in the page --- */
+.custom-page {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+/* --- Formatting Card in the page --- */
+.custom-card.display-artist {
+    padding: 10px 8px 10px 8px;
+    cursor: pointer;
+    width: 22rem;
+    height: 36rem;
+    background-image: url(../images/Backgroun-card.jpg);
+    background-position: center center;
+    background-size: cover;
+    flex: 0 0 calc(33.33% - 30px);
+    margin: 15px;
+}
+
+.custom-card.display-artist p {
+    margin: 0;
+}
+/* Cart Title - header */
+.card-title.display-artist {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid black;
+}
+
+.profile-picture.display-artist {
+    height: 125px;
+    width: 125px;
+    border-radius: 100%;
+    border: 1px solid #DCDCDC;
+    filter: drop-shadow(12px -2px 5px rgb(91, 86, 86));
+}
+
+.card-artist-name {
+    font-size: 40px;
+    font-family: 'MonteCarlo', cursive;
+}
+
+.card-fields.display-artist {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Card Body - Address and Styles*/
+.block-address-styles {
+    overflow: scroll;
+}
+
+/* Address */
+.studio-informations.display-artist {
+    margin-left: 10px;
+}
+
+.block-address-informations.display-artist {
+    display: flex;
+    align-items: flex-start;
+}
+
+.block-address-informations.display-artist svg {
+    width: 21px;
+    height: 21px;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+
+.address-studio.display-artist p {
+    margin-bottom: 8px;
+}
+
+.address-studio.display-artist .studio-name {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.website-icon-info.display-artist {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.website-icon-info.display-artist svg {
+    width: 23px;
+    height: 23px;
+    margin-right: 9px;
+}
+
+/* Styles */
+.card-all-styles.display-artist {
+    display: flex;
+    flex-flow: row wrap;
+    height: 120px;
+}
+.card-styles.display-artist {
+    background-color: #D3D3D3;
+    margin: 6px;
+    border-radius: 30px;
+    height: 35px;
+}
+
+.card-style-item.display-artist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    padding: 4px 10px 0 10px;
+    font-size: 16px;
+}

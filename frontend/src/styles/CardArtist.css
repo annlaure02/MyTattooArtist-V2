@@ -1,16 +1,25 @@
-.custom-card-artist {
+/* ------------- Card Artist open ------------- */
+
+/* Block Card */
+.card.card-artist-open {
     padding: 25px 35px 0 35px;
     background-image: url(../images/Backgroun-card.jpg);
     background-position: center center;
     background-size: cover;
     overflow: hidden;
+    font-size: 20px;
 }
 
+.card.card-artist-open p {
+    margin: 0;
+}
+
+/* Card Title - header */
 .card-title.card-artist {
     display: flex;
     align-items: center;
     gap: 40px;
-    padding-bottom: 28px;
+    padding-bottom: 30px;
     border-bottom: 1px solid black;
 }
 
@@ -27,84 +36,205 @@
     font-family: 'MonteCarlo', cursive;
 }
 
-.card-fields.card-artist {
+/* Card Text - Informations of the artist */
+.card-text.card-artist {
+    padding-bottom: 50px;
+}
+
+.card-fields-title {
     margin-top: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
-.card-infos.card-artist {
-    padding-left: 20px;
-    height: 100%;
+/* Formatting Informations part */
+.informations.card-artist {
+    width: 100%;
+    display: flex;
+}
+.informations.card-artist a {
+    color: black;
+}
+    
+    /* 1st block address informations */
+.studio-informations.card-artist {
+    width: 50%;
+    margin-left: 10px;
 }
 
-.field-contact.card-artist {
+.block-address-informations.card-artist {
+    display: flex;
+    align-items: flex-start;
+}
+
+.block-address-informations.card-artist svg {
+    width: 21px;
+    height: 21px;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+
+.address-studio.card-artist p {
+    margin-bottom: 8px;
+}
+
+.address-studio.card-artist .studio-name {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.website-icon-info.card-artist {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.website-icon-info.card-artist svg {
+    width: 23px;
+    height: 23px;
+    margin-right: 9px;
+}
+
+    /* 2nd block: social network and contact */
+.artist-informations.card-artist {
+    width: 50%;
+}
+
+/* phone */
+.phone-icon-info.card-artist {
     display: flex;
     align-items: center;
 }
 
-.card-contact-home.card-artist {
-    display: flex;
-    align-items: first baseline;
-    gap: 10px;
-    padding-left: 20px;
+.phone-icon-info.card-artist svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 9px;
 }
 
-.card-contact.card-artist {
+/* email */
+.email-icon-info.card-artist {
     display: flex;
-    align-items: first baseline;
-    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
 }
 
+.email-icon-info.card-artist svg {
+    width: 21px;
+    height: 21px;
+    margin-right: 9px;
+}
+
+/* facebook */
+.facebook-icon-info.card-artist {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.facebook-icon-info.card-artist svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 9px;
+}
+
+/* x (twitter) */
+.x-icon-info.card-artist {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.x-icon-info.card-artist svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 9px;
+}
+
+/* instagram */
+.instagram-icon-info.card-artist {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.instagram-icon-info.card-artist svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 9px;
+}
+/* instagram */
+.instagram-icon-info.card-artist {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.instagram-icon-info.card-artist svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 9px;
+}
+
+/* snapchat */
+.snapchat-icon-info.card-artist {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.snapchat-icon-info.card-artist svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 9px;
+}
+/* ----- Formatting Styles part ----- */
 .all-styles.card-artist {
     display: flex;
     align-items: center;
-    height: 100%;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .styles.card-artist {
     background-color: #D3D3D3;
-    margin: 8px;
     border-radius: 30px;
-    height: 40px;
 }
 
 .style-item.card-artist {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 40px;
     color: black;
-    padding: 4px 10px 0 10px;
+    font-size: 22px;
+    margin: 0;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-.album.card-artist {
-    min-width: 20em;
-    max-height: 360px;
-    padding-left: 50px;
-    padding-right: 50px;
+/* Formatting Photos and flash part */ 
+.block-photo-flash.card-artist {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+    row-gap: 10px;
+    max-height: 400px;
     overflow: scroll;
     background-color: white;
+    border-radius: 7px;
+    padding: 20px;
+    border: 1px solid #D3D3D3;
 }
 
-.album-picture.card-artist  {
-    margin: 15px 7px 15px 7px;
+.photo-flash.card-artist  {
     height: 150px;
     border-radius: 10px;
     cursor: pointer;
-    border: 1px solid #DCDCDC;
-}
-  
-.drawing.card-artist  {
-    min-width: 20em;
-    max-height: 360px;
-    padding-left: 50px;
-    padding-right: 50px;
-    overflow: scroll;
-    background-color: white;
-}
-.drawing-picture.card-artist  {
-    margin: 15px 7px 15px 7px;
-    height: 150px;
-    border-radius: 10px;
-    cursor: pointer;
-    border: 1px solid #DCDCDC;
+    border: 1px solid #000000;
 }
 
 .real-size {
@@ -113,4 +243,85 @@
     left: 50%;
     transform: translate(-50%, -50%);
     max-height: 700px;
+    border-radius: 10px;
+}
+
+/* Responsive Card open max width 1199px - Tablets in landscape */
+
+@media screen and (max-width: 1199px) {
+    .card.card-artist-open {
+        padding: 25px 25px 0 25px;
+        font-size: 19px;
+    }
+}
+
+/* Responsive Card open max width 991px - Tablets in portrait */
+
+@media screen and (max-width: 991px) {
+    .card.card-artist-open {
+        padding: 15px 10px 0 10px;
+        font-size: 18px;
+    }
+
+    /* Card Title - header */
+    .card-title.card-artist {
+        gap: 30px;
+        padding-bottom: 20px;
+    }
+    
+    .profile-picture.card-artist {
+        height: 130px;
+        width: 130px;
+        filter: drop-shadow(10px -2px 6px rgb(91, 86, 86));
+    }
+    
+    .card-artist-name.card-artist {
+        font-size: 45px;
+        font-family: 'MonteCarlo', cursive;
+        display: inline-block;
+        word-break: break-word;
+    }
+
+    /* Formatting Informations part */
+    .informations.card-artist {
+        width: 100%;
+        display: block;
+    }
+
+    .studio-informations.card-artist {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .website-icon-info.card-artist {
+        margin-top: 8px;
+        margin-bottom: 0;
+    }
+
+    .artist-informations.card-artist {
+        width: 100%;
+        margin-left: 10px;
+    }
+    /* Styles */
+    .style-item.card-artist {
+        font-size: 20px;
+    }
+
+    /* Photo Flash */ 
+    .block-photo-flash.card-artist {
+        justify-content: flex-start;
+        column-gap: 10px;
+        max-height: 450px;
+        padding: 10px;
+    }
+    
+    .photo-flash.card-artist  {
+        height: 120px;
+        border-radius: 10px;
+        border: 1px solid #000000;
+    }
+    
+    .real-size {
+        max-height: 300px;
+    }
 }

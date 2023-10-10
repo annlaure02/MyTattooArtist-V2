@@ -4,7 +4,7 @@ import { Search } from 'react-bootstrap-icons';
 import { Card, Modal } from 'react-bootstrap';
 import CardArtistSearch from './CardArtistSearch';
 import '../styles/SearchBar.css';
-import '../styles/DisplayPages.css';
+import '../styles/DisplayArtists.css';
 
 function SearchBar({ onSearch }) {
   const [styles, setStyles] = useState([]);
@@ -72,7 +72,6 @@ function SearchBar({ onSearch }) {
   }
 
   return (
-    <>
       <div className='searchBar'>
         <div className='container home-search'>
           <section className='search--icon'>
@@ -169,7 +168,6 @@ function SearchBar({ onSearch }) {
           )}
         </div>
       </div>
-    </>
   );
 }
 
