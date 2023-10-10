@@ -4,14 +4,12 @@ import DisplayStyles from '../components/DisplayStyles';
 
 function TattooStyles() {
   return (
-      <div className='container'>
-        <header>
-          <Navbar />
-        </header>
-        <body>
-          <DisplayStyles />
-        </body>
+    <div className='container'>
+      <Navbar />
+      <div>
+        <DisplayStyles />
       </div>
+    </div>
   )
 }
 

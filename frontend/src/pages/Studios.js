@@ -4,11 +4,9 @@ import Navbar from '../components/header/Navbar';
 function Studios() {
   return (
     <div className='container'>
-      <header>
-        <Navbar />
-      </header>
-      <body>
-      </body>
+      <Navbar />
+      <div>
+      </div>
     </div>
 
   )

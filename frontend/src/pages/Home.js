@@ -13,16 +13,14 @@ function Home() {
 
   return (
     <div className="container">
-      <header>
         <Navbar />
-      </header>
-      <body>
-        <h1 className='home-title'>Trouve le tatoueur qui te convient</h1>
+      <div>
+        <h1 className='title-pages'>Trouve le tatoueur qui te convient</h1>
         <SearchBar onSearch={handleSearch} />
         <div className='card-home'>
           {!showResults && <CardHomeInfo />}
         </div>
-      </body>
+      </div>
     </div>
   );
 }

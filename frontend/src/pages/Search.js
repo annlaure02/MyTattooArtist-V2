@@ -5,13 +5,11 @@ import '../styles/Home.css'
 function Search() {
   return (
     <div className='container'>
-      <header>
-        <Navbar />
-      </header>
-      <body>
+      <Navbar />
+      <div>
         <h1 className='home-title'>Trouve le tatoueur qui te convient</h1>
         <SearchBar />
-      </body>
+      </div>
     </div>
   )
 }
