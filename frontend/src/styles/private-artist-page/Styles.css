@@ -79,12 +79,12 @@
     row-gap: 15px;
     column-gap: 20px;
 }
-.styles {
+.styles.profile-artist-page {
     background-color: #6F2232;
     border-radius: 30px;
 }
 
-.style-item {
+.style-item.profile-artist-page {
     color: #c6b7bb;
     padding: 6px 15px;
     font-size: 23px;

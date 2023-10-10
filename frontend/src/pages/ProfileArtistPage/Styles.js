@@ -86,8 +86,8 @@ function ProfileArtistPageStyles() {
                 .slice()
                 .sort((a, b) => a.style_name.localeCompare(b.style_name))
                 .map(style => (
-                <div className='styles' key={style.id}>
-                  <p className='style-item'>{style.style_name}</p>
+                <div className='styles profile-artist-page' key={style.id}>
+                  <p className='style-item profile-artist-page'>{style.style_name}</p>
                 </div>
               ))}
             </div>
