@@ -1,10 +1,12 @@
-.home-title {
+.title-pages {
     color: #DCDCDC;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 50px;
     margin-bottom: 40px;
+    font-family: 'MonteCarlo Regular';
+    font-size: 55px;
 }
 
 .card-home {
