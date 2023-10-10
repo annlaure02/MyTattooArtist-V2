@@ -3,13 +3,12 @@ import Navbar from '../components/header/Navbar';
 
 function Studios() {
   return (
-    <div>
-      <div className='container'>
-        <div>
-          <Navbar />
-        </div>
-        <div style={{ color: "white" }}>Studios</div>
-      </div>
+    <div className='container'>
+      <header>
+        <Navbar />
+      </header>
+      <body>
+      </body>
     </div>
 
   )

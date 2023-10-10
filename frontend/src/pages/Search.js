@@ -4,16 +4,14 @@ import '../styles/Home.css'
 
 function Search() {
   return (
-    <div className="container" >
-    <div>
-      <Navbar />
-    </div>
-      <div>
+    <div className='container'>
+      <header>
+        <Navbar />
+      </header>
+      <body>
         <h1 className='home-title'>Trouve le tatoueur qui te convient</h1>
-      </div>
-      <div>
         <SearchBar />
-      </div>
+      </body>
     </div>
   )
 }

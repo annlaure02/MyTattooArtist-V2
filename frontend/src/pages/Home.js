@@ -17,12 +17,8 @@ function Home() {
         <Navbar />
       </header>
       <body>
-        <div>
-          <h1 className='home-title'>Trouve le tatoueur qui te convient</h1>
-        </div>
-        <div>
-          <SearchBar onSearch={handleSearch} />
-        </div>
+        <h1 className='home-title'>Trouve le tatoueur qui te convient</h1>
+        <SearchBar onSearch={handleSearch} />
         <div className='card-home'>
           {!showResults && <CardHomeInfo />}
         </div>
