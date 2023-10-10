@@ -1,42 +1,43 @@
-.modal.show {
-  display: block;
-  top: 80px;
+/* -------- Modal for registration and login -------- */
+
+.inside-modal-registration-login {
+ background: lightgray;
+  border-radius: 5px;
 }
 
-.custom-modal-inside {
-  background: linear-gradient(#696969, #DCDCDC);
-  border-radius: 7px;
-}
-
-.modal-title {
-  margin-top: 10px;
-  margin-left: 4em;
-}
-
-.form-container {
-  margin: 30px 40px 30px;
-}
-
-.space-between-label {
-  margin-top: 30px;
-}
-
-.custom-button-inscription {
-  margin-right: 10px;
-}
-.custom-button-connexion {
+.modal-body.body-registration {
+  margin-left: 10px;
   margin-right: 10px;
 }
 
-.custom-button-pageconnexion {
-  margin-right: 11rem;
+.modal-body.body-registration p {
+  color: red;
 }
 
-.custom-button-close {
-  margin-right: 8.5em;
+.red-asterisk {
+  color: red;
 }
 
 .error-message {
   font-size: 12px;
   color: red;
+}
+
+.custom-btn {
+  font-size: 18px;
+}
+
+/* Connexion component */
+.modal.show {
+  display: block;
+  top: 80px;
+}
+
+.nav-links-accueil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  margin-bottom: 20px;
+  font-size: 17px;
 }

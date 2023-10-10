@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Button, Modal, FloatingLabel, Form } from 'react-bootstrap';
+import { Button, Modal, Form, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/header/Registration-Login.css';
@@ -12,7 +12,7 @@ function Login() {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
   const redirectArtistPage = useNavigate();
-  const { login } = useContext(ArtistContext);  
+  const { login } = useContext(ArtistContext);
 
   const onSubmit = async (data) => {
     try {
@@ -44,7 +44,7 @@ function Login() {
 
   return (
     <>
-      <Button variant="danger" onClick={handleShow}>
+      <Button variant="danger" onClick={handleShow} className='custom-btn'>
         Connexion
       </Button>
 
@@ -53,46 +53,48 @@ function Login() {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-        className="custom-modal"
-        id='connect-modal'
+        size="lg"
+        aria-labelledby="modal to login"
+        dialogClassName='modal-registration-login'
       >
-        <div className='custom-modal-inside'>
+        <div className='inside-modal-registration-login'>
           <Modal.Header closeButton>
-            <div className='modal-title'>
               <Modal.Title>
-                <h2>Connexion</h2>
+                Connexion
               </Modal.Title>
-            </div>
           </Modal.Header>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Modal.Body>
-              <div className='form-container'>
-                <div>
-                  <FloatingLabel controlId="email" label="Adresse mail*" className="mb-3">
-                    <Form.Control type="email" placeholder="name@example.com" {...register('email', { required: true })} />
-                  </FloatingLabel>
-                </div>
-                {errors.email && <p className="error-message">Le champ Adresse mail est obligatoire.</p>}
-                <div className='space-between-label'>
-                  <FloatingLabel controlId="password" label="Mot de passe* (8 caractères minimum)" className="mb-3">
-                    <Form.Control type="password" placeholder="min 8 caractères" {...register('password', { required: true, minLength: 8 })} />
-                  </FloatingLabel>
-                </div>
-              </div>
-            </Modal.Body>
-            <div>
-              <Modal.Footer>
-                <div className='modal-button'>
-                  <Button variant="danger" className='custom-button-connexion' type='submit'>
-                    Connexion</Button>
-                  <Button variant="secondary" onClick={handleClose} className='custom-button-close'>
-                    Fermer</Button>
-                </div>
-              </Modal.Footer>
-            </div>
-          </form>
-        </div>
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            <Modal.Body className='body-registration'>
+              <p>* champs obligatoires</p>
+              <Row className="mb-3">
+                <Form.Group as={Col} controlId="email">
+                  <Form.Label>Email<span className="red-asterisk">*</span></Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="ex exemple@email.com"
+                    aria-label='Email'
+                    {...register('email', { required: true })} />
+                </Form.Group>
+                {errors.email && <p className="error-message">Ce champ est obligatoire.</p>}
 
+                <Form.Group as={Col} controlId="password">
+                  <Form.Label>Mot de passe<span className="red-asterisk">*</span></Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="8 caractères minimum"
+                    minLength={8}
+                    aria-label='Mot de passe'
+                    {...register('password', { required: true })} />
+                </Form.Group>
+                {errors.password && <p className="error-message">Ce champ est obligatoire.</p>}
+              </Row>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="danger" className='custom-btn' type='submit'>
+                Connexion</Button>
+            </Modal.Footer>
+          </Form>
+        </div>
       </Modal>
     </>
   );

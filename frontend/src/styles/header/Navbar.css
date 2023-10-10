@@ -1,74 +1,54 @@
+/* ---------- Navbar ---------- */
 .navbar {
   display: flex;
   justify-content: space-between;
-  font-size: 1.4rem;
-  height: 170px;
+  align-content: center;
+  flex-wrap: wrap;
+  min-height: 150px;
   border-bottom: 2px solid white;
 }
-
-.navbar-logo {
-  display: flex;
-  padding-top: 10px;
-  cursor: pointer;
+/* Toggle Button  */
+.btn-menu-toggle {
+  display: none;
 }
 
-.logo-image {
-  height: 90px;
-  padding-bottom: 25px;
+/* Logo */
+.nav-links-logo {
+  text-decoration: none;
 }
 
 .logo-title {
-  font-family: 'Brother Tattoo demo';
-  font-size: 65px;
+  font-family: 'Ruthie Regular';
+  font-size: 50px;
+  font-style: italic;
   color: red;
-  padding-top: 2px;
-}
-
-.menu-wrapper {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.menu-to-toggle {
-  display: flex;
-  align-items: center;
-  gap: 70px;
-}
-ul {
-  padding: 0;
-}
-.menu-content {
-  display: flex;
-  align-items: center;
-}
-
-.navbar-menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-  gap: 20px;
-}
-
-.nav-item {
-  display: block;
-  position: relative;
-  top: 40px;
-  font-family: 'Ysabeau Office Regular';
-  font-size: 25px;
-}
-
-.nav-links {
-  color: white;
-  text-decoration: none;
+  cursor: pointer;
   margin: 0;
 }
 
-.nav-links:hover {
-  color: rgb(136, 136, 129);
-  border-radius: 4px;
+/* List of links */
+.navbar-menu {
+  display: flex;
+  flex-flow: row wrap;
+  row-gap: 20px;
+  column-gap: 18px;
+  margin: 0;
+  padding: 0;
+  margin-top: 40px;
 }
 
+.nav-item {
+  list-style: none;
+  margin: 0;
+}
+
+.nav-item .nav-links {
+  text-decoration: none;
+  color: #DCDCDC;
+  font-size: 25px;
+}
+
+/* Nav connection button */
 .navbar-connection {
   display: flex;
   flex-direction: column;
@@ -77,7 +57,7 @@ ul {
 
 .text-artist {
   color: white;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .button-connect {
@@ -85,11 +65,73 @@ ul {
   gap: 10px;
 }
 
-.menu-toggle {
-  display: none;
+/* Responsive Navbar max width 1199px - Tablets in landscape */
+
+@media screen and (max-width: 1199px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .logo {
+    position: absolute;
+    top: 15px;
+    left: 0;
+  }
+
+  .navbar-menu {
+    margin-top: 50px;
+    margin-right: 50px;
+  }
+
+  .navbar-connection {
+    position: absolute;
+    right: 0;
+  }
 }
 
-@media screen and (max-width: 1240px) {
+/* Responsive Navbar max width 991px - Tablets in portrait */
+
+@media screen and (max-width: 991px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+  }
+
+  .logo {
+    position: absolute;
+    top: 15px;
+    left: 0;
+  }
+
+  .navbar-menu {
+    margin-top: 50px;
+  }
+
+  .navbar-connection {
+    position: absolute;
+    right: 0;
+  }
+
+  .nav-item .nav-links {
+    font-size: 23px;
+  }
+
+  .logo-title {
+    font-size: 48px;
+  }
+}
+
+/* Responsive Navbar max width 767px - Smartphones */
+
+@media screen and (max-width: 767px) {
+  .navbar {
+    min-height: 100px;
+  }
   .navbar-menu {
     display: none;
   }
@@ -98,41 +140,77 @@ ul {
     display: none;
   }
 
-  .menu-toggle {
+  /* Formatting toggle button before click */
+  .btn-menu-toggle {
     display: block;
-    justify-content: left;
-    color: white;
+    color: #DCDCDC;
+    position: absolute;
+    right: 4%;
+    top: 15%;
     background: transparent;
     border: none;
     cursor: pointer;
     font-size: 2rem;
   }
 
-  .menu-to-toggle.active {
-    background-color: rgb(80, 79, 79);
+  /* formatting close menu button*/
+  .btn-close-toggle {
     display: block;
+    color: #DCDCDC;
     position: absolute;
-    top: 40px;
-    min-width: 330px;
-    max-width: 500px;
-    height: 340px;
-    z-index: 1;
+    right: 4%;
+    top: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
   }
 
-  .navbar-menu.active {
+  /* Toggle active */
+  .menu-to-toggle.active {
+    background-color: #1A1A1D;
     display: block;
-    flex-direction: column;
-    padding-left: 40px;
-    height: 150px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
     z-index: 1;
+    border-bottom: 1px solid #DCDCDC;
+  }
+  .navbar.active {
+    display: block;
+    height: 100%;
+    border-bottom: none;
+  }
+
+  .logo.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 20px;
+    margin: 0;
+    text-align: center;
+    border-bottom: 1px solid #DCDCDC;
+    }
+
+  .navbar-menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 12px;
+    column-gap: 0;
+    margin: 20px auto 20px auto;
+    padding-top: 20px;
   }
 
   .navbar-connection.active {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
     position: relative;
-    z-index: 1;
-    background-color: rgb(80, 79, 79);
+    border-top: 1px solid #DCDCDC;
+    padding-top: 20px;
+    margin-bottom: 20px;
   }
 }
