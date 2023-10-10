@@ -41,7 +41,7 @@ function Connexion() {
 
   return (
     <>
-      <div className="modal show">
+      <div className="modal show-connexion">
         <Modal.Dialog
           dialogClassName='modal-registration-login'
           size="lg"

@@ -1,7 +1,10 @@
 /* -------- Modal for registration and login -------- */
-
+.modal-registration-login {
+  top: 80px;
+  margin-bottom: 100px;
+}
 .inside-modal-registration-login {
- background: lightgray;
+  background: lightgray;
   border-radius: 5px;
 }
 
@@ -28,7 +31,7 @@
 }
 
 /* Connexion component */
-.modal.show {
+.modal.show-connexion {
   display: block;
   top: 80px;
 }
