@@ -10,7 +10,7 @@ import { ArtistContext } from '../header/ArtistAuth';
 import '../../styles/private-artist-page/Modal.css'
 import '../../styles/private-artist-page/Buttons.css'
 
-function CreateStudio({ dataUpdated }) {
+function CreateStudio({ dataUpdated, artist }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
