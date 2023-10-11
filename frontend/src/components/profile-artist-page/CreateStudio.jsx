@@ -10,7 +10,7 @@ import { ArtistContext } from '../header/ArtistAuth';
 import '../../styles/private-artist-page/Modal.css'
 import '../../styles/private-artist-page/Buttons.css'
 
-function CreateStudio({ dataUpdated, artist }) {
+function CreateStudio({ dataUpdated }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -20,50 +20,52 @@ function CreateStudio({ dataUpdated, artist }) {
   const { artistId } = useContext(ArtistContext)
 
   const onSubmit = async (data) => {
-
-    data.artist_id = artistId;
-
-    // POST request to create the studio
+    // Create the Studio
     try {
-      const response = await fetch('http://127.0.0.1:8000/project/api/studio/', {
+      const response = await fetch(`http://127.0.0.1:8000/project/api/studio/`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       });
 
-      // PUT request to update the artist informations
       if (response.ok) {
         const studioData = await response.json();
-        console.log(studioData)
+        const studioDataList = [studioData]
 
-        if (artistId) {
-          const updatedArtist = { ...artist };
-          updatedArtist.studio.push(studioData);
+        // Update the artist page
+        const url = `http://127.0.0.1:8000/user_artist/api/ma-page-artiste/${artistId}/`
+        try {
+          if (artistId) {
+            const updateResponse = await fetch(url, {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ studio: studioDataList })
+            });
 
-          const url = `http://127.0.0.1:8000/user_artist/api/ma-page-artiste/${artistId}/`;
-          await fetch(url, {
-            method: 'PUT',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(updatedArtist),
-          });
-
-          dataUpdated({ studio: updatedArtist.studio });
+            if (updateResponse.ok) {
+              const responseData = await updateResponse.json();
+              console.log(responseData)
+              dataUpdated(responseData);
+            }
+            else {
+              console.log('An error is produced during the request PUT');
+            }
+          }
         }
-        else {
-          console.log('An error is produced during the request PUT');
+        catch (error) {
+          console.error('An error is produced during the request:', error);
         }
       } else {
-        console.log('An error occurred during the studio creation.');
+        console.error('Erreur lors de la création du studio.');
       }
     } catch (error) {
-      console.error('An error is produced during the request:', error);
+      console.error('Une erreur s\'est produite lors de la requête :', error);
     }
-
-    handleClose();
+    handleClose()
   };
 
   return (

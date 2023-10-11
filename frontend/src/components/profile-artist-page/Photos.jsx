@@ -18,7 +18,7 @@ function Photos({ dataUpdated }) {
   };
 
   const { register, handleSubmit } = useForm();
-
+  
   const { artistId } = useContext(ArtistContext);
 
   // states for the dropzone

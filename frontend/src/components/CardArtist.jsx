@@ -7,7 +7,8 @@ import { TbWorldWww } from 'react-icons/tb';
 import { FaXTwitter, FaSnapchat } from 'react-icons/fa6';
 import { RiInstagramFill } from 'react-icons/ri';
 import { FaFacebook } from 'react-icons/fa';
-import '../styles/CardArtist.css'
+import '../styles/CardArtist.css';
+import AppareilPhotos from '../images/appareil-photos.jpg'
 
 
 function CardArtist({ artist }) {
@@ -29,11 +30,20 @@ function CardArtist({ artist }) {
       <Card className='card-artist-open'>
         <Card.Body>
           <Card.Title className='card-title card-artist'>
-            <img
-              src={`http://127.0.0.1:8000${artist.profile_picture}`}
-              alt=""
-              className='profile-picture card-artist'
-            />
+            {artist && artist.profile_picture ? (
+
+              <img
+                src={`http://127.0.0.1:8000${artist.profile_picture}`}
+                alt=""
+                className='profile-picture card-artist'
+              />
+            ) : (
+              <img
+                src={AppareilPhotos}
+                alt=""
+                className='profile-picture card-artist'
+              />
+            )}
             <h1 className='card-artist-name card-artist'>{artist.artist_name}</h1>
           </Card.Title>
           <Card.Text className='card-artist'>

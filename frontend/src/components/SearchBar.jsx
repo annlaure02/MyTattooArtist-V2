@@ -5,6 +5,9 @@ import { Card, Modal } from 'react-bootstrap';
 import CardArtistSearch from './CardArtistSearch';
 import '../styles/SearchBar.css';
 import '../styles/DisplayArtists.css';
+import AppareilPhotos from '../images/appareil-photos.jpg';
+import { HiHome } from 'react-icons/hi';
+import { TbWorldWww } from 'react-icons/tb';
 
 function SearchBar({ onSearch }) {
   const [styles, setStyles] = useState([]);
@@ -113,45 +116,68 @@ function SearchBar({ onSearch }) {
           </section>
         </div>
         <div className='custom-page'>
-          {searchResults.map((result) => (
-            <div key={result.id} onClick={() => handleClick(result)}>
-              <Card className='custom-card'>
-                <Card.Body >
-                  <Card.Title className='card-title'>
+          {searchResults.map((artist) => (
+            <div key={artist.id} onClick={() => handleClick(artist)}>
+            <Card className='custom-card display-artist'>
+              <Card.Body >
+                <Card.Title className='card-title display-artist'>
+                  {artist && artist.profile_picture ? (
                     <img
-                      src={`${result.profile_picture}`}
+                      src={`http://127.0.0.1:8000${artist.profile_picture}`}
                       alt=""
-                      className='profile-picture'
+                      className='profile-picture display-artist'
                     />
-                    <p className='card-artist-name'>{result.artist_name}</p>
-                  </Card.Title>
-                  <Card.Text >
-                    <div>
-                      <p className='card-fields'>Adresse</p>
-                      <p className='card-infos'>
-                        <b>{result.studio_name}</b>
-                        <br />
-                        {result.studio_number_street} {result.studio_street}
-                        <br />
-                        {result.studio_post_code} {result.studio_city}
-                      </p>
-                    </div>
-                    <div>
-                      <p className='card-fields'>Styles</p>
-                      {result.tattoo_style ? (
-                        <div className='card-all-styles'>
-                          {result.tattoo_style.map(style => (
-                            <div className='card-styles' key={style.id}>
-                              <p className='card-style-item'>{style.style_name}</p>
+                  ) : (
+                    <img
+                      src={AppareilPhotos}
+                      alt=""
+                      className='profile-picture display-artist'
+                    />
+                  )}
+                  <p className='card-artist-name'>{artist.artist_name}</p>
+                </Card.Title>
+                <Card.Text className='block-address-styles' >
+                  <div>
+                    <h3 className='card-fields display-artist'>Adresse</h3>
+                    {artist && artist.studio ? (
+                      <div className='studio-informations display-artist'>
+                        {artist.studio.map(studio => (
+                          <div key={studio.id} className=''>
+                            <div className='block-address-informations display-artist' >
+                              <HiHome />
+                              <div className='address-studio display-artist'>
+                                <p className='studio-name'>{studio.studio_name}</p>
+                                <p>{studio.studio_number_street} {studio.studio_street}</p>
+                                <p>{studio.studio_address_complement}</p>
+                                <p>{studio.studio_post_code} {studio.studio_city}</p>
+                              </div>
                             </div>
-                          ))}
-                        </div>
-                      ) : (<p>Fail to display tattoo styles</p>)}
-                    </div>
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
+                            <div className='website-icon-info display-artist'>
+                              <TbWorldWww />
+                              <p>{studio.studio_website}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                  <div>
+                    <h3 className='card-fields display-artist'>Styles</h3>
+                    {artist.tattoo_style ? (
+                      <div className='card-all-styles display-artist'>
+                        {artist.tattoo_style.map(style => (
+                          <div className='card-styles display-artist' key={style.id}>
+                            <p className='card-style-item display-artist'>{style.style_name}</p>
+                          </div>
+                        ))}
+                      </div>
+                    ) : null
+                    }
+                  </div>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
           ))}
         </div>
         <div>
