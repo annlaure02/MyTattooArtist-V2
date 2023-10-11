@@ -11,6 +11,7 @@ class TattooStyle(models.Model):
     def __str__(self):
         return self.style_name
 
+# Create table Studio
 class Studio(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     studio_name = models.CharField(max_length=150, blank=True)
@@ -28,4 +29,3 @@ class Studio(models.Model):
 
     def __str__(self):
         return self.studio_name
-   

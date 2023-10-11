@@ -13,7 +13,7 @@ from django.middleware.csrf import get_token
 from django.contrib.auth import login, logout
 from rest_framework.decorators import api_view
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import UserArtist
+from .models import UserArtist, UserArtistAlbum, UserArtistFlash
 from .serializers import UserArtistSerializer, UserRegisterSerializer, UserLoginSerializer
 
 @api_view(['GET'])
@@ -102,8 +102,35 @@ def user_artist_detail(request, pk):
     elif request.method == 'DELETE':
         artist.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+# DELETE a photo in Album table
+@api_view(['DELETE'])
+def delete_artist_album(request, artist_id, album_id):
+    try:
+        artist = UserArtist.objects.get(pk=artist_id)
+        album = UserArtistAlbum.objects.get(pk=album_id, user_artist=artist)
+    except (UserArtist.DoesNotExist, UserArtistAlbum.DoesNotExist):
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'DELETE':
+        album.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
     
 
+# DELETE a photo in Flash table
+@api_view(['DELETE'])
+def delete_artist_flash(request, artist_id, flash_id):
+    try:
+        artist = UserArtist.objects.get(pk=artist_id)
+        album = UserArtistFlash.objects.get(pk=flash_id, user_artist=artist)
+    except (UserArtist.DoesNotExist, UserArtistFlash.DoesNotExist):
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'DELETE':
+        album.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+  
 class TattooStyleFilter(filters.BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
         style_param = request.query_params.get('style_name')
