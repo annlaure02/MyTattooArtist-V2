@@ -26,6 +26,7 @@
 .custom-card.display-artist p {
     margin: 0;
 }
+
 /* Cart Title - header */
 .card-title.display-artist {
     display: flex;
@@ -117,4 +118,45 @@
     color: black;
     padding: 4px 10px 0 10px;
     font-size: 16px;
+}
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .custom-page {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    .custom-card.display-artist {
+        padding: 8px 5px 8px 5px;
+        max-width: 18rem;
+        height: 36rem;
+        margin: 10px;
+    }
+
+    /* Cart Title - header */
+    .card-title.display-artist {
+        flex-direction: column;
+        padding-bottom: 8px;
+        gap: 10px;
+    }
+
+    .profile-picture.display-artist {
+        height: 100px;
+        width: 100px;
+        filter: drop-shadow(8px -2px 5px rgb(91, 86, 86));
+    }
+
+    .card-artist-name {
+        font-size: 38px;
+    }
+
+    .card-fields.display-artist {
+        font-size: 22px;
+    }
+
+    .address-studio.display-artist .studio-name {
+        font-size: 20px;
+    }
 }

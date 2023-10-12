@@ -325,3 +325,15 @@
         max-height: 300px;
     }
 }
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .card-title.card-artist {
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 10px;
+    }
+
+    .card-artist-name.card-artist {
+        font-size: 40px;
+    }
+}
