@@ -1,8 +1,6 @@
 .title-pages {
     color: #DCDCDC;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
     margin-top: 50px;
     margin-bottom: 40px;
     font-family: 'MonteCarlo Regular';
@@ -12,4 +10,11 @@
 .card-home {
     display: flex;
     justify-content: center;
+}
+
+/* Responsive Title page H1 max width 767px - Smartphones */
+@media screen and (max-width: 767px) {
+    .title-pages {
+        font-size: 48px;
+    }
 }
