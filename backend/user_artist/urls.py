@@ -3,7 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    path('api/ma-page-artiste/', views.user_artist_list),
+    path('api/all-artists/', views.user_artist_list),
     path('api/ma-page-artiste/<str:pk>/', views.user_artist_detail),
     path('api/ma-page-artiste/<str:artist_id>/delete-album/<str:album_id>/', views.delete_artist_album),
     path('api/ma-page-artiste/<str:artist_id>/delete-flash/<str:flash_id>/', views.delete_artist_flash),
