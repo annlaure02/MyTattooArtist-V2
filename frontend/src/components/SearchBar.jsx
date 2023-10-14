@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Search } from 'react-bootstrap-icons';
 import { Card, Modal } from 'react-bootstrap';
-import CardArtistSearch from './CardArtistSearch';
+import CardArtistSearchOpen from './CardArtistSearchOpen';
 import '../styles/SearchBar.css';
 import '../styles/DisplayArtists.css';
 import AppareilPhotos from '../images/appareil-photos.jpg';
@@ -12,8 +12,10 @@ import { TbWorldWww } from 'react-icons/tb';
 function SearchBar({ onSearch }) {
   const [styles, setStyles] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
-  const [selectArtist, setSelectArtist] = useState(null)
+  const [selectArtist, setSelectArtist] = useState(null);
   const [show, setShow] = useState(false);
+  const [departments, setDepartments] = useState([]);
+  const [regions, setRegions] = useState([]);
 
   const { register, handleSubmit } = useForm();
 
@@ -22,25 +24,57 @@ function SearchBar({ onSearch }) {
       try {
         const response = await fetch('http://127.0.0.1:8000/project/api/tattoo-style/');
         const data = await response.json();
-        setStyles(data);
+        const sortedStyles = data.sort((a, b) => a.style_name.localeCompare(b.style_name));
+        setStyles(sortedStyles)
       } catch (error) {
         console.error(error);
       }
     };
     fetchData();
   }, []);
+  useEffect(() => {
+    const fetchDepartmentRegion = async () => {
+      try {
+        const response = await fetch('https://happyapi.fr/api/getDeps');
+        const data = await response.json();
+        const listDepRegion = data.result.result
+        // sorted department
+        const sortedDepartments = listDepRegion.slice().sort((a, b) => a.dep_name.localeCompare(b.dep_name));
+        setDepartments(sortedDepartments)
+
+        // remove double and sorted regions
+        const uniqueRegionsSet = new Set(listDepRegion.map(region => region.region_name));
+        const uniqueRegionArray = Array.from(uniqueRegionsSet)
+        // changed Île-de-France to Ile-de-France to make a corect sort list
+        const modifiedUniqueRegionArray = uniqueRegionArray.map((regionName) => {
+          if (regionName === "Île-de-France") {
+            return "Ile-de-France";
+          }
+          return regionName;
+        });
+
+        const sortedRegions = modifiedUniqueRegionArray.sort()
+        console.log(sortedRegions)
+        setRegions(sortedRegions)
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchDepartmentRegion();
+  }, []);
 
   const handleSearch = async (data) => {
     const searchName = data.searchName;
     const searchCity = data.searchCity;
-    const searchState = data.searchState;
+    const searchDepartment = data.searchDepartment;
+    const searchRegion = data.searchRegion;
     const searchStyleTerm = data.searchStyleTerm;
 
     try {
       let url = 'http://127.0.0.1:8000/user_artist/api/search/?';
 
-      if (searchName && searchCity && searchState && searchStyleTerm) {
-        url += `artist_name=${searchName}&studio_city=${searchCity}&studio_state=${searchState}&style_name=${searchStyleTerm}`;
+      if (searchName && searchCity && searchDepartment && searchRegion && searchStyleTerm) {
+        url += `artist_name=${searchName}&studio_city=${searchCity}&studio_state=${searchDepartment}&style_name=${searchStyleTerm}`;
       } else {
         let eachSearch = []
 
@@ -50,8 +84,11 @@ function SearchBar({ onSearch }) {
         if (searchCity) {
           eachSearch.push(`studio_city=${searchCity}`);
         }
-        if (searchState) {
-          eachSearch.push(`studio_state=${searchState}`);
+        if (searchDepartment) {
+          eachSearch.push(`studio_department=${searchDepartment}`);
+        }
+        if (searchRegion) {
+          eachSearch.push(`studio_region=${searchRegion}`);
         }
         if (searchStyleTerm) {
           eachSearch.push(`style_name=${searchStyleTerm}`);
@@ -75,55 +112,71 @@ function SearchBar({ onSearch }) {
   }
 
   return (
-      <div className='searchBar'>
-        <div className='container home-search'>
-          <section className='search--icon'>
-            <form className='search__form' onSubmit={handleSubmit(handleSearch)}>
-              <input
-                className='search-input'
-                type='search'
-                placeholder='Artiste'
-                {...register('searchName')}
-              />
-              <input
-                className='search-input'
-                type='search'
-                placeholder='Ville'
-                {...register('searchCity')}
-              />
-              <input
-                className='search-input'
-                type='search'
-                placeholder='N°département'
-                {...register('searchState')}
-              />
-              <select
-                className='search-input-style'
-                placeholder='styles'
-                {...register('searchStyleTerm')}
-              >
-                <option value='' hidden>Styles</option>
-                {styles.map((style) => (
-                  <option key={style.id} value={style.style_name}>
-                    {style.style_name}
-                  </option>
-                ))}
-              </select>
-              <button className='search-btn-submit' type='submit'>
-                <Search />
-              </button>
-            </form>
-          </section>
-        </div>
-        <div className='custom-page'>
-          {searchResults.map((artist) => (
-            <div key={artist.id} onClick={() => handleClick(artist)}>
+    <div>
+      <div className='search-bar'>
+        <form className='search-bar-form' onSubmit={handleSubmit(handleSearch)}>
+          <input
+            className='search-input artist-name'
+            type='search'
+            placeholder="Nom d'artiste"
+            {...register('searchName')}
+          />
+          <select
+            className='search-select styles'
+            placeholder='styles'
+            {...register('searchStyleTerm')}
+          >
+            <option value='' hidden>Styles</option>
+            {styles.map((style) => (
+              <option key={style.id} value={style.style_name}>
+                {style.style_name}
+              </option>
+            ))}
+          </select>
+          <input
+            className='search-input citie'
+            type='search'
+            placeholder='Ville'
+            {...register('searchCity')}
+          />
+          <select
+            className='search-select department'
+            placeholder='Département'
+            {...register('searchDepartment')}
+          >
+            <option value="" hidden>Département</option>
+            {departments.map(department => (
+              <option className='select-list' key={department.num_dep} value={department.dep_name}>
+                {department.dep_name} ({department.num_dep})
+              </option>
+            ))}
+          </select>
+          <select
+            className='search-select region'
+            placeholder='Région'
+            {...register('searchRegion')}
+          >
+            <option value="" >Région</option>
+            {regions.map((region, index) => (
+              <option key={index} value={region}>
+                {region}
+              </option>
+            ))}
+          </select>
+          <button className='search-btn-submit' type='submit'>
+            <Search />
+          </button>
+        </form>
+      </div>
+      <div className='custom-page'>
+        {searchResults.map((artist) => (
+          <div key={artist.id} onClick={() => handleClick(artist)}>
             <Card className='custom-card display-artist'>
               <Card.Body >
                 <Card.Title className='card-title display-artist'>
                   {artist && artist.profile_picture ? (
                     <img
-                      src={`http://127.0.0.1:8000${artist.profile_picture}`}
+                      src={`${artist.profile_picture}`}
                       alt=""
                       className='profile-picture display-artist'
                     />
@@ -178,22 +231,22 @@ function SearchBar({ onSearch }) {
               </Card.Body>
             </Card>
           </div>
-          ))}
-        </div>
-        <div>
-          {selectArtist && (
-            <Modal
-              show={show}
-              onHide={() => setShow(false)}
-              size='xl'
-            >
-              <Modal.Body >
-                <CardArtistSearch artist={selectArtist} />
-              </Modal.Body>
-            </Modal>
-          )}
-        </div>
+        ))}
       </div>
+      <div>
+        {selectArtist && (
+          <Modal
+            show={show}
+            onHide={() => setShow(false)}
+            size='xl'
+          >
+            <Modal.Body >
+              <CardArtistSearchOpen artist={selectArtist} />
+            </Modal.Body>
+          </Modal>
+        )}
+      </div>
+    </div>
   );
 }
 

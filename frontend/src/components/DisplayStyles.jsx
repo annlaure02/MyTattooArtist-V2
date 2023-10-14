@@ -22,23 +22,21 @@ function DisplayStyles() {
 
   return (
     <>
-      <div className='container'>
-        <div className='custom-styles-page'>
-          {styles.map((style) => (
-            <div key={style.id} >
-              <Card className='card-style'>
-                <Card.Body>
-                  <Card.Title className='card-style-title'>
-                    {style.style_name}
-                    </Card.Title>
-                  <Card.Text className='card-style-description'>
-                    <p>{style.description}</p>
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-          ))}
-        </div>
+      <div className='custom-styles-page'>
+        {styles.map((style) => (
+          <div key={style.id} >
+            <Card className='custom-card display-styles'>
+              <Card.Body>
+                <Card.Title className='card-title display-styles'>
+                  {style.style_name}
+                </Card.Title>
+                <Card.Text className='card-description display-styles'>
+                  <p>{style.description}</p>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+        ))}
       </div>
     </>
   );

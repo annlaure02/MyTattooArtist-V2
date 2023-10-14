@@ -1,24 +1,25 @@
 .custom-styles-page {
+    width: 100%;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    margin-top: 90px;
-    margin-bottom: 40px;
-    column-gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: -15px;
+    margin-right: -15px;
 }
 
-.card-style {
-    width: 23rem;
-    height: 40rem;
+.custom-card.display-styles {
     padding: 10px 8px 10px 8px;
-    margin-bottom: 50px;
-    overflow: auto;
+    width: 22rem;
+    height: 36rem;
     background-image: url(../images/Backgroun-card.jpg);
     background-position: center center;
     background-size: cover;
+    flex: 0 0 calc(33.33% - 30px);
+    margin: 15px;
 }
 
-.card-style-title {
+.card-title.display-styles{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,6 +27,6 @@
     font-family: 'MonteCarlo', cursive;
 }
 
-.card-style-description {
+.card-description.display-styles {
     padding: 0 10px 0 10px;
 }
