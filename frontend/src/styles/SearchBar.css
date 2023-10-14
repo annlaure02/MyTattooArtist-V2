@@ -13,7 +13,7 @@
     align-items: center;
     column-gap: 10px;
     row-gap: 10px;
-    border: 2px solid #127c7e;
+    border: 2px solid #168d8f;
     border-radius: 45px;
     padding: 13px 20px;
 }
@@ -24,7 +24,7 @@
     height: 42px;
     border-radius: 20px;
     background-color: #c5f3ec;
-    border: 2px solid #127c7e;
+    border: 2px solid #168d8f;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,7 +57,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #127c7e;
+    color: #168d8f;
     width: 40px;
     height: 40px;
     background: none;
@@ -116,7 +116,7 @@
         align-items: center;
         max-width: 225px;
         row-gap: 15px;
-        border: 2px solid #127c7e;
+        border: 2px solid #168d8f;
     }
     .search-input.artist-name,
     .search-select.styles,

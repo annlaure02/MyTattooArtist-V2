@@ -5,7 +5,7 @@
   align-content: center;
   flex-wrap: wrap;
   min-height: 150px;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #168d8f;
 }
 /* Toggle Button  */
 .btn-menu-toggle {
