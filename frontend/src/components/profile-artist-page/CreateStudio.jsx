@@ -43,7 +43,9 @@ function CreateStudio({ dataUpdated, artist }) {
               headers: {
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify({ studio: studioDataList })
+              body: JSON.stringify({
+                studio: artist.studio ? [...artist.studio, ...studioDataList] : studioDataList,
+            })
             });
 
             if (updateResponse.ok) {
