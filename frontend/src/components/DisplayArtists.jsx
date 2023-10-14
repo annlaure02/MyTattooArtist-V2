@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Card, Modal } from 'react-bootstrap';
-import CardArtist from './CardArtist';
+import CardArtistOpen from './CardArtistOpen';
 import { HiHome } from 'react-icons/hi';
 import { TbWorldWww } from 'react-icons/tb';
 import '../styles/DisplayArtists.css';
@@ -14,7 +14,7 @@ function DisplayArtists() {
   const [show, setShow] = useState(false);
 
   const fetchData = async () => {
-    const response = await fetch('http://127.0.0.1:8000/user_artist/api/ma-page-artiste/')
+    const response = await fetch('http://127.0.0.1:8000/user_artist/api/all-artists/')
     const data = await response.json()
     setArtists(data)
     console.log(data)
@@ -106,7 +106,7 @@ function DisplayArtists() {
             centered
           >
             <Modal.Body >
-              <CardArtist artist={selectArtist} />
+              <CardArtistOpen artist={selectArtist} />
             </Modal.Body>
           </Modal>
         )}
