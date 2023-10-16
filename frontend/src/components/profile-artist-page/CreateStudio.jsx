@@ -45,7 +45,7 @@ function CreateStudio({ dataUpdated, artist }) {
               },
               body: JSON.stringify({
                 studio: artist.studio ? [...artist.studio, ...studioDataList] : studioDataList,
-            })
+              })
             });
 
             if (updateResponse.ok) {
@@ -90,11 +90,12 @@ function CreateStudio({ dataUpdated, artist }) {
             <Modal.Header closeButton>
               <Modal.Title>Coordonnées du Studio</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className='form-studio'>
+              <p className='mandatory-field'>* champs obligatoires</p>
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Row className="mb-3">
                   <Form.Group as={Col} sm={6} controlId="studio_name">
-                    <Form.Label>Nom du studio*</Form.Label>
+                    <Form.Label>Nom du studio<span className="red-asterisk">*</span></Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="ex Tattoo Ink"
@@ -117,7 +118,7 @@ function CreateStudio({ dataUpdated, artist }) {
 
                 <Row className="mb-3">
                   <Form.Group as={Col} sm={2} controlId="studio_number_street">
-                    <Form.Label>Numéro*</Form.Label>
+                    <Form.Label>Numéro<span className="red-asterisk">*</span></Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="ex 122"
@@ -127,7 +128,7 @@ function CreateStudio({ dataUpdated, artist }) {
                   {errors.studio_number_street && <p className="error-message">Ce champ est obligatoire.</p>}
 
                   <Form.Group as={Col} controlId="studio_street">
-                    <Form.Label>Rue*</Form.Label>
+                    <Form.Label>Rue<span className="red-asterisk">*</span></Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="ex rue Martin"
@@ -148,7 +149,7 @@ function CreateStudio({ dataUpdated, artist }) {
 
                 <Row className="mb-3">
                   <Form.Group as={Col} sm={2} controlId="studio_post_code">
-                    <Form.Label>Code Post*</Form.Label>
+                    <Form.Label>Code Post<span className="red-asterisk">*</span></Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="ex 75001"
@@ -159,7 +160,7 @@ function CreateStudio({ dataUpdated, artist }) {
                   {errors.studio_post_code && <p className="error-message">Ce champ est obligatoire.</p>}
 
                   <Form.Group as={Col} sm={7} controlId="studio_city">
-                    <Form.Label>Ville*</Form.Label>
+                    <Form.Label>Ville<span className="red-asterisk">*</span></Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="ex Paris"
@@ -171,7 +172,7 @@ function CreateStudio({ dataUpdated, artist }) {
 
                 <Row className="mb-3">
                   <Form.Group as={Col} sm={5} controlId="studio_department">
-                    <Form.Label>Département*</Form.Label>
+                    <Form.Label>Département<span className="red-asterisk">*</span></Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="ex 75"
@@ -182,7 +183,7 @@ function CreateStudio({ dataUpdated, artist }) {
                   {errors.studio_department && <p className="error-message">Ce champ est obligatoire.</p>}
 
                   <Form.Group as={Col} sm={5} controlId="studio_region">
-                    <Form.Label>Région*</Form.Label>
+                    <Form.Label>Région<span className="red-asterisk">*</span></Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="ex Ile-de-France"
@@ -192,7 +193,7 @@ function CreateStudio({ dataUpdated, artist }) {
                   {errors.studio_region && <p className="error-message">Ce champ est obligatoire.</p>}
 
                   <Form.Group as={Col} controlId="studio_country">
-                    <Form.Label>Pays*</Form.Label>
+                    <Form.Label>Pays<span className="red-asterisk">*</span></Form.Label>
                     <Form.Control
                       type="text"
                       defaultValue='France'
