@@ -20,6 +20,9 @@
     font-size: 35px;
 }
 /* Modal body - Formulaire */
+.modal-body.form-studio p {
+    color: red;
+}
 .form-label {
     font-size: 19px;
 }

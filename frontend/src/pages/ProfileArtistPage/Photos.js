@@ -81,17 +81,18 @@ function ProfileArtistPagePhotos() {
           <Photos dataUpdated={handleUpdate} artist={artist} />
         </div>
         <div>
-          <div className='display-photo-flash'>
-            {artist.album && artist.album.map(photo => (
-              <div key={photo.id} className="photo-item">
-                <img className='photo-flash-picture'
-                  key={photo.id}
-                  src={`http://127.0.0.1:8000${photo.image}`}
-                  alt="" />
-                <DeletePhotoButton albumId={photo.id} dataUpdated={handleUpdate} />
-              </div>
-            ))}
-          </div>
+          {artist && artist.album && artist.album.length > 0 ? (
+            <div className='display-photo-flash'>
+              {artist.album && artist.album.map(photo => (
+                <div key={photo.id} className="photo-flash-item">
+                  <img className='photo-flash-picture'
+                    src={`http://127.0.0.1:8000${photo.image}`}
+                    alt="" />
+                  <DeletePhotoButton albumId={photo.id} dataUpdated={handleUpdate} />
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       </section>
     </div>

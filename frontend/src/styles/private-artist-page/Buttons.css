@@ -4,7 +4,7 @@
 .add-profile-picture .plus-icon-profile {
     position: absolute;
     top: 38%;
-    left: 38%;
+    left: 40%;
     width: 45px;
     height: 45px;
     color: #1A1A1D;
@@ -28,7 +28,8 @@
     color: #c6b7bb;
     width: 21px;
     height: 21px;
-    top: 21%;
+    top: 37%;
+    left: 5px;
 }
 
 .add-button {
@@ -38,12 +39,12 @@
     border: none;
 }
 
-.add-button:hover{
+.add-button:hover {
     opacity: 75%;
 }
 
 .add-button:active {
-    transform: translate(0px,2px);
+    transform: translate(0px, 2px);
 }
 
 /* Icon pencil for artist name */
@@ -63,12 +64,12 @@
     border: none;
 }
 
-.pencil-button:hover{
+.pencil-button:hover {
     opacity: 75%;
 }
 
 .pencil-button:active {
-    transform: translate(0px,3px);
+    transform: translate(0px, 3px);
 }
 
 /* --------------- section Studio --------------- */
@@ -85,7 +86,7 @@
     background-color: transparent;
     margin-left: 15px;
     border: none;
-    bottom: 2px;
+    bottom: 1px;
 }
 
 /* --------------- section photo-flash --------------- */
@@ -102,5 +103,61 @@
     background-color: transparent;
     margin-left: 15px;
     border: none;
-    bottom: 2px;
+    bottom: 1px;
 }
+
+
+/* ---------- Responsive part ---------- */
+
+/* Responsive max width 991px - Tablets in portrait */
+@media screen and (max-width: 991px) {
+    /* section Studio */
+    .plus-icon-studio {
+        width: 22px;
+        height: 22px;
+    }
+
+    .add-button-studio {
+        margin-left: 13px;
+        bottom: 4px;
+    }
+
+    /* section Photo/Flash */
+    .plus-icon-photo-flash {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .add-button-photo-flash {
+        margin-left: 13px;
+        bottom: 4px;
+    }
+}
+
+/* Responsive max width 767px - Smartphones */
+@media screen and (max-width: 767px) {
+    /* section Studio */
+    .plus-icon-studio {
+        width: 20px;
+        height: 20px;
+    }
+
+    .add-button-studio {
+        margin-left: 10px;
+        bottom: 4px;
+    }
+
+    /* section Photo/Flash */
+    .plus-icon-photo-flash {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .add-button-photo-flash {
+        margin-left: 10px;
+        bottom: 4px;
+    }
+}
+
+/* Responsive max width 480px -  Smartphones */
+@media screen and (max-device-width : 480px) {}

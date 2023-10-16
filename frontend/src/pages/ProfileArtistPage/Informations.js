@@ -6,6 +6,7 @@ import '../../styles/private-artist-page/Informations.css';
 import ProfilePicture from '../../components/profile-artist-page/ProfilePicture';
 import ArtistName from '../../components/profile-artist-page/ArtistName';
 import InformationsAddUpdate from '../../components/profile-artist-page/InformationsAddUpdate';
+import ActiveAccount from '../../components/profile-artist-page/ActiveAccount';
 
 function ProfileArtistPageInformations() {
   const { artistId } = useParams();
@@ -80,18 +81,19 @@ function ProfileArtistPageInformations() {
           <InformationsAddUpdate dataUpdated={handleUpdate} artist={artist} />
         </div>
         <div className='personal-infos'>
+          <ActiveAccount dataUpdated={handleUpdate} artist={artist} />
           <div className='display-informations'>
-            <h2>Prénom: <span>{artist.first_name}</span></h2>
-            <h2>Nom: <span>{artist.last_name}</span></h2>
-            <h2>Status: <span>{artist.status}</span></h2>
-            <h2>Email: <span>{artist.email}</span></h2>
-            <h2>Téléphone: <span>{artist.phone}</span></h2>
-            <h2>Facebook: <a href={artist.facebook}>{artist.facebook}</a></h2>
-            <h2>Instagram: <a href={artist.instagram}>{artist.instagram}</a></h2>
-            <h2>X: <a href={artist.x}>{artist.x}</a></h2>
-            <h2>Snapchat: <a href={artist.snapchat}>{artist.snapchat}</a></h2>
-            <h2>Biographie:</h2>
-              <p className='text-biography'>{artist.biography}</p>
+            <h2><span>Prénom: </span>{artist.first_name}</h2>
+            <h2><span>Nom: </span>{artist.last_name}</h2>
+            <h2><span>Status: </span>{artist.status}</h2>
+            <h2><span>Email: </span>{artist.email}</h2>
+            <h2><span>Téléphone: </span>{artist.phone}</h2>
+            <h2><span>Facebook: </span><a href={artist.facebook}>{artist.facebook}</a></h2>
+            <h2><span>Instagram: </span><a href={artist.instagram}>{artist.instagram}</a></h2>
+            <h2><span>X: </span><a href={artist.x}>{artist.x}</a></h2>
+            <h2><span>Snapchat: </span><a href={artist.snapchat}>{artist.snapchat}</a></h2>
+            <h2><span>Biographie:</span></h2>
+            <p className='text-biography'>{artist.biography}</p>
           </div>
         </div>
       </section>

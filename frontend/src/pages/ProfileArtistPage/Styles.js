@@ -75,11 +75,11 @@ function ProfileArtistPageStyles() {
         </div>
       </section>
       <section className='styles-section'>
-        <div className=''>
-          <h1>Mes styles de tatouage</h1>
-          <Styles dataUpdated={handleUpdate} artist={artist} />
+        <div className='style-title'>
+          <h1>Mes styles</h1>
         </div>
         <div className=''>
+          <Styles dataUpdated={handleUpdate} artist={artist} />
           {artist.tattoo_style ? (
             <div className='all-styles'>
               {artist.tattoo_style

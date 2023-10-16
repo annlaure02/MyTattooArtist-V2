@@ -1,8 +1,9 @@
 /* ---------- Section Studio ---------- */
 .studio-section {
+    display: flex;
+    flex-direction: column;
     color: #c6b7bb;
-    margin-top: 120px;
-    margin-left: 90px;
+    margin: 120px 30px 50px 50px;
 }
 
 .studio-title {
@@ -12,38 +13,45 @@
 
 .studio-title h1{
     color: #cf0736;
+    border-bottom: 2px solid #cf0736;
 }
 
 .all-studio-infos {
-    margin-left: 30px;
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 25px;
+    row-gap: 25px;
+    justify-content: flex-start;
 }
 
 .studio-infos {
-    border-bottom: 2px solid #c6b7bb;
-    width: 100%;
+    display: flex;
+    width: 345px;
+    padding: 25px;
+    border: 2px solid #6F2232;
+    border-radius: 25px;
 }
 
 .studio-infos h2 {
     color: #ba0a51;
-    font-size: 33px;
+    font-size: 28px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    word-wrap: break-word;
 }
 
 .studio-adress p {
-    font-size: 23px;
+    font-size: 22px;
     margin-bottom: 5px;
 }
 
-
 .studio-more-informations {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 40px;
 }
 
 .studio-more-informations h3 {
     color: #a90748;
-    font-size: 30px;
+    font-size: 28px;
     margin-bottom: 15px;
 }
 
@@ -59,10 +67,136 @@
     margin-bottom: 0;
 }
 .studio-more-informations .infos a {
-    text-decoration: none;
     color: #c6b7bb;
+    word-break: break-all;
+    font-weight: normal;
+}
+
+.studio-more-informations .field-website {
+    display: flex;
+    flex-direction: column;
 }
 
 .studio-more-informations .infos a:hover {
     opacity: 80%;
+}
+
+/* ---------- Responsive part ---------- */
+
+/* Responsive max width 1199px - Tablets in landscape */
+@media screen and (max-width: 1199px) {
+    .studio-section {
+        margin-left: 45px;
+    }
+    .studio-infos {
+        display: flex;
+        width: 315px;
+        padding: 20px;
+        border: 2px solid #6F2232;
+        border-radius: 25px;
+    }
+
+    .studio-title h1{
+        font-size: 38px;
+    }
+}
+  
+/* Responsive max width 991px - Tablets in portrait */
+@media screen and (max-width: 991px) {
+    .studio-section {
+        margin-left: 30px;
+        margin-right: 10px;
+    }
+
+    .studio-title h1{
+        font-size: 34px;
+    }
+
+    .studio-infos {
+        display: flex;
+        width: 310px;
+        padding: 15px;
+    }
+    
+    .studio-infos h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    .studio-adress p {
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+    
+    .studio-more-informations {
+        margin-top: 20px;
+    }
+    
+    .studio-more-informations h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    .studio-more-informations .infos {
+        row-gap: 10px;
+        font-size: 20px;
+    }
+}
+  
+/* Responsive max width 767px - Smartphones */
+@media screen and (max-width: 767px) {
+    .studio-section {
+        margin-top: 80px;
+        margin-left: 50px;
+    }
+
+    .all-studio-infos {
+        display: flex;
+        flex-direction: column;
+        column-gap: 0;
+        row-gap: 25px;
+    }
+
+    .studio-title h1{
+        font-size: 32px;
+    }
+
+    .studio-infos {
+        max-width: 270px;
+        padding: 15px;
+    }
+    .studio-infos {
+        display: flex;
+        width: 310px;
+        padding: 15px;
+    }
+    
+    .studio-infos h2 {
+        font-size: 23px;
+        margin-bottom: 10px;
+    }
+    
+    .studio-adress p {
+        font-size: 19px;
+        margin-bottom: 2px;
+    }
+    
+    .studio-more-informations {
+        margin-top: 20px;
+    }
+    
+    .studio-more-informations h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    .studio-more-informations .infos {
+        row-gap: 10px;
+        font-size: 19px;
+    }
+}
+  
+/* Responsive max width 480px -  Smartphones */
+@media screen and (max-device-width : 480px) {
+
 }

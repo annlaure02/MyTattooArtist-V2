@@ -1,18 +1,47 @@
 /* ---------- Section Tattoo Styles ---------- */
 /* Section tattoo styles */
-.select-styles {
-    color: #c6b7bb;
-}
-.styles-section h1{
+.styles-section {
+    display: flex;
+    flex-direction: column;
+    margin: 120px 30px 50px 50px;
     color: #cf0736;
+    max-width: 45rem;
 }
-/* form Selectionne tes styles */
 
+.style-title {
+    display: flex;
+}
+
+.style-title h1 {
+    border-bottom: 2px solid #cf0736;
+}
+
+.all-styles {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    row-gap: 15px;
+    column-gap: 20px;
+}
+
+.styles.profile-artist-page {
+    background-color: #6F2232;
+    border-radius: 30px;
+}
+
+.style-item.profile-artist-page {
+    color: #c6b7bb;
+    padding: 6px 15px;
+    font-size: 23px;
+    margin: 0;
+}
+
+/* form Selectionne tes styles */
 .select-styles-container {
     margin-top: 20px;
     padding-left: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column ;
     margin-bottom: 40px;
 }
 
@@ -21,24 +50,37 @@
     font-size: 34px;
     margin-bottom: 30px;
 }
+
 .select-styles {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     row-gap: 10px;
-    width: 100%;
+    column-gap: 20px;
     max-height: 20rem;
     font-size: 22px;
     margin-bottom: 40px;
+    color: #c6b7bb;
+}
+
+/* formatting Form.Check */
+
+.form-check {
+    display: flex;
+    align-items: center;
+}
+
+.form-check .form-check-input {
+    font-size: 22px;
+    margin-left: -1em;
+    margin-right: 14px;
+    margin-top: 0;
+    background-color: #c6b7bb !important;
+    border-color: #930941 !important;
 }
 
 .form-check-input:checked {
     background-color: #ba0a51 !important;
-    border-color: #930941 !important;
-}
-
-.form-check-input {
-    background-color: #c6b7bb !important;
     border-color: #930941 !important;
 }
 
@@ -65,28 +107,95 @@
     opacity: 80%;
 }
 
-/* display styles in the page */
-.styles-section {
-    margin-top: 120px;
-    margin-left: 90px;
-    width: 800px;
+/* ---------- Responsive part ---------- */
+
+/* Responsive max width 1199px - Tablets in landscape */
+@media screen and (max-width: 1199px) {
+    .style-title h1 {
+        font-size: 38px;
+    }
+
+    .select-styles-form h2 {
+        font-size: 33px;
+    }
+
+    .select-styles {
+        font-size: 21px;
+    }
+
+    .select-styles-validat-btn .btn-validate {
+        font-size: 19px;
+    }
+
+    .style-item.profile-artist-page {
+        padding: 4px 13px;
+        font-size: 21px;
+    }
 }
 
-.all-styles {
-    display: flex;
-    align-items: center;
-    flex-flow: row wrap;
-    row-gap: 15px;
-    column-gap: 20px;
-}
-.styles.profile-artist-page {
-    background-color: #6F2232;
-    border-radius: 30px;
+/* Responsive max width 991px - Tablets in portrait */
+@media screen and (max-width: 991px) {
+    .styles-section {
+        margin-left: 40px;
+        margin-right: 10px;
+    }
+
+    .style-title h1 {
+        font-size: 34px;
+    }
+
+    .select-styles-container {
+        padding: 0;
+    }
+
+    .select-styles-form h2 {
+        font-size: 31px;
+    }
+
+    .select-styles {
+        max-height: 28rem;
+        font-size: 20px;
+        column-gap: 10px;
+    }
 }
 
-.style-item.profile-artist-page {
-    color: #c6b7bb;
-    padding: 6px 15px;
-    font-size: 23px;
-    margin: 0;
+/* Responsive max width 767px - Smartphones */
+@media screen and (max-width: 767px) {
+    .styles-section {
+        margin-top: 80px;
+        margin-left: 20px;
+        margin-right: 30px;
+    }
+
+    .style-title h1 {
+        font-size: 32px;
+    }
+
+    .select-styles-form h2 {
+        font-size: 28px;
+    }
+
+    .select-styles {
+        font-size: 19px;
+    }
+
+    .select-styles-validat-btn .btn-validate {
+        font-size: 18px;
+    }
+
+    .all-styles {
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+        row-gap: 12px;
+        column-gap: 10px;
+    }
+
+    .style-item.profile-artist-page {
+        padding: 4px 13px;
+        font-size: 20px;
+    }
 }
+
+/* Responsive max width 480px -  Smartphones */
+@media screen and (max-device-width : 480px) {}

@@ -75,12 +75,11 @@ function ProfileArtistPageStudio() {
       </section>
       <section className='studio-section'>
         <div className='studio-title'>
-          <h1>Mon studio</h1>
+          <h1>Mes studios</h1>
           <CreateStudio dataUpdated={handleUpdate} artist={artist} />
         </div>
-        <div className='all-studio-infos'>
           {artist.studio ? (
-            <div className=''>
+            <div className='all-studio-infos'>
               {artist.studio.map(studio => (
                 <div className='studio-infos' key={studio.id}>
                   <div>
@@ -97,7 +96,7 @@ function ProfileArtistPageStudio() {
                         {/* <p>Horaires d'ouvertures:</p>
                         <p>{studio.opening_hours}</p> */}
                         <p>SIRET: {studio.studio_siret}</p>
-                        <p>Site web: <b><a href={studio.studio_website}>{studio.studio_website}</a></b></p>
+                        <p className='field-website'>Site web: <b><a href={studio.studio_website}>{studio.studio_website}</a></b></p>
                       </div>
                     </div>
                   </div>
@@ -105,7 +104,6 @@ function ProfileArtistPageStudio() {
               ))}
             </div>
           ) : (null)}
-        </div>
       </section>
     </div>
   );

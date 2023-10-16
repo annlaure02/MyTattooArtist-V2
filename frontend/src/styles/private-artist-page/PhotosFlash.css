@@ -1,7 +1,7 @@
 /* Section Photo Flash */
 .photo-flash-section {
     color: #cf0736;
-    margin: 90px 90px 50px 90px;
+    margin: 90px 50px 50px 50px;
 }
 
 .title-photos-flashs {
@@ -9,18 +9,103 @@
     margin-bottom: 30px;
 }
 
+.title-photos-flashs h1 {
+    border-bottom: 2px solid #cf0736;
+}
+
 .display-photo-flash {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     gap: 15px;
-    padding: 20px;
+    padding: 20px 10px 20px 10px;
     background-color: #262424;
     border-radius: 10px;
 }
 
+.photo-flash-item {
+    position: relative;
+    display: flex;
+}
+
 .photo-flash-picture {
-    height: 200px;
+    position: relative;
+    height: 190px;
     border-radius: 10px;
     border: 1px solid #c6c1c1;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 3px;
+    right: 13px;
+    background: transparent;
+    border: none;
+    color: red;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+/* ---------- Responsive part ---------- */
+
+/* Responsive max width 1199px - Tablets in landscape */
+@media screen and (max-width: 1199px) {
+    .title-photos-flashs h1 {
+        font-size: 38px;
+    }
+
+    .display-photo-flash {
+        gap: 10px;
+        padding: 15px 8px 15px 8px;
+    }
+
+    .photo-flash-picture {
+        height: 160px;
+    }
+}
+  
+/* Responsive max width 991px - Tablets in portrait */
+@media screen and (max-width: 991px) {
+    .photo-flash-section {
+        margin-left: 30px;
+        margin-right: 10px;
+    }
+
+    .title-photos-flashs h1 {
+        font-size: 34px;
+    }
+
+    .photo-flash-picture {
+        height: 150px;
+    }
+}
+  
+/* Responsive max width 767px - Smartphones */
+@media screen and (max-width: 767px) {
+    .photo-flash-section {
+        margin-top: 80px;
+        margin-left: 30px;
+    }
+
+    .title-photos-flashs h1 {
+        font-size: 32px;
+    }
+
+    .display-photo-flash {
+        display: flex;
+        flex-flow: column wrap;
+        row-gap: 15px;
+        justify-content: center;
+        padding: 15px 10px 15px 10px;
+    }
+
+    .photo-flash-item {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+  
+/* Responsive max width 480px -  Smartphones */
+@media screen and (max-device-width : 480px) {
+
 }

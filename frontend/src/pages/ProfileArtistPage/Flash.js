@@ -6,6 +6,7 @@ import '../../styles/private-artist-page/PhotosFlash.css';
 import ProfilePicture from '../../components/profile-artist-page/ProfilePicture';
 import ArtistName from '../../components/profile-artist-page/ArtistName';
 import Flash from '../../components/profile-artist-page/Flash';
+import DeletePhotoButton from '../../components/profile-artist-page/DeletePhotoButton';
 
 function ProfileArtistPageFlash() {
   const { artistId } = useParams();
@@ -80,17 +81,19 @@ function ProfileArtistPageFlash() {
           <Flash dataUpdated={handleUpdate} artist={artist} />
         </div>
         <div>
-          {artist.flash && artist.flash.length > 0 && (
-            <div className='display-photo-flash'>
-              {artist.flash.map(picture => (
-                <img className='photo-flash-picture'
-                  key={picture.id}
-                  src={`http://127.0.0.1:8000${picture.image}`}
-                  alt="" />
-              ))}
-            </div>
-          )}
-        </div>
+            {artist.flash && artist.flash && artist.flash.length > 0 && (
+              <div className='display-photo-flash'>
+                {artist.flash.map(picture => (
+                  <div key={picture.id} className="photo-flash-item">
+                    <img className='photo-flash-picture'
+                      src={`http://127.0.0.1:8000${picture.image}`}
+                      alt="" />
+                    <DeletePhotoButton albumId={picture.id} dataUpdated={handleUpdate} />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
       </section>
     </div>
   );

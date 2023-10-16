@@ -2,32 +2,65 @@
 
 /* All the section */
 .informations-section {
-    color: #ba0a51;
-    margin-bottom: 50px;
-    margin-top: 120px;
-    margin-left: 90px;
+    display: flex;
+    flex-flow: column wrap;
+    row-gap: 40px;
+    color: #c6b7bb;
+    margin: 120px 50px 50px 50px;
 }
 
-/* the block of all informations */
+/* ------ the block of all informations ------ */
+/* title */
 .informations-title {
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
 }
 
 .informations-title h1 {
     color: #cf0736;
-    margin-bottom: 40px;
+    border-bottom: 2px solid #cf0736;
 }
 
-/* .informations-title h1::after {
-    content: "";
-    border: 2px solid #c6c1c1;
-} */
+/* Button Ajouter/Modifier */
+.add-update-btn {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    height: 44px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #6F2232;
+    background-color: #c6b7bb;
+    border-color: #6F2232;
+}
+
+.add-update-btn:hover {
+    background-color: #c6b7bb;
+    color: #6F2232;
+    opacity: 80%;
+}
 
 .personal-infos {
     display: flex;
-    flex-direction: column;
+    flex-flow: column wrap;
     margin-left: 30px;
+}
+
+/* Active profile */
+.form-activate-account {
+    margin-bottom: 30px;
+}
+
+.form-check-label.activate-account {
+    font-size: 27px;
+    font-style: italic;
+    color: #ba0a51;
+}
+
+.form-check-label p {
+    margin: 0;
+    font-size: 23px;
 }
 
 /* Artist informations */
@@ -38,52 +71,119 @@
     margin-bottom: 15px;
 }
 
-.display-informations h2 {
-    font-size: 27px;
+.display-informations h2 span {
     font-style: italic;
+    color: #ba0a51;
+    margin-right: 5px;
 }
 
-.display-informations h2 span {
-    margin-left: 5px;
+.display-informations h2 {
     font-size: 27px;
     font-style: normal;
     font-weight: bold;
-    color: #c6b7bb;
 }
 
 .display-informations h2 a {
-    margin-left: 5px;
-    font-size: 27px;
-    font-style: normal;
-    font-weight: bold;
-    text-decoration: none;
     color: #c6c1c1;
 }
 
 /* Biography part*/
-.text-biography{
-    margin-left: 20px;
+.text-biography {
+    margin-left: 15px;
     max-width: 45rem;
     font-size: 27px;
     font-style: normal;
     word-wrap: break-word;
-    color: #c6b7bb;    
+    color: #c6b7bb;
+    margin-right: 15px;
 }
 
-/* Button Ajouter/Modifier */
-.add-update-btn {
-    margin-left: 25px;
-    height: 44px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #6F2232;
-    background-color: #c6b7bb;
-    border-color: #6F2232;
-    margin-top: 2px;
+/* ---------- Responsive part ---------- */
+
+/* Responsive max width 1199px - Tablets in landscape */
+@media screen and (max-width: 1199px) {
+    .informations-title h1 {
+        font-size: 38px;
+    }
+
+    .add-update-btn {
+        height: 38px;
+        font-size: 19px;
+    }
+
+    .form-check-label p {
+        font-size: 22px;
+    }
+
+    .form-check-label.activate-account,
+    .display-informations h2,
+    .text-biography {
+        font-size: 25px;
+    }
 }
 
-.add-update-btn:hover {
-    background-color: #c6b7bb;
-    color: #6F2232;
-    opacity: 80%;
+/* Responsive max width 991px - Tablets in portrait */
+@media screen and (max-width: 991px) {
+    .informations-section {
+        margin-left: 40px;
+        margin-right: 10px;
+    }
+
+    .personal-infos {
+        margin-left: 15px;
+    }
+
+    .informations-title h1 {
+        font-size: 34px;
+    }
+
+    .add-update-btn {
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .form-check-label p {
+        font-size: 21px;
+    }
+
+    .form-check-label.activate-account,
+    .display-informations h2,
+    .text-biography {
+        font-size: 23px;
+    }
 }
+
+/* Responsive max width 767px - Smartphones */
+@media screen and (max-width: 767px) {
+    .informations-section {
+        margin-top: 80px;
+        margin-left: 20px;
+        margin-right: 30px;
+    }
+
+    .personal-infos {
+        margin-left: 10px;
+    }
+
+    .informations-title h1 {
+        font-size: 32px;
+    }
+
+    .add-update-btn {
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .form-check-label p {
+        font-size: 19px;
+    }
+
+    .form-check-label.activate-account,
+    .display-informations h2,
+    .text-biography {
+        font-size: 21px;
+    }
+}
+
+/* Responsive max width 480px -  Smartphones */
+@media screen and (max-device-width : 480px) {}
