@@ -26,7 +26,7 @@ function DeletePhotoButton({ albumId, dataUpdated }) {
   };
 
   return (
-    <button onClick={handleDelete} className="delete-button">
+    <button onClick={handleDelete} className="delete-btn">
       <GiCrossMark />
     </button>
   );
