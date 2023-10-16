@@ -21,6 +21,8 @@
     background-size: cover;
     flex: 0 0 calc(33.33% - 30px);
     margin: 15px;
+    overflow: scroll;
+
 }
 
 .custom-card.display-artist p {
@@ -53,11 +55,6 @@
     font-size: 25px;
     font-weight: bold;
     margin-top: 10px;
-}
-
-/* Card Body - Address and Styles*/
-.block-address-styles {
-    overflow: scroll;
 }
 
 /* Address */
@@ -102,7 +99,7 @@
 .card-all-styles.display-artist {
     display: flex;
     flex-flow: row wrap;
-    height: 120px;
+    height: 100%;
 }
 .card-styles.display-artist {
     background-color: #D3D3D3;

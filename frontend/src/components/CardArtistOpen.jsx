@@ -46,7 +46,7 @@ function CardArtistOpen({ artist }) {
             )}
             <h1 className='card-artist-name card-artist'>{artist.artist_name}</h1>
           </Card.Title>
-          <Card.Text className='card-artist'>
+          <div className='card-artist'>
             {artist && artist.biography ? (
               <>
                 <h3 className='card-fields-title'>Biographie</h3>
@@ -185,7 +185,7 @@ function CardArtistOpen({ artist }) {
                 />
               </div>
             )}
-          </Card.Text>
+          </div>
         </Card.Body>
       </Card>
     </>

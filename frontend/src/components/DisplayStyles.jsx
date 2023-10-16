@@ -30,9 +30,9 @@ function DisplayStyles() {
                 <Card.Title className='card-title display-styles'>
                   {style.style_name}
                 </Card.Title>
-                <Card.Text className='card-description display-styles'>
-                  <p>{style.description}</p>
-                </Card.Text>
+                <div className='card-description display-styles'>
+                  {style.description}
+                </div>
               </Card.Body>
             </Card>
           </div>

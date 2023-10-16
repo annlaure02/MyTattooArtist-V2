@@ -30,7 +30,6 @@ function CardArtistSearchOpen({ artist }) {
         <Card.Body>
           <Card.Title className='card-title card-artist'>
             {artist && artist.profile_picture ? (
-
               <img
                 src={`${artist.profile_picture}`}
                 alt=""
@@ -45,7 +44,7 @@ function CardArtistSearchOpen({ artist }) {
             )}
             <h1 className='card-artist-name card-artist'>{artist.artist_name}</h1>
           </Card.Title>
-          <Card.Text className='card-artist'>
+          <div className='card-artist'>
             {artist && artist.biography ? (
               <>
                 <h3 className='card-fields-title'>Biographie</h3>
@@ -184,7 +183,7 @@ function CardArtistSearchOpen({ artist }) {
                 />
               </div>
             )}
-          </Card.Text>
+          </div>
         </Card.Body>
       </Card>
     </div>

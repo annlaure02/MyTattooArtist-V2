@@ -11,7 +11,7 @@ function CardHomeInfo() {
           <Card.Img className='card-home-info-img' variant="top" src={InfoPhoto} />
           <Card.Body className='card-home-info-body'>
             <Card.Title className='card-home-info-title'>Infos</Card.Title>
-            <Card.Text className='card-home-info-text'>
+            <div className='card-home-info-text'>
               <h3>Comment choisir son tatoueur</h3>
               <div>
                 <p>Choisir le bon tatoueur est essentiel pour garantir un tatouage de qualité.
@@ -29,31 +29,26 @@ function CardHomeInfo() {
               </div>
               <h3>Prendre soin de son tatouage, c'est important!</h3>
               <div>
-                <p>
-                  Après avoir fait votre tatouage, suivez ces étapes simples pour en prendre soin :
-                  <ul>
-                    <li>Laissez le pansement pendant quelques heures pour protéger la zone.</li>
-                    <li>Nettoyez délicatement avec de l'eau tiède et du savon doux.</li>
-                    <li>Séchez en tapotant avec une serviette propre.</li>
-                    <li>Durant 10 à 15 jours, appliquez régulièrement une pommade (exemple: Bépanthène) pour hydrater la peau.</li>
-                    <li>Évitez les irritations comme les vêtements serrés et l'exposition au soleil.</li>
-                    <li>Ne grattez pas ou ne pelez pas la peau qui pèle, laissez-la guérir naturellement.</li>
-                  </ul>
-                </p>
-                <p>
-                  Pour prendre soin de votre tatouage sur le long terme :
-                  <ul>
-                    <li>Hydratez régulièrement avec une crème spécifique pour les tatouages.</li>
-                    <li>Protégez du soleil en utilisant une crème solaire et en limitant l'exposition directe.</li>
-                    <li>Évitez les produits agressifs et préférez ceux formulés pour les tatouages.</li>
-                    <li>Maintenez une peau saine en adoptant une bonne hygiène de vie.</li>
-                    <li>Évitez les traumatismes et les frottements excessifs.</li>
-                    <li>Suivez les conseils de votre tatoueur pour un entretien optimal.</li>
-                  </ul>
-                </p>
+                <h6>Après avoir fait votre tatouage, suivez ces étapes simples pour en prendre soin :</h6>
+                <ul>
+                  <li>Laissez le pansement pendant quelques heures pour protéger la zone.</li>
+                  <li>Nettoyez délicatement avec de l'eau tiède et du savon doux.</li>
+                  <li>Séchez en tapotant avec une serviette propre.</li>
+                  <li>Durant 10 à 15 jours, appliquez régulièrement une pommade (exemple: Bépanthène) pour hydrater la peau.</li>
+                  <li>Évitez les irritations comme les vêtements serrés et l'exposition au soleil.</li>
+                  <li>Ne grattez pas ou ne pelez pas la peau qui pèle, laissez-la guérir naturellement.</li>
+                </ul>
+                <h6>Pour prendre soin de votre tatouage sur le long terme :</h6>
+                <ul>
+                  <li>Hydratez régulièrement avec une crème spécifique pour les tatouages.</li>
+                  <li>Protégez du soleil en utilisant une crème solaire et en limitant l'exposition directe.</li>
+                  <li>Évitez les produits agressifs et préférez ceux formulés pour les tatouages.</li>
+                  <li>Maintenez une peau saine en adoptant une bonne hygiène de vie.</li>
+                  <li>Évitez les traumatismes et les frottements excessifs.</li>
+                  <li>Suivez les conseils de votre tatoueur pour un entretien optimal.</li>
+                </ul>
               </div>
-
-            </Card.Text>
+            </div>
           </Card.Body>
         </Card>
       </div>
