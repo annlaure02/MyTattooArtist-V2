@@ -216,6 +216,7 @@
   }
 }
 
+/* Responsive Navbar max width 480px -  Smartphones */
 @media screen and (min-device-width : 320px) and (max-device-width : 480px) {
   .logo-title {
     font-size: 43px;
