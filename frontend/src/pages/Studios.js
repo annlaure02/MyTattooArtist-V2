@@ -5,8 +5,7 @@ function Studios() {
   return (
     <div className='container'>
       <Navbar />
-      <div>
-      </div>
+      
     </div>
 
   )

@@ -6,10 +6,8 @@ function Search() {
   return (
     <div className='container'>
       <Navbar />
-      <div>
-        <h1 className='home-title'>Trouve le tatoueur qui te convient</h1>
-        <SearchBar />
-      </div>
+      <h1 className='home-title'>Trouve le tatoueur qui te convient</h1>
+      <SearchBar />
     </div>
   )
 }

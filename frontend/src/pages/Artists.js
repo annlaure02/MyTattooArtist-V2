@@ -14,11 +14,9 @@ function Artists() {
   return (
     <div className='container'>
       <Navbar />
-      <div>
-        <h1 className='title-pages'>Trouve le tatoueur qui te convient</h1>
-        <SearchBar onSearch={handleSearch} />
-        {!showResults && <DisplayArtists />}
-      </div>
+      <h1 className='title-pages'>Trouve le tatoueur qui te convient</h1>
+      <SearchBar onSearch={handleSearch} />
+      {!showResults && <DisplayArtists />}
     </div>
   )
 }

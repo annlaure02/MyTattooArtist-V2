@@ -6,9 +6,7 @@ function TattooStyles() {
   return (
     <div className='container'>
       <Navbar />
-      <div>
-        <DisplayStyles />
-      </div>
+      <DisplayStyles />
     </div>
   )
 }
