@@ -21,6 +21,7 @@
     gap: 40px;
     padding-bottom: 30px;
     border-bottom: 1px solid black;
+    margin-bottom: 20px;
 }
 
 .profile-picture.card-artist {
@@ -42,7 +43,7 @@
 }
 
 .card-fields-title {
-    margin-top: 25px;
+    margin-top: 15px;
     font-weight: bold;
     margin-bottom: 15px;
 }
@@ -95,7 +96,14 @@
     margin-right: 9px;
 }
 
-    /* 2nd block: social network and contact */
+.studio-separation.card-artist {
+    height: 2px;
+    width: 50%;
+    border-bottom: 1px solid black;
+    margin: 20px 0 20px 30px;
+}
+
+/* 2nd block: social network and contact */
 .artist-informations.card-artist {
     width: 50%;
 }

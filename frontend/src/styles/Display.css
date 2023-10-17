@@ -1,0 +1,215 @@
+/* --------- Component DisplayArtists - display all artists in the artist page --------- */
+/* --- display in the page --- */
+.custom-page {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+/* --- Formatting Card in the page --- */
+.custom-card.display-artist {
+  padding: 10px 8px 10px 8px;
+  cursor: pointer;
+  width: 22rem;
+  height: 37rem;
+  background-image: url(../images/Backgroun-card.jpg);
+  background-position: center center;
+  background-size: cover;
+  flex: 0 0 calc(33.33% - 30px);
+  margin: 15px;
+  overflow: scroll;
+}
+
+.custom-card.display-artist p {
+  margin: 0;
+}
+
+/* Cart Title - header */
+.card-title.display-artist {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid black;
+}
+
+.profile-picture.display-artist {
+  height: 125px;
+  width: 125px;
+  border-radius: 100%;
+  border: 1px solid #DCDCDC;
+  filter: drop-shadow(12px -2px 5px rgb(91, 86, 86));
+}
+
+.card-artist-name {
+  font-size: 40px;
+  font-family: 'MonteCarlo', cursive;
+}
+
+.card-fields.display-artist {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.block-address-styles {
+  margin-bottom: 5px;
+}
+
+/* Address */
+.studio-informations.display-artist {
+  margin-left: 10px;
+}
+
+.block-address-informations.display-artist {
+  display: flex;
+  align-items: flex-start;
+}
+
+.block-address-informations.display-artist svg {
+  width: 21px;
+  height: 21px;
+  margin-right: 10px;
+  margin-top: 6px;
+}
+
+.address-studio.display-artist p {
+  margin-bottom: 8px;
+}
+
+.address-studio.display-artist .studio-name {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.website-icon-info.display-artist {
+  display: flex;
+  align-items: center;
+  margin-top: 3px;
+}
+
+.website-icon-info.display-artist svg {
+  width: 23px;
+  height: 23px;
+  margin-right: 9px;
+}
+
+.studio-separation.display-artist {
+  height: 2px;
+  width: 70%;
+  border-bottom: 1px solid black;
+  margin: 10px 0 10px 30px;
+}
+
+/* Styles */
+.card-all-styles.display-artist {
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+}
+.card-styles.display-artist {
+  background-color: #D3D3D3;
+  margin: 6px;
+  border-radius: 30px;
+  height: 35px;
+}
+
+.card-style-item.display-artist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  padding: 4px 10px 0 10px;
+  font-size: 16px;
+}
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .custom-page {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+  }
+
+  .custom-card.display-artist {
+      padding: 8px 5px 8px 5px;
+      max-width: 18rem;
+      height: 36rem;
+      margin: 10px;
+  }
+
+  /* Cart Title - header */
+  .card-title.display-artist {
+      flex-direction: column;
+      padding-bottom: 8px;
+      gap: 10px;
+  }
+
+  .profile-picture.display-artist {
+      height: 100px;
+      width: 100px;
+      filter: drop-shadow(8px -2px 5px rgb(91, 86, 86));
+  }
+
+  .card-artist-name {
+      font-size: 38px;
+  }
+
+  .card-fields.display-artist {
+      font-size: 22px;
+  }
+
+  .address-studio.display-artist .studio-name {
+      font-size: 20px;
+  }
+}
+
+/* --------- Component DisplayStudio - display all studios in the studios page --------- */
+
+/* --- display in the page --- */
+
+/* --- Formatting Card in the page --- */
+
+
+
+/* --------- Component DisplayStyles - display all styles in the styles page --------- */
+
+/* --- display in the page --- */
+.custom-styles-page {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 50px;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+/* --- Formatting Card in the page --- */
+.custom-card.display-styles {
+  padding: 10px 8px 10px 8px;
+  width: 22rem;
+  height: 36rem;
+  background-image: url(../images/Backgroun-card.jpg);
+  background-position: center center;
+  background-size: cover;
+  flex: 0 0 calc(33.33% - 30px);
+  margin: 15px;
+}
+
+.card-title.display-styles{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-family: 'MonteCarlo', cursive;
+}
+
+.card-description.display-styles {
+  padding: 0 10px 30px 10px;
+}

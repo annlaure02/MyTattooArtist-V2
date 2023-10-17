@@ -72,6 +72,7 @@ function CardArtistSearchOpen({ artist }) {
                         <TbWorldWww />
                         <p><a href={studio.studio_website}>{studio.studio_website}</a></p>
                       </div>
+                      <div className='studio-separation card-artist'></div>
                     </div>
                   ))}
                 </div>

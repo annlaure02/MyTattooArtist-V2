@@ -3,7 +3,7 @@ import { Card, Modal } from 'react-bootstrap';
 import CardArtistOpen from './CardArtistOpen';
 import { HiHome } from 'react-icons/hi';
 import { TbWorldWww } from 'react-icons/tb';
-import '../styles/DisplayArtists.css';
+import '../styles/Display.css';
 import '../styles/CardArtist.css';
 import AppareilPhotos from '../images/appareil-photos.jpg'
 
@@ -59,7 +59,7 @@ function DisplayArtists() {
                       {artist && artist.studio ? (
                         <div className='studio-informations display-artist'>
                           {artist.studio.map(studio => (
-                            <div key={studio.id} className=''>
+                            <div key={studio.id} className='studio-informations-individual display-artist'>
                               <div className='block-address-informations display-artist' >
                                 <HiHome />
                                 <div className='address-studio display-artist'>
@@ -73,6 +73,7 @@ function DisplayArtists() {
                                 <TbWorldWww />
                                 <p>{studio.studio_website}</p>
                               </div>
+                              <div className='studio-separation display-artist'></div>
                             </div>
                           ))}
                         </div>

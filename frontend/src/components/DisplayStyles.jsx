@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
-import '../styles/DisplayStyles.css'
+import '../styles/Display.css'
 
 function DisplayStyles() {
   const [styles, setStyles] = useState([]);

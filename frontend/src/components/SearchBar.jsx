@@ -4,7 +4,7 @@ import { Search } from 'react-bootstrap-icons';
 import { Card, Modal } from 'react-bootstrap';
 import CardArtistSearchOpen from './CardArtistSearchOpen';
 import '../styles/SearchBar.css';
-import '../styles/DisplayArtists.css';
+import '../styles/Display.css';
 import AppareilPhotos from '../images/appareil-photos.jpg';
 import { HiHome } from 'react-icons/hi';
 import { TbWorldWww } from 'react-icons/tb';
@@ -211,6 +211,7 @@ function SearchBar({ onSearch }) {
                                 <TbWorldWww />
                                 <p>{studio.studio_website}</p>
                               </div>
+                              <div className='studio-separation display-artist'></div>
                             </div>
                           ))}
                         </div>

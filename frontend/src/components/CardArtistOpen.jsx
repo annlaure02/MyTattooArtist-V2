@@ -60,7 +60,7 @@ function CardArtistOpen({ artist }) {
               {artist && artist.studio ? (
                 <div className='studio-informations card-artist'>
                   {artist.studio.map(studio => (
-                    <div key={studio.id}>
+                    <div key={studio.id} className='studio-informations-individual card-artist'>
                       <div className='block-address-informations card-artist' >
                         <HiHome />
                         <div className='address-studio card-artist'>
@@ -74,6 +74,7 @@ function CardArtistOpen({ artist }) {
                         <TbWorldWww />
                         <p><a href={studio.studio_website}>{studio.studio_website}</a></p>
                       </div>
+                      <div className='studio-separation card-artist'></div>
                     </div>
                   ))}
                 </div>
