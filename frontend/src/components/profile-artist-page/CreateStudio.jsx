@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { FaPlus } from 'react-icons/fa';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -18,6 +18,40 @@ function CreateStudio({ dataUpdated, artist }) {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const { artistId } = useContext(ArtistContext)
+
+  const [departments, setDepartments] = useState([]);
+  const [regions, setRegions] = useState([]);
+
+  useEffect(() => {
+    const fetchDepartmentRegion = async () => {
+      try {
+        const response = await fetch('https://happyapi.fr/api/getDeps');
+        const data = await response.json();
+        const listDepRegion = data.result.result
+        // sorted department
+        const sortedDepartments = listDepRegion.slice().sort((a, b) => a.dep_name.localeCompare(b.dep_name));
+        setDepartments(sortedDepartments)
+
+        // remove double and sorted regions
+        const uniqueRegionsSet = new Set(listDepRegion.map(region => region.region_name));
+        const uniqueRegionArray = Array.from(uniqueRegionsSet)
+        // changed Île-de-France to Ile-de-France to make a corect sort list
+        const modifiedUniqueRegionArray = uniqueRegionArray.map((regionName) => {
+          if (regionName === "Île-de-France") {
+            return "Ile-de-France";
+          }
+          return regionName;
+        });
+
+        const sortedRegions = modifiedUniqueRegionArray.sort()
+        console.log(sortedRegions)
+        setRegions(sortedRegions)
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchDepartmentRegion();
+  }, []);
 
   const onSubmit = async (data) => {
     // Create the Studio
@@ -173,22 +207,35 @@ function CreateStudio({ dataUpdated, artist }) {
                 <Row className="mb-3">
                   <Form.Group as={Col} sm={5} controlId="studio_department">
                     <Form.Label>Département<span className="red-asterisk">*</span></Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="ex 75"
+                    <Form.Select
+                      placeholder='département '
                       aria-label='Département'
-                      maxLength="3"
-                      {...register('studio_department', { required: true })} />
+                      {...register('studio_department', { required: true })}>
+                      <option value="" hidden>Liste départements</option>
+                      {departments.map(department => (
+                        <option className='select-list' key={department.num_dep} value={department.dep_name}>
+                          {department.dep_name} ({department.num_dep})
+                        </option>
+                      ))}
+                    </Form.Select>
                   </Form.Group>
                   {errors.studio_department && <p className="error-message">Ce champ est obligatoire.</p>}
 
                   <Form.Group as={Col} sm={5} controlId="studio_region">
                     <Form.Label>Région<span className="red-asterisk">*</span></Form.Label>
-                    <Form.Control
+                    <Form.Select
                       type="text"
-                      placeholder="ex Ile-de-France"
+                      placeholder="Région"
                       aria-label='région'
-                      {...register('studio_region', { required: true })} />
+                      {...register('studio_region', { required: true })}
+                    >
+                      <option value="" hidden>Liste régions</option>
+                      {regions.map((region, index) => (
+                        <option key={index} value={region}>
+                          {region}
+                        </option>
+                      ))}
+                    </Form.Select>
                   </Form.Group>
                   {errors.studio_region && <p className="error-message">Ce champ est obligatoire.</p>}
 

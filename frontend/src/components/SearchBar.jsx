@@ -157,7 +157,7 @@ function SearchBar({ onSearch }) {
             placeholder='Région'
             {...register('searchRegion')}
           >
-            <option value="" >Région</option>
+            <option value="" hidden>Région</option>
             {regions.map((region, index) => (
               <option key={index} value={region}>
                 {region}
