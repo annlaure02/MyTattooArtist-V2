@@ -40,7 +40,6 @@ function Photos({ dataUpdated }) {
           method: 'PUT',
           body: formData
         });
-        console.log(updateResponse)
 
         if (updateResponse.ok) {
           const responseData = await updateResponse.json();

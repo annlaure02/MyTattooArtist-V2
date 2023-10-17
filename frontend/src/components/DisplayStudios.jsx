@@ -14,7 +14,6 @@ function DisplayStudios() {
     const response = await fetch('http://127.0.0.1:8000/project/api/studio/')
     const data = await response.json()
     setSudios(data)
-    console.log(data)
   }
 
   useEffect(() => {

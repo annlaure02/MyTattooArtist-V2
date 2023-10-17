@@ -10,7 +10,6 @@ function DisplayStyles() {
       try {
         const response = await fetch('http://127.0.0.1:8000/project/api/tattoo-style/');
         const data = await response.json();
-        console.log(data);
         const sortedStyles = data.sort((a, b) => a.style_name.localeCompare(b.style_name));
         setStyles(sortedStyles);
       } catch (error) {

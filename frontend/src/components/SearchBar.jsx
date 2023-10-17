@@ -55,7 +55,6 @@ function SearchBar({ onSearch }) {
         });
 
         const sortedRegions = modifiedUniqueRegionArray.sort()
-        console.log(sortedRegions)
         setRegions(sortedRegions)
       } catch (error) {
         console.error(error);

@@ -23,13 +23,8 @@ function Connexion() {
 
       const responseData = await response.json();
       const artistId = responseData.artistId;
-      console.log(responseData);
 
       login(artistId);
-
-      const artistResponse = await fetch(`http://127.0.0.1:8000/user_artist/api/ma-page-artiste/${artistId}/`);
-      const artistData = await artistResponse.json();
-      console.log(artistData);
 
       const redirectUrl = `/ma-page-artiste/mes-informations/${artistId}`;
       redirectArtistPage(redirectUrl);
@@ -43,7 +38,7 @@ function Connexion() {
     <>
       <div className="modal show-connexion">
         <Modal.Dialog
-          dialogClassName='modal-registration-login'
+          className='modal-registration-login'
           size="lg"
         >
           <div className='inside-modal-registration-login'>

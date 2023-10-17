@@ -34,7 +34,6 @@ function ProfileArtistPageStyles() {
   };
 
   const handleUpdate = (dataUpdated) => {
-    console.log(dataUpdated);
     setArtist(dataUpdated);
   };
 

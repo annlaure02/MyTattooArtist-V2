@@ -27,7 +27,6 @@ function Registration(props) {
     })
       .then(response => response.json())
       .then(responseData => {
-        console.log(responseData);
         const artistId = responseData.artistId;
         if (artistId) {
           const redirectUrl = `/connexion`;

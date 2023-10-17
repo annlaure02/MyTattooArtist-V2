@@ -42,7 +42,6 @@ function Styles({ dataUpdated, artist }) {
 
         if (updateResponse.ok) {
           const responseData = await updateResponse.json();
-          console.log(responseData)
           dataUpdated(responseData);
         }
         else {

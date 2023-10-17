@@ -35,7 +35,6 @@ function ProfileArtistPageInformations() {
   };
 
   const handleUpdate = (dataUpdated) => {
-    console.log(dataUpdated);
     setArtist(dataUpdated);
   };
 

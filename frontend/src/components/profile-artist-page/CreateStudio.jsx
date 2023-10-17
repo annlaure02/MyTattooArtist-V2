@@ -44,7 +44,6 @@ function CreateStudio({ dataUpdated, artist }) {
         });
 
         const sortedRegions = modifiedUniqueRegionArray.sort()
-        console.log(sortedRegions)
         setRegions(sortedRegions)
       } catch (error) {
         console.error(error);
@@ -84,7 +83,6 @@ function CreateStudio({ dataUpdated, artist }) {
 
             if (updateResponse.ok) {
               const responseData = await updateResponse.json();
-              console.log(responseData)
               dataUpdated(responseData);
             }
             else {

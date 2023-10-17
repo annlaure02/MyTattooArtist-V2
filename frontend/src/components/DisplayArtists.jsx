@@ -17,7 +17,6 @@ function DisplayArtists() {
     const response = await fetch('http://127.0.0.1:8000/user_artist/api/all-artists/')
     const data = await response.json()
     setArtists(data)
-    console.log(data)
   }
 
   useEffect(() => {

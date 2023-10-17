@@ -35,7 +35,6 @@ function ProfileArtistPageFlash() {
   };
 
   const handleUpdate = (dataUpdated) => {
-    console.log(dataUpdated);
     setArtist(dataUpdated);
   };
 
