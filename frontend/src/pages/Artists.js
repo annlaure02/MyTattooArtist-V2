@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../components/header/Navbar';
 import DisplayArtists from '../components/DisplayArtists';
-import SearchBar from '../components/SearchBar';
+import SearchBarArtists from '../components/SearchBarArtists';
 
 
 function Artists() {
@@ -15,7 +15,7 @@ function Artists() {
     <div className='container'>
       <Navbar />
       <h1 className='title-pages'>Trouve le tatoueur qui te convient</h1>
-      <SearchBar onSearch={handleSearch} />
+      <SearchBarArtists onSearch={handleSearch} />
       {!showResults && <DisplayArtists />}
     </div>
   )

@@ -21,7 +21,7 @@ function DisplayStyles() {
 
   return (
     <>
-      <div className='custom-styles-page'>
+      <div className='custom-page styles'>
         {styles.map((style) => (
           <div key={style.id} >
             <Card className='custom-card display-styles'>

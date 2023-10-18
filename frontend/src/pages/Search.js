@@ -1,4 +1,4 @@
-import SearchBar from '../components/SearchBar';
+import SearchBarArtists from '../components/SearchBarArtists';
 import Navbar from '../components/header/Navbar';
 import '../styles/Home.css'
 
@@ -7,7 +7,7 @@ function Search() {
     <div className='container'>
       <Navbar />
       <h1 className='home-title'>Trouve le tatoueur qui te convient</h1>
-      <SearchBar />
+      <SearchBarArtists />
     </div>
   )
 }

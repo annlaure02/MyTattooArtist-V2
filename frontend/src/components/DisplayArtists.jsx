@@ -34,7 +34,7 @@ function DisplayArtists() {
         {artists.map(artist => (
           <div key={artist.id}>
             {artist && artist.actif === true ? (
-              <div onClick={() => handleClick(artist)}>
+              <div>
                 <Card className='custom-card display-artist'>
                   <Card.Body >
                     <Card.Title className='card-title display-artist'>
@@ -53,6 +53,14 @@ function DisplayArtists() {
                       )}
                       <p className='card-artist-name'>{artist.artist_name}</p>
                     </Card.Title>
+                    <div
+                      className='consult-artist display-artist'
+                      onClick={() => handleClick(artist)}
+                    >
+                      <button className='btn-consult-artist display-artist'>
+                        Consulter la fiche de l'artiste
+                      </button>
+                    </div>
                     <div className='block-address-styles'>
                       <h3 className='card-fields display-artist'>Adresse</h3>
                       {artist && artist.studio ? (

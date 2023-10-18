@@ -9,7 +9,7 @@ import AppareilPhotos from '../images/appareil-photos.jpg';
 import { HiHome } from 'react-icons/hi';
 import { TbWorldWww } from 'react-icons/tb';
 
-function SearchBar({ onSearch }) {
+function SearchBarArtists({ onSearch }) {
   const [styles, setStyles] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [selectArtist, setSelectArtist] = useState(null);
@@ -172,7 +172,7 @@ function SearchBar({ onSearch }) {
         {searchResults.map((artist) => (
           <div key={artist.id}>
             {artist && artist.actif === true ? (
-              <div onClick={() => handleClick(artist)}>
+              <div>
                 <Card className='custom-card display-artist'>
                   <Card.Body >
                     <Card.Title className='card-title display-artist'>
@@ -191,6 +191,14 @@ function SearchBar({ onSearch }) {
                       )}
                       <p className='card-artist-name'>{artist.artist_name}</p>
                     </Card.Title>
+                    <div
+                      className='consult-artist display-artist'
+                      onClick={() => handleClick(artist)}
+                    >
+                      <button className='btn-consult-artist display-artist'>
+                        Consulter la fiche de l'artiste
+                      </button>
+                    </div>
                     <div className='block-address-styles'>
                       <h3 className='card-fields display-artist'>Adresse</h3>
                       {artist && artist.studio ? (
@@ -253,4 +261,4 @@ function SearchBar({ onSearch }) {
   );
 }
 
-export default SearchBar;
+export default SearchBarArtists;

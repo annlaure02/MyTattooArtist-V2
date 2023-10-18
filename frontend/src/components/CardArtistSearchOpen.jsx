@@ -167,7 +167,7 @@ function CardArtistSearchOpen({ artist }) {
                     <img
                       className='photo-flash card-artist'
                       key={flash.id}
-                      src={`http://127.0.0.1:8000${flash.image}`}
+                      src={`${flash.image}`}
                       alt=""
                       onClick={() => handleClick(null, flash)}
                     />
