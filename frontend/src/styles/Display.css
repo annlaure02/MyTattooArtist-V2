@@ -311,13 +311,14 @@
 /* --- Formatting Card in the page --- */
 .custom-card.display-styles {
   padding: 10px 8px 10px 8px;
-  width: 22rem;
-  height: 36rem;
+  width: 21rem;
+  height: 34rem;
   background-image: url(../images/Backgroun-card.jpg);
   background-position: center center;
   background-size: cover;
   flex: 0 0 calc(33.33% - 30px);
   margin: 15px;
+  overflow: scroll;
 }
 
 .card-title.display-styles{
@@ -326,8 +327,11 @@
   align-items: center;
   font-size: 40px;
   font-family: 'MonteCarlo', cursive;
+  padding-bottom: 13px;
+  border-bottom: 1px solid black;
 }
 
 .card-description.display-styles {
   padding: 0 10px 30px 10px;
+  font-size: 22px;
 }

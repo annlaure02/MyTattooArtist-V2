@@ -214,10 +214,12 @@ function SearchBarArtists({ onSearch }) {
                                   <p>{studio.studio_post_code} {studio.studio_city}</p>
                                 </div>
                               </div>
-                              <div className='website-icon-info display-artist'>
-                                <TbWorldWww />
-                                <p>{studio.studio_website}</p>
-                              </div>
+                              {studio.studio_website ? (
+                                <div className='website-icon-info display-artist'>
+                                  <TbWorldWww />
+                                  <p>{studio.studio_website}</p>
+                                </div>
+                              ) : null}
                               <div className='studio-separation display-artist'></div>
                             </div>
                           ))}

@@ -70,10 +70,12 @@ function CardArtistOpen({ artist }) {
                           <p>{studio.studio_post_code} {studio.studio_city}</p>
                         </div>
                       </div>
-                      <div className='website-icon-info card-artist'>
-                        <TbWorldWww />
-                        <p><a href={studio.studio_website}>{studio.studio_website}</a></p>
-                      </div>
+                      {studio.studio_website ? (
+                        <div className='website-icon-info card-artist'>
+                          <TbWorldWww />
+                          <p><a href={studio.studio_website}>{studio.studio_website}</a></p>
+                        </div>
+                      ) : null}
                       <div className='studio-separation card-artist'></div>
                     </div>
                   ))}

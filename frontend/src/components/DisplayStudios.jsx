@@ -7,10 +7,10 @@ import '../styles/CardArtist.css';
 
 function DisplayStudios() {
   const [studios, setSudios] = useState([])
-/*   
-  const [selectStudio, setSelectStudio] = useState(null)
-  const [show, setShow] = useState(false);
- */
+  /*   
+    const [selectStudio, setSelectStudio] = useState(null)
+    const [show, setShow] = useState(false);
+   */
   const fetchData = async () => {
     const response = await fetch('http://127.0.0.1:8000/project/api/studio/')
     const data = await response.json()
@@ -20,12 +20,12 @@ function DisplayStudios() {
   useEffect(() => {
     fetchData()
   }, [])
-/* 
-  const handleClick = (studio) => {
-    setSelectStudio(studio);
-    setShow(true)
-  }
- */
+  /* 
+    const handleClick = (studio) => {
+      setSelectStudio(studio);
+      setShow(true)
+    }
+   */
   return (
     <>
       <div className='custom-page display-studio'>
@@ -47,14 +47,16 @@ function DisplayStudios() {
                   </div>
                 </div>
                 <div className='separation display-studio'></div>
-                <div className='website-icon-info display-studio'>
-                  <TbWorldWww />
-                  <p>{studio.studio_website}</p>
-                </div>
+                {studio.studio_website ? (
+                  <div className='website-icon-info display-studio'>
+                    <TbWorldWww />
+                    <p>{studio.studio_website}</p>
+                  </div>
+                ) : null}
 
                 <div
                   className='consult-artist display-studio'
-                  /* onClick={() => handleClick(studio)} */
+                /* onClick={() => handleClick(studio)} */
                 >
                   <button className='btn-consult-artist display-studio'>
                     Consulter la fiche du studio

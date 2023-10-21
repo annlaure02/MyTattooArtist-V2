@@ -3,6 +3,7 @@ import CardHomeInfo from '../components/CardHomeInfo';
 import Navbar from '../components/header/Navbar';
 import '../styles/Home.css'
 import SearchBarArtists from '../components/SearchBarArtists';
+import Footer from '../components/Footer';
 
 function Home() {
   const [showResults, setShowResults] = useState(false);
@@ -19,6 +20,7 @@ function Home() {
       <div className='card-home'>
         {!showResults && <CardHomeInfo />}
       </div>
+      <Footer/>
     </div>
   );
 }
