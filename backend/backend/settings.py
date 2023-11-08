@@ -124,7 +124,6 @@ AUTH_PASSWORD_VALIDATORS = [
 # for React
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-    'http://192.168.1.66:3000',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
