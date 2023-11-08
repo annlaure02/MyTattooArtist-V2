@@ -8,6 +8,7 @@ import '../styles/Display.css';
 import AppareilPhotos from '../images/appareil-photos.jpg';
 import { HiHome } from 'react-icons/hi';
 import { TbWorldWww } from 'react-icons/tb';
+import { departmentsSorted, regionsSorted } from '../utils/departmentsRegions';
 
 function SearchBarArtists({ onSearch }) {
   const [styles, setStyles] = useState([]);
@@ -33,35 +34,11 @@ function SearchBarArtists({ onSearch }) {
     fetchData();
   }, []);
 
+  /* Get department and regions from a json file */
   useEffect(() => {
-    const fetchDepartmentRegion = async () => {
-      try {
-        const response = await fetch('https://happyapi.fr/api/getDeps');
-        const data = await response.json();
-        const listDepRegion = data.result.result
-        // sorted department
-        const sortedDepartments = listDepRegion.slice().sort((a, b) => a.dep_name.localeCompare(b.dep_name));
-        setDepartments(sortedDepartments)
-
-        // remove double and sorted regions
-        const uniqueRegionsSet = new Set(listDepRegion.map(region => region.region_name));
-        const uniqueRegionArray = Array.from(uniqueRegionsSet)
-        // changed Île-de-France to Ile-de-France to make a corect sort list
-        const modifiedUniqueRegionArray = uniqueRegionArray.map((regionName) => {
-          if (regionName === "Île-de-France") {
-            return "Ile-de-France";
-          }
-          return regionName;
-        });
-
-        const sortedRegions = modifiedUniqueRegionArray.sort()
-        setRegions(sortedRegions)
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchDepartmentRegion();
-  }, []);
+    setDepartments(departmentsSorted)
+    setRegions(regionsSorted)
+  }, [])
 
   const handleSearch = async (data) => {
     const searchName = data.searchName;
@@ -98,7 +75,17 @@ function SearchBarArtists({ onSearch }) {
 
       const response = await fetch(url);
       const searchData = await response.json();
-      setSearchResults(searchData);
+      /* remove double in searchData */
+      const uniqueSearchResult = [];
+      const unique = searchData.filter(element => {
+        const isDuplicate = uniqueSearchResult.includes(element.id);
+        if (!isDuplicate) {
+          uniqueSearchResult.push(element.id)
+          return true;
+        }
+        return false;
+      })
+      setSearchResults(unique);
       onSearch();
 
     } catch (error) {
@@ -126,7 +113,7 @@ function SearchBarArtists({ onSearch }) {
             placeholder='styles'
             {...register('searchStyleTerm')}
           >
-            <option value='' hidden>Styles</option>
+            <option value="" >Styles</option>
             {styles.map((style) => (
               <option key={style.id} value={style.style_name}>
                 {style.style_name}
@@ -144,7 +131,7 @@ function SearchBarArtists({ onSearch }) {
             placeholder='Département'
             {...register('searchDepartment')}
           >
-            <option value="" hidden>Département</option>
+            <option value="" >Département</option>
             {departments.map(department => (
               <option className='select-list' key={department.num_dep} value={department.dep_name}>
                 {department.dep_name} ({department.num_dep})
@@ -156,7 +143,7 @@ function SearchBarArtists({ onSearch }) {
             placeholder='Région'
             {...register('searchRegion')}
           >
-            <option value="" hidden>Région</option>
+            <option value="" >Région</option>
             {regions.map((region, index) => (
               <option key={index} value={region}>
                 {region}

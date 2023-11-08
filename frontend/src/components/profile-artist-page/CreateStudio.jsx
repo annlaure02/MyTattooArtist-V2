@@ -9,6 +9,8 @@ import { useForm } from 'react-hook-form';
 import { ArtistContext } from '../header/ArtistAuth';
 import '../../styles/private-artist-page/Modal.css'
 import '../../styles/private-artist-page/Buttons.css'
+import listDepartmentsRegions from '../../list-departements-regions.json';
+
 
 function CreateStudio({ dataUpdated, artist }) {
   const [show, setShow] = useState(false);
@@ -22,35 +24,16 @@ function CreateStudio({ dataUpdated, artist }) {
   const [departments, setDepartments] = useState([]);
   const [regions, setRegions] = useState([]);
 
+  /* Get department and regions from a json file */
   useEffect(() => {
-    const fetchDepartmentRegion = async () => {
-      try {
-        const response = await fetch('https://happyapi.fr/api/getDeps');
-        const data = await response.json();
-        const listDepRegion = data.result.result
-        // sorted department
-        const sortedDepartments = listDepRegion.slice().sort((a, b) => a.dep_name.localeCompare(b.dep_name));
-        setDepartments(sortedDepartments)
+    const departmentsSorted = listDepartmentsRegions.sort((a, b) => a.dep_name.localeCompare(b.dep_name));
+    setDepartments(departmentsSorted)
 
-        // remove double and sorted regions
-        const uniqueRegionsSet = new Set(listDepRegion.map(region => region.region_name));
-        const uniqueRegionArray = Array.from(uniqueRegionsSet)
-        // changed Île-de-France to Ile-de-France to make a corect sort list
-        const modifiedUniqueRegionArray = uniqueRegionArray.map((regionName) => {
-          if (regionName === "Île-de-France") {
-            return "Ile-de-France";
-          }
-          return regionName;
-        });
-
-        const sortedRegions = modifiedUniqueRegionArray.sort()
-        setRegions(sortedRegions)
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchDepartmentRegion();
-  }, []);
+    const uniqueRegionsSet = new Set(listDepartmentsRegions.map(region => region.region_name));
+    const uniqueRegionArray = Array.from(uniqueRegionsSet)
+    const regionsSorted = uniqueRegionArray.sort()
+    setRegions(regionsSorted)
+  }, [])
 
   const onSubmit = async (data) => {
     // Create the Studio
