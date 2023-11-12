@@ -16,7 +16,7 @@ function Artists() {
     <div className='container'>
       <Navbar />
       <h1 className='title-pages'>Trouve le tatoueur qui te convient</h1>
-      <SearchBarArtists onSearch={handleSearch} />
+      <SearchBarArtists onSearch={handleSearch} showResults={showResults}/>
       {!showResults && <DisplayArtists />}
       <Footer />
     </div>
