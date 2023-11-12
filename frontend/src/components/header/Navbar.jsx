@@ -14,7 +14,7 @@ function Navbar() {
 
   return (
     <>
-      <div className={menuOpen ? "menu-to-toggle active" : "menu-to-toggle"}>
+      <header className={menuOpen ? "menu-to-toggle active" : "menu-to-toggle"}>
         <nav className={menuOpen ? "navbar active" : "navbar"}>
           <div className={menuOpen ? "logo active" : "logo"}>
             <Link to='/' className="nav-links-logo">
@@ -52,7 +52,7 @@ function Navbar() {
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
         </nav>
-      </div>
+      </header>
     </>
   )
 }
