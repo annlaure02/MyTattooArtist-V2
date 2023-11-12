@@ -13,13 +13,15 @@ function DisplayArtists() {
   const [selectArtist, setSelectArtist] = useState(null)
   const [show, setShow] = useState(false);
 
-  const fetchData = async () => {
-    const response = await fetch('http://127.0.0.1:8000/user_artist/api/all-artists/')
-    const data = await response.json()
-    setArtists(data)
-  }
-
   useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('http://127.0.0.1:8000/user_artist/api/all-artists/')
+      const data = await response.json()
+
+      const actifArtists = data.filter(artist => artist.actif === true)
+      const sortActifArtists = actifArtists.sort((a, b) => a.artist_name.localeCompare(b.artist_name))
+      setArtists(sortActifArtists)
+    }
     fetchData()
   }, [])
 
@@ -28,15 +30,40 @@ function DisplayArtists() {
     setShow(true)
   }
 
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1)
+  const recordsPerPage = 6;
+  const lastIndex = currentPage * recordsPerPage;
+  const firstIndex = lastIndex - recordsPerPage;
+  const records = artists.slice(firstIndex, lastIndex);
+  const nPage = Math.ceil(artists.length / recordsPerPage);
+  const numbers = [...Array(nPage + 1).keys()].slice(1);
+
+  const prevPage = () => {
+    if (currentPage !== 1) {
+      setCurrentPage(currentPage - 1)
+    }
+  }
+
+  const changePage = (number) => {
+    setCurrentPage(number)
+  }
+
+  const nextPage = () => {
+    if (currentPage !== nPage) {
+      setCurrentPage(currentPage + 1)
+    }
+  }
+
   return (
     <>
       <div className='custom-page'>
-        {artists.map(artist => (
+        {records.map(artist => (
           <div key={artist.id}>
-            {artist && artist.actif === true ? (
+            {artist ? (
               <div>
                 <Card className='custom-card display-artist'>
-                  <Card.Body >
+                  <Card.Body>
                     <Card.Title className='card-title display-artist'>
                       {artist && artist.profile_picture ? (
                         <img
@@ -108,6 +135,31 @@ function DisplayArtists() {
           </div>
         ))};
       </div>
+
+      <nav className='nav-pagination'>
+        <ul className='pagination'>
+          <li className='page-item page'>
+            <span className='page-link page' onClick={prevPage}>
+              Précédent
+            </span>
+          </li>
+          {
+            numbers.map((number, index) => (
+              <li className={`page-item page ${currentPage === number ? 'active' : ''}`} key={index}>
+                <span className='page-link page' onClick={() => changePage(number)}>
+                  {number}
+                </span>
+              </li>
+            ))
+          }
+          <li className='page-item page'>
+            <span className='page-link page' onClick={nextPage}>
+              Suivant
+            </span>
+          </li>
+        </ul>
+      </nav>
+      
       <div>
         {selectArtist && (
           <Modal

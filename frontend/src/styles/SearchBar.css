@@ -65,9 +65,15 @@
     font-size: 28px;
 }
 
-
 .search-btn-submit:hover {
     opacity: 80%;
+}
+
+/* Paragraphe no search result  */
+.no-result {
+    text-align: center;
+    color: #DCDCDC;
+    font-size: 24px;
 }
 
 /* Responsive search bar max width 1199px - Tablets in landscape */

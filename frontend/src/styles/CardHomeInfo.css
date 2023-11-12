@@ -22,13 +22,8 @@
     background-image: url(../images/Background-card-info.jpg);
     background-position: center center;
     background-size: cover;
-    overflow: hidden;
-    overflow: scroll;
+    overflow: hidden auto;
     padding-left: 70px;
     padding-right: 70px;
 
-}
-
-li {
-    margin-left: 45px;
 }
