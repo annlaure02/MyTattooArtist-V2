@@ -7,6 +7,7 @@ import ProfilePicture from '../../components/profile-artist-page/ProfilePicture'
 import ArtistName from '../../components/profile-artist-page/ArtistName';
 import Flash from '../../components/profile-artist-page/Flash';
 import DeletePhotoButton from '../../components/profile-artist-page/DeletePhotoButton';
+import PaginationProfileArtist from '../../components/profile-artist-page/PaginationProfileArtist';
 
 function ProfileArtistPageFlash() {
   const { artistId } = useParams();
@@ -37,6 +38,30 @@ function ProfileArtistPageFlash() {
   const handleUpdate = (dataUpdated) => {
     setArtist(dataUpdated);
   };
+
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1)
+  const recordsPerPage = 40;
+  const lastIndex = currentPage * recordsPerPage;
+  const firstIndex = lastIndex - recordsPerPage;
+  const records = artist.flash ? artist.flash.slice(firstIndex, lastIndex) : [];
+  const nPages = artist.flash ? Math.ceil(artist.flash.length / recordsPerPage) : 0;
+
+  const prevPage = () => {
+    if (currentPage !== 1) {
+      setCurrentPage(currentPage - 1)
+    }
+  }
+
+  const changePage = (number) => {
+    setCurrentPage(number)
+  }
+
+  const nextPage = () => {
+    if (currentPage !== nPages) {
+      setCurrentPage(currentPage + 1)
+    }
+  }
 
   return (
     <div className='page-column'>
@@ -80,19 +105,26 @@ function ProfileArtistPageFlash() {
           <Flash dataUpdated={handleUpdate} artist={artist} />
         </div>
         <div>
-            {artist.flash && artist.flash && artist.flash.length > 0 && (
-              <div className='display-photo-flash'>
-                {artist.flash.map(picture => (
-                  <div key={picture.id} className="photo-flash-item">
-                    <img className='photo-flash-picture'
-                      src={`http://127.0.0.1:8000${picture.image}`}
-                      alt="" />
-                    <DeletePhotoButton albumId={picture.id} dataUpdated={handleUpdate} />
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          {artist.flash && artist.flash && artist.flash.length > 0 && (
+            <div className='display-photo-flash'>
+              {records.map(picture => (
+                <div key={picture.id} className="photo-flash-item">
+                  <img className='photo-flash-picture'
+                    src={`http://127.0.0.1:8000${picture.image}`}
+                    alt="" />
+                  <DeletePhotoButton albumId={picture.id} dataUpdated={handleUpdate} />
+                </div>
+              ))}
+            </div>
+          )}
+          <PaginationProfileArtist
+            currentPage={currentPage}
+            nPages={nPages}
+            prevPage={prevPage}
+            nextPage={nextPage}
+            changePage={changePage}
+          />
+        </div>
       </section>
     </div>
   );

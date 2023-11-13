@@ -6,6 +6,7 @@ import { TbWorldWww } from 'react-icons/tb';
 import '../styles/Display.css';
 import '../styles/CardArtist.css';
 import AppareilPhotos from '../images/appareil-photos.jpg'
+import Pagination from './Pagination';
 
 
 function DisplayArtists() {
@@ -36,8 +37,7 @@ function DisplayArtists() {
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
   const records = artists.slice(firstIndex, lastIndex);
-  const nPage = Math.ceil(artists.length / recordsPerPage);
-  const numbers = [...Array(nPage + 1).keys()].slice(1);
+  const nPages = Math.ceil(artists.length / recordsPerPage);
 
   const prevPage = () => {
     if (currentPage !== 1) {
@@ -50,7 +50,7 @@ function DisplayArtists() {
   }
 
   const nextPage = () => {
-    if (currentPage !== nPage) {
+    if (currentPage !== nPages) {
       setCurrentPage(currentPage + 1)
     }
   }
@@ -136,30 +136,14 @@ function DisplayArtists() {
         ))};
       </div>
 
-      <nav className='nav-pagination'>
-        <ul className='pagination'>
-          <li className='page-item page'>
-            <span className='page-link page' onClick={prevPage}>
-              Précédent
-            </span>
-          </li>
-          {
-            numbers.map((number, index) => (
-              <li className={`page-item page ${currentPage === number ? 'active' : ''}`} key={index}>
-                <span className='page-link page' onClick={() => changePage(number)}>
-                  {number}
-                </span>
-              </li>
-            ))
-          }
-          <li className='page-item page'>
-            <span className='page-link page' onClick={nextPage}>
-              Suivant
-            </span>
-          </li>
-        </ul>
-      </nav>
-      
+      <Pagination
+        currentPage={currentPage}
+        nPages={nPages}
+        prevPage={prevPage}
+        nextPage={nextPage}
+        changePage={changePage}
+      />
+
       <div>
         {selectArtist && (
           <Modal

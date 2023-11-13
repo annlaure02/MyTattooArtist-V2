@@ -7,8 +7,10 @@ import { TbWorldWww } from 'react-icons/tb';
 import { FaXTwitter, FaSnapchat } from 'react-icons/fa6';
 import { RiInstagramFill } from 'react-icons/ri';
 import { FaFacebook } from 'react-icons/fa';
+import { GrFormClose } from 'react-icons/gr';
 import '../styles/CardArtist.css';
 import AppareilPhotos from '../images/appareil-photos.jpg';
+import PaginationCard from './PaginationCard';
 
 function CardArtistSearchOpen({ artist }) {
   const [selectedPicture, setSelectedPicture] = useState(null);
@@ -23,6 +25,54 @@ function CardArtistSearchOpen({ artist }) {
     setSelectedPicture(null);
     setSelectedFlash(null);
   };
+
+  /* Pagination */
+  const recordsPerPage = 15;
+  // For photos
+  const [currentPagePhotos, setCurrentPagePhotos] = useState(1)
+  const lastIndexPhotos = currentPagePhotos * recordsPerPage;
+  const firstIndexPhotos = lastIndexPhotos - recordsPerPage;
+  const recordsPhotos = artist.album.slice(firstIndexPhotos, lastIndexPhotos);
+  const nPagesPhotos = Math.ceil(artist.album.length / recordsPerPage);
+
+  const prevPagePhotos = () => {
+    if (currentPagePhotos !== 1) {
+      setCurrentPagePhotos(currentPagePhotos - 1)
+    }
+  }
+
+  const changePagePhotos = (number) => {
+    setCurrentPagePhotos(number)
+  }
+
+  const nextPagePhotos = () => {
+    if (currentPagePhotos !== nPagesPhotos) {
+      setCurrentPagePhotos(currentPagePhotos + 1)
+    }
+  }
+
+  // For flashs 
+  const [currentPageFlash, setCurrentPageFlash] = useState(1)
+  const lastIndexFlash = currentPageFlash * recordsPerPage;
+  const firstIndexFlash = lastIndexFlash - recordsPerPage;
+  const recordsFlashs = artist.flash.slice(firstIndexFlash, lastIndexFlash);
+  const nPagesFlashs = Math.ceil(artist.flash.length / recordsPerPage);
+
+  const prevPageFlashs = () => {
+    if (currentPageFlash !== 1) {
+      setCurrentPageFlash(currentPageFlash - 1)
+    }
+  }
+
+  const changePageFlashs = (number) => {
+    setCurrentPageFlash(number)
+  }
+
+  const nextPageFlashs = () => {
+    if (currentPageFlash !== nPagesFlashs) {
+      setCurrentPageFlash(currentPageFlash + 1)
+    }
+  }
 
   return (
     <div>
@@ -138,54 +188,82 @@ function CardArtistSearchOpen({ artist }) {
             {artist && artist.album && artist.album.length > 0 ? (
               <>
                 <h3 className='card-fields-title'>Photos</h3>
-                <div className='block-photo-flash card-artist'>
-                  {artist.album.map(picture => (
-                    <img
-                      className='photo-flash card-artist'
-                      key={picture.id}
-                      src={`${picture.image}`}
-                      alt=""
-                      onClick={() => handleClick(picture, null)}
-                    />
-                  ))}
+                <div className='block-photo-flash-pagination card-artist'>
+                  <div className='block-photo-flash card-artist'>
+                    {recordsPhotos.map(picture => (
+                      <img
+                        className='photo-flash card-artist'
+                        key={picture.id}
+                        src={`${picture.image}`}
+                        alt=""
+                        aria-label='artist photos'
+                        onClick={() => handleClick(picture, null)}
+                      />
+                    ))}
+                  </div>
+                  <PaginationCard
+                    currentPage={currentPagePhotos}
+                    nPages={nPagesPhotos}
+                    prevPage={prevPagePhotos}
+                    nextPage={nextPagePhotos}
+                    changePage={changePagePhotos}
+                  />
                 </div>
               </>
             ) : null}
-            {selectedPicture && (
-              <div onClick={handleClose}>
-                <img
-                  className='real-size'
-                  src={`${selectedPicture.image}`}
-                  alt=""
-                />
-              </div>
-            )}
+            <div className='block-carousel'>
+              {selectedPicture && (
+                <div className='carousel'>
+                  <img
+                    className='slide'
+                    src={`${selectedPicture.image}`}
+                    alt=""
+                    aria-label='photos selected'
+                  />
+                  <GrFormClose className='btn-close-carousel' onClick={handleClose} />
+                </div>
+              )}
+            </div>
 
             {artist && artist.flash && artist.flash.length > 0 ? (
               <>
                 <h3 className='card-fields-title'>Flash</h3>
-                <div className='block-photo-flash card-artist'>
-                  {artist.flash && artist.flash.map(flash => (
-                    <img
-                      className='photo-flash card-artist'
-                      key={flash.id}
-                      src={`${flash.image}`}
-                      alt=""
-                      onClick={() => handleClick(null, flash)}
-                    />
-                  ))}
+                <div className='block-photo-flash-pagination card-artist'>
+                  <div className='block-photo-flash card-artist'>
+                    {recordsFlashs.map((flash, index) => (
+                      <img
+                        className='photo-flash card-artist'
+                        key={index}
+                        src={`${flash.image}`}
+                        alt=""
+                        aria-label='artist flashs'
+                        onClick={() => handleClick(null, flash)}
+                      />
+                    ))}
+                  </div>
+                  <PaginationCard
+                    currentPage={currentPageFlash}
+                    nPages={nPagesFlashs}
+                    prevPage={prevPageFlashs}
+                    nextPage={nextPageFlashs}
+                    changePage={changePageFlashs}
+                  />
                 </div>
               </>
             ) : null}
-            {selectedFlash && (
-              <div onClick={handleClose}>
-                <img
-                  className='real-size'
-                  src={`${selectedFlash.image}`}
-                  alt=""
-                />
-              </div>
-            )}
+            <div className='block-carousel'>
+              {selectedFlash && (
+                <div className='carousel'>
+                  <img
+                    className='slide'
+                    src={`${selectedFlash.image}`}
+                    alt=""
+                    aria-label='flashs selected'
+                  />
+                  <GrFormClose className='btn-close-carousel' onClick={handleClose} />
+                </div>
+              )}
+            </div>
           </div>
         </Card.Body>
       </Card>

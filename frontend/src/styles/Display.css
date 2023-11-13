@@ -145,40 +145,6 @@
   font-size: 16px;
 }
 
-/* Pagination */
-.nav-pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.page-link.page {
-  color: black;
-  background-color: #c0f5ecec;
-  border-color: #0c4f50;
-}
-
-.page-link.page:hover {
-  background-color: #c0f5ecec;
-  color: black;
-  opacity: 85%;
-  border-color: #0c4f50;
-}
-
-.page-link.page.active,
-.active > .page-link {
-  background-color: #0f5b5d;
-  border-color: #0c4f50;
-  color: white;
-}
-
-.page-link.page.active:hover,
-.active > .page-link {
-  background-color: #0f5b5d;
-  border-color: #0c4f50;
-  color: white;
-}
-
 /* ---------- Responsive part ---------- */
 @media screen and (min-device-width : 320px) and (max-device-width : 480px) {
   .custom-page {

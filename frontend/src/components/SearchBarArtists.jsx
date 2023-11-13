@@ -9,6 +9,7 @@ import AppareilPhotos from '../images/appareil-photos.jpg';
 import { HiHome } from 'react-icons/hi';
 import { TbWorldWww } from 'react-icons/tb';
 import { departmentsSorted, regionsSorted } from '../utils/departmentsRegions';
+import Pagination from './Pagination';
 
 function SearchBarArtists({ onSearch, showResults }) {
   const [styles, setStyles] = useState([]);
@@ -109,8 +110,7 @@ function SearchBarArtists({ onSearch, showResults }) {
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
   const records = searchResults.slice(firstIndex, lastIndex);
-  const nPage = Math.ceil(searchResults.length / recordsPerPage);
-  const numbers = [...Array(nPage + 1).keys()].slice(1);
+  const nPages = Math.ceil(searchResults.length / recordsPerPage);
 
   const prevPage = () => {
     if (currentPage !== 1) {
@@ -123,7 +123,7 @@ function SearchBarArtists({ onSearch, showResults }) {
   }
 
   const nextPage = () => {
-    if (currentPage !== nPage) {
+    if (currentPage !== nPages) {
       setCurrentPage(currentPage + 1)
     }
   }
@@ -270,31 +270,15 @@ function SearchBarArtists({ onSearch, showResults }) {
       ) : null}
 
       {showResults && (
-        <nav className='nav-pagination'>
-          <ul className='pagination'>
-            <li className='page-item page'>
-              <span className='page-link page' onClick={prevPage}>
-                Précédent
-              </span>
-            </li>
-            {
-              numbers.map((number, index) => (
-                <li className={`page-item page ${currentPage === number ? 'active' : ''}`} key={index}>
-                  <span className='page-link page' onClick={() => changePage(number)}>
-                    {number}
-                  </span>
-                </li>
-              ))
-            }
-            <li className='page-item page'>
-              <span className='page-link page' onClick={nextPage}>
-                Suivant
-              </span>
-            </li>
-          </ul>
-        </nav>
+        <Pagination
+          currentPage={currentPage}
+          nPages={nPages}
+          prevPage={prevPage}
+          nextPage={nextPage}
+          changePage={changePage}
+        />
       )}
-      
+
       <div>
         {selectArtist && (
           <Modal

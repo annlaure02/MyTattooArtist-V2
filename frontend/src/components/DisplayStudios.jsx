@@ -4,6 +4,7 @@ import { HiHome } from 'react-icons/hi';
 import { TbWorldWww } from 'react-icons/tb';
 import '../styles/Display.css';
 import '../styles/CardArtist.css';
+import Pagination from './Pagination';
 
 function DisplayStudios() {
   const [studios, setStudios] = useState([])
@@ -16,7 +17,9 @@ function DisplayStudios() {
     const fetchData = async () => {
       const response = await fetch('http://127.0.0.1:8000/project/api/studio/')
       const data = await response.json()
-      setStudios(data)
+
+      const sortedStudios = data.sort((a, b) => a.studio_name.localeCompare(b.studio_name))
+      setStudios(sortedStudios)
     }
     fetchData()
   }, [])
@@ -33,8 +36,7 @@ function DisplayStudios() {
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
   const records = studios.slice(firstIndex, lastIndex);
-  const nPage = Math.ceil(studios.length / recordsPerPage);
-  const numbers = [...Array(nPage + 1).keys()].slice(1);
+  const nPages = Math.ceil(studios.length / recordsPerPage);
 
   const prevPage = () => {
     if (currentPage !== 1) {
@@ -47,7 +49,7 @@ function DisplayStudios() {
   }
 
   const nextPage = () => {
-    if (currentPage !== nPage) {
+    if (currentPage !== nPages) {
       setCurrentPage(currentPage + 1)
     }
   }
@@ -94,29 +96,14 @@ function DisplayStudios() {
         ))};
       </div>
 
-      <nav className='nav-pagination'>
-        <ul className='pagination'>
-          <li className='page-item page'>
-            <span className='page-link page' onClick={prevPage}>
-              Précédent
-            </span>
-          </li>
-          {
-            numbers.map((number, index) => (
-              <li className={`page-item page ${currentPage === number ? 'active' : ''}`} key={index}>
-                <span className='page-link page' onClick={() => changePage(number)}>
-                  {number}
-                </span>
-              </li>
-            ))
-          }
-          <li className='page-item page'>
-            <span className='page-link page' onClick={nextPage}>
-              Suivant
-            </span>
-          </li>
-        </ul>
-      </nav>
+      <Pagination
+        currentPage={currentPage}
+        nPages={nPages}
+        prevPage={prevPage}
+        nextPage={nextPage}
+        changePage={changePage}
+      />
+
       {/*       <div>
         {selectStudio && (
           <Modal

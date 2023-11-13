@@ -11,13 +11,17 @@ function DeletePhotoButton({ albumId, dataUpdated }) {
       const url = `http://127.0.0.1:8000/user_artist/api/ma-page-artiste/${artistId}/delete-album/${albumId}`;
       const deleteResponse = await fetch(url, {
         method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(null)
       });
 
       if (deleteResponse.ok) {
         const responseData = await deleteResponse.json();
         dataUpdated(responseData);
       } else {
-        console.error('Réponse DELETE inattendue :', deleteResponse.status);
+        console.error('Response DELETE failled:', deleteResponse.status);
       }
       console.log('Après la requête DELETE');
     } catch (error) {

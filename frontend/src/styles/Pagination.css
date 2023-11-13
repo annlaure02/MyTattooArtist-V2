@@ -1,0 +1,104 @@
+/* --------- Pagination --------- */
+/* artists and studios pages */
+.nav-pagination.page {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.page-link.page {
+  color: black;
+  background-color: #c7f9fa;
+  border-color: #0c4f50;
+}
+
+.page-link.page:hover {
+  background-color: #c7f9fa;
+  color: black;
+  opacity: 85%;
+  border-color: #0c4f50;
+  cursor: pointer;
+}
+
+.page-link.page.active,
+.active > .page-link.page {
+  background-color: #0f5b5d;
+  border-color: #0c4f50;
+  color: white;
+}
+
+.page-link.page.active:hover,
+.active:hover > .page-link.page:hover {
+  background-color: #0f5b5d;
+  border-color: #0c4f50;
+  color: white;
+}
+
+/* card opened */
+.nav-pagination.card-artist {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.page-link.card-artist {
+  color: black;
+  background-color: #e5e5e5;
+  border-color: black;
+}
+
+.page-link.card-artist:hover {
+  background-color: #cfcfcf;
+  cursor: pointer;
+}
+
+.page-link.card-artist.active,
+.active > .page-link.card-artist {
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.page-link.card-artist.active:hover,
+.active:hover > .page-link.card-artist:hover {
+  background-color: #2c2c2c;
+  border-color: black;
+  color: white;
+  opacity: 90%;
+}
+
+/* Profile Artist photo and flash */
+
+.nav-pagination.artist-profile {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  font-size: 18px;
+}
+
+.page-link.artist-profile {
+  color: #6F2232;
+  background-color: #c6b7bb;
+  border-color: #5a1b28;
+  font-size: 18px;
+}
+
+.page-link.artist-profile:hover {
+  background-color: #c6b7bb;
+  opacity: 90%;
+  cursor: pointer;
+}
+
+.page-link.artist-profile.active,
+.active > .page-link.artist-profile {
+  background-color: #6F2232;
+  border-color: #5a1b28;
+  color: white;
+}
+
+.page-link.artist-profile.active:hover,
+.active:hover > .page-link.artist-profile {
+  background-color: #2c2c2c;
+  border-color: #5a1b28;
+  color: white;
+  opacity: 90%;
+}
