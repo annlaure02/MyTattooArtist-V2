@@ -7,7 +7,7 @@ import { TbWorldWww } from 'react-icons/tb';
 import { FaXTwitter, FaSnapchat } from 'react-icons/fa6';
 import { RiInstagramFill } from 'react-icons/ri';
 import { FaFacebook } from 'react-icons/fa';
-import { GrFormClose } from 'react-icons/gr';
+import { GrFormClose, GrPrevious, GrNext } from 'react-icons/gr';
 import '../styles/CardArtist.css';
 import AppareilPhotos from '../images/appareil-photos.jpg';
 import PaginationCard from './PaginationCard';
@@ -16,10 +16,14 @@ import PaginationCard from './PaginationCard';
 function CardArtistOpen({ artist }) {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [selectedFlash, setSelectedFlash] = useState(null);
+  const [slidePhoto, setSlidePhoto] = useState(0);
+  const [slideFlash, setSlideFlash] = useState(0);
 
-  const handleClick = (picture, flash) => {
-    setSelectedPhoto(picture);
+  const handleClick = (photo, flash, index) => {
+    setSelectedPhoto(photo);
     setSelectedFlash(flash);
+    setSlidePhoto(index);
+    setSlideFlash(index);
   };
 
   const handleClose = () => {
@@ -27,7 +31,27 @@ function CardArtistOpen({ artist }) {
     setSelectedFlash(null);
   };
 
-  
+  /* Carousel photos Flashs */
+  const prevSlidePhoto = () => {
+    setSlidePhoto(index => Math.max(index - 1, 0));
+    setSelectedPhoto(artist.album[Math.max(slidePhoto - 1, 0)]);
+  };
+
+  const nextSlidePhoto = () => {
+    setSlidePhoto(index => Math.min(index + 1, artist.album.length - 1));
+    setSelectedPhoto(artist.album[Math.min(slidePhoto + 1, artist.album.length - 1)]);
+  };
+
+  const prevSlideFlash = () => {
+    setSlideFlash(index => Math.max(index - 1, 0));
+    setSelectedFlash(artist.flash[Math.max(slideFlash - 1, 0)])
+  };
+
+  const nextSlideFlash = () => {
+    setSlideFlash(index => Math.min(index + 1, artist.flash.length - 1));
+    setSelectedFlash(artist.flash[Math.min(slideFlash + 1, artist.flash.length - 1)]);
+  };
+
   /* Pagination */
   const recordsPerPage = 15;
   // For photos
@@ -39,19 +63,19 @@ function CardArtistOpen({ artist }) {
 
   const prevPagePhotos = () => {
     if (currentPagePhotos !== 1) {
-      setCurrentPagePhotos(currentPagePhotos - 1)
+      setCurrentPagePhotos(currentPagePhotos - 1);
     }
-  }
+  };
 
   const changePagePhotos = (number) => {
-    setCurrentPagePhotos(number)
-  }
+    setCurrentPagePhotos(number);
+  };
 
   const nextPagePhotos = () => {
     if (currentPagePhotos !== nPagesPhotos) {
-      setCurrentPagePhotos(currentPagePhotos + 1)
+      setCurrentPagePhotos(currentPagePhotos + 1);
     }
-  }
+  };
 
   // For flashs 
   const [currentPageFlash, setCurrentPageFlash] = useState(1)
@@ -62,19 +86,19 @@ function CardArtistOpen({ artist }) {
 
   const prevPageFlashs = () => {
     if (currentPageFlash !== 1) {
-      setCurrentPageFlash(currentPageFlash - 1)
+      setCurrentPageFlash(currentPageFlash - 1);
     }
-  }
+  };
 
   const changePageFlashs = (number) => {
-    setCurrentPageFlash(number)
-  }
+    setCurrentPageFlash(number);
+  };
 
   const nextPageFlashs = () => {
     if (currentPageFlash !== nPagesFlashs) {
-      setCurrentPageFlash(currentPageFlash + 1)
+      setCurrentPageFlash(currentPageFlash + 1);
     }
-  }
+  };
 
   return (
     <>
@@ -82,17 +106,18 @@ function CardArtistOpen({ artist }) {
         <Card.Body>
           <Card.Title className='card-title card-artist'>
             {artist && artist.profile_picture ? (
-
               <img
                 src={`http://127.0.0.1:8000${artist.profile_picture}`}
                 alt=""
                 className='profile-picture card-artist'
+                aria-label='Profile picture of the artist'
               />
             ) : (
               <img
                 src={AppareilPhotos}
                 alt=""
                 className='profile-picture card-artist'
+                aria-label='Absence profile picture'
               />
             )}
             <h1 className='card-artist-name card-artist'>{artist.artist_name}</h1>
@@ -193,14 +218,14 @@ function CardArtistOpen({ artist }) {
                 <h3 className='card-fields-title'>Photos</h3>
                 <div className='block-photo-flash-pagination card-artist'>
                   <div className='block-photo-flash card-artist'>
-                    {recordsPhotos.map((picture, index) => (
+                    {recordsPhotos.map((photo, index) => (
                       <img
                         className='photo-flash card-artist'
                         key={index}
-                        src={`http://127.0.0.1:8000${picture.image}`}
+                        src={`http://127.0.0.1:8000${photo.image}`}
                         alt=""
                         aria-label='artist photos'
-                        onClick={() => handleClick(picture, null)}
+                        onClick={() => handleClick(photo, null, index)}
                       />
                     ))}
                   </div>
@@ -217,12 +242,14 @@ function CardArtistOpen({ artist }) {
             <div className='block-carousel'>
               {selectedPhoto && (
                 <div className='carousel'>
+                  <GrPrevious className='arrow arrow-prev' onClick={prevSlidePhoto} />
                   <img
                     className='slide'
                     src={`http://127.0.0.1:8000${selectedPhoto.image}`}
                     alt=""
                     aria-label='photos selected'
                   />
+                  <GrNext className='arrow arrow-next' onClick={nextSlidePhoto} />
                   <GrFormClose className='btn-close-carousel' onClick={handleClose} />
                 </div>
               )}
@@ -240,7 +267,7 @@ function CardArtistOpen({ artist }) {
                         src={`http://127.0.0.1:8000${flash.image}`}
                         alt=""
                         aria-label='artist flashs'
-                        onClick={() => handleClick(null, flash)}
+                        onClick={() => handleClick(null, flash, index)}
                       />
                     ))}
                   </div>
@@ -257,12 +284,14 @@ function CardArtistOpen({ artist }) {
             <div className='block-carousel'>
               {selectedFlash && (
                 <div className='carousel'>
+                  <GrPrevious className='arrow arrow-prev' onClick={prevSlideFlash} />
                   <img
                     className='slide'
                     src={`http://127.0.0.1:8000${selectedFlash.image}`}
                     alt=""
                     aria-label='flashs selected'
                   />
+                  <GrNext className='arrow arrow-next' onClick={nextSlideFlash} />
                   <GrFormClose className='btn-close-carousel' onClick={handleClose} />
                 </div>
               )}
