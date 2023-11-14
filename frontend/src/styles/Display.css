@@ -145,6 +145,25 @@
   font-size: 16px;
 }
 
+/* modal */
+.modal-content {
+  position: relative;
+}
+
+.modal-header.display-artist {
+  position: absolute;
+  border: none;
+  top: 24px;
+  right: 0;
+  z-index: 2;
+}
+
+.modal-header.display-artist .btn-close {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 22px;
+}
+
 /* ---------- Responsive part ---------- */
 @media screen and (min-device-width : 320px) and (max-device-width : 480px) {
   .custom-page {
@@ -184,6 +203,16 @@
 
   .address-studio.display-artist .studio-name {
       font-size: 20px;
+  }
+
+  .modal-header.display-artist .btn-close {
+    width: 1rem;
+    height: 1rem;
+    font-size: 18px;
+  }
+
+  .btn-consult-artist.display-artist {
+    font-size: 17px;
   }
 }
 

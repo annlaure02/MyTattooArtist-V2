@@ -26,9 +26,13 @@ function DisplayArtists() {
     fetchData()
   }, [])
 
-  const handleClick = (artist) => {
+  const handleShow = (artist) => {
     setSelectArtist(artist);
-    setShow(true)
+    setShow(true);
+  }
+
+  const handleClose = () => {
+    setShow(false);
   }
 
   // Pagination
@@ -82,7 +86,7 @@ function DisplayArtists() {
                     </Card.Title>
                     <div
                       className='consult-artist display-artist'
-                      onClick={() => handleClick(artist)}
+                      onClick={() => handleShow(artist)}
                     >
                       <button className='btn-consult-artist display-artist'>
                         Consulter la fiche de l'artiste
@@ -148,11 +152,13 @@ function DisplayArtists() {
         {selectArtist && (
           <Modal
             show={show}
-            onHide={() => setShow(false)}
+            onHide={handleClose}
             size='xl'
+            backdrop="static"
             dialogClassName='card-modal-open'
             centered
           >
+            <Modal.Header className='modal-header display-artist' closeButton></Modal.Header>
             <Modal.Body >
               <CardArtistOpen artist={selectArtist} />
             </Modal.Body>

@@ -99,9 +99,13 @@ function SearchBarArtists({ onSearch, showResults }) {
     }
   };
 
-  const handleClick = (artist) => {
+  const handleShow = (artist) => {
     setSelectArtist(artist);
-    setShow(true)
+    setShow(true);
+  }
+
+  const handleClose = () => {
+    setShow(false);
   }
 
   // Pagination
@@ -212,7 +216,7 @@ function SearchBarArtists({ onSearch, showResults }) {
                       </Card.Title>
                       <div
                         className='consult-artist display-artist'
-                        onClick={() => handleClick(artist)}
+                        onClick={() => handleShow(artist)}
                       >
                         <button className='btn-consult-artist display-artist'>
                           Consulter la fiche de l'artiste
@@ -282,10 +286,14 @@ function SearchBarArtists({ onSearch, showResults }) {
       <div>
         {selectArtist && (
           <Modal
-            show={show}
-            onHide={() => setShow(false)}
-            size='xl'
-          >
+          show={show}
+          onHide={handleClose}
+          size='xl'
+          backdrop="static"
+          dialogClassName='card-modal-open'
+          centered
+        >
+          <Modal.Header className='modal-header display-artist' closeButton></Modal.Header>
             <Modal.Body >
               <CardArtistSearchOpen artist={selectArtist} />
             </Modal.Body>
