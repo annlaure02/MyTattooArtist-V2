@@ -1,7 +1,8 @@
 # My Tattoo Artist V2
 ### 📌 Portfolio Project
 The objective of this project is to bring together the greatest number of tattoo artists in France, for a person who wishes to be tattooed can find the tattoo artist who suits him and to put them in touch.  
-## ![Capture d’écran du 2023-07-04 10-34-28](https://github.com/annlaure02/MyTattooArtist/assets/113631115/541f0abf-3d10-43e8-9ed3-5d5ac792c394)
+## ![Capture d’écran 2024-06-29 à 23 10 47-fullpage](https://github.com/annlaure02/MyTattooArtist-V2/assets/113631115/6793cf4a-f053-4583-b3ec-8e300c103acb)
+
 
 ## 💻 Technologies used
 ### Backend
