@@ -15,7 +15,7 @@
 
 .card-home-info-img {
     width: auto;
-    height: 26rem;
+    height: 28rem;
 }
 
 .card-home-info-body {
@@ -26,4 +26,53 @@
     padding-left: 70px;
     padding-right: 70px;
 
+}
+
+/* ---------- Responsive part ---------- */
+
+@media screen and (max-width: 991px) {
+    .card-home-info {
+        min-width: 25rem;
+        max-width: 40rem;
+        height: 55rem;
+        margin-bottom: 30px;
+    }
+
+    .card-home-info-title {
+        font-size: 50px;
+    }
+    
+    .card-home-info-img {
+        width: auto;
+        height: auto;
+    }
+    
+    .card-home-info-body {
+        padding-left: 25px;
+        padding-right: 25px;
+    
+    }
+}
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .card-home-info {
+        min-width: 10rem;
+        max-width: 20rem;
+        height: 40rem;
+        margin-bottom: 25px;
+    }
+    
+    .card-home-info-title {
+        font-size: 45px;
+    }
+    
+    .card-home-info-img {
+        width: auto;
+        height: auto;
+    }
+    
+    .card-home-info-body {
+        padding-left: 10px;
+        padding-right: 10px;
+    
+    }
 }

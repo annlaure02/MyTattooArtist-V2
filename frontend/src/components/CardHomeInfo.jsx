@@ -8,8 +8,8 @@ function CardHomeInfo() {
     <>
       <div>
         <Card className='card-home-info'>
-          <Card.Img className='card-home-info-img' variant="top" src={InfoPhoto} />
-          <Card.Body className='card-home-info-body'>
+          <Card.Img className='card-home-info-img' variant="top" src={InfoPhoto} alt='tatoueur en train de tatouer' />
+          <Card.Body className='card-home-info-body' tabIndex={0}>
             <Card.Title className='card-home-info-title'>Infos</Card.Title>
             <div className='card-home-info-text'>
               <h3>Comment choisir son tatoueur</h3>
