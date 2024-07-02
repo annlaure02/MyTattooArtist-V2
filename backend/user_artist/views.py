@@ -14,7 +14,9 @@ from django.contrib.auth import login, logout
 from rest_framework.decorators import api_view
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import UserArtist, UserArtistAlbum, UserArtistFlash
-from .serializers import UserArtistSerializer, UserRegisterSerializer, UserLoginSerializer
+from .serializers import UserArtistSerializer, UserRegisterSerializer, \
+    UserLoginSerializer
+
 
 @api_view(['GET'])
 @ensure_csrf_cookie
@@ -32,10 +34,10 @@ class UserRegister(APIView):
             user = serializer.create(serializer.validated_data)
             if user:
                 data = serializer.data
-                data['artistId'] = user.id  
+                data['artistId'] = user.id
                 return Response(data, status=status.HTTP_201_CREATED)
         return Response(status=status.HTTP_400_BAD_REQUEST)
-    
+
 
 class UserLogin(APIView):
     def post(self, request):
@@ -53,14 +55,15 @@ class UserLogin(APIView):
 
 
 class UserLogout(APIView):
-	permission_classes = (permissions.AllowAny,)
-	authentication_classes = ()
+    permission_classes = (permissions.AllowAny,)
+    authentication_classes = ()
 
-	def post(self, request):
-		logout(request)
-		return Response(status=status.HTTP_200_OK)
+    def post(self, request):
+        logout(request)
+        return Response(status=status.HTTP_200_OK)
 
-#retrieve all artist  and create it in DB
+
+# retrieve all artist  and create it in DB
 @api_view(['GET', 'POST'])
 @permission_classes((AllowAny,))
 def user_artist_list(request):
@@ -68,17 +71,16 @@ def user_artist_list(request):
         artists = UserArtist.objects.filter(is_superuser=False)
         serializer = UserArtistSerializer(artists, many=True)
         return Response(serializer.data)
-    
+
     elif request.method == 'POST':
         serializer = UserArtistSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
-    
-#retrieve, create, update and delete for the artist personal page
 
+
+# retrieve, create, update and delete for the artist personal page
 @api_view(['GET', 'PUT', 'DELETE'])
 def user_artist_detail(request, pk):
     try:
@@ -91,17 +93,19 @@ def user_artist_detail(request, pk):
         return Response(serializer.data)
 
     elif request.method == 'PUT':
-        serializer = UserArtistSerializer(artist, data=request.data, partial=True)
+        serializer = UserArtistSerializer(artist, data=request.data,
+                                          partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
-    
+            return Response(serializer.errors,
+                            status=status.HTTP_400_BAD_REQUEST)
+
     elif request.method == 'DELETE':
         artist.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 # DELETE a photo in Album table
 @api_view(['DELETE'])
@@ -115,7 +119,7 @@ def delete_artist_album(request, artist_id, album_id):
     if request.method == 'DELETE':
         album.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-    
+
 
 # DELETE a photo in Flash table
 @api_view(['DELETE'])
@@ -130,28 +134,31 @@ def delete_artist_flash(request, artist_id, flash_id):
         album.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-  
+
 class TattooStyleFilter(filters.BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
         style_param = request.query_params.get('style_name')
         if style_param:
             queryset = queryset.filter(tattoo_style__style_name=style_param)
         return queryset
-    
+
+
 class ArtistNameFilter(filters.BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
         style_param = request.query_params.get('artist_name')
         if style_param:
             queryset = queryset.filter(artist_name=style_param)
         return queryset
-    
+
+
 class StudioCityFilter(filters.BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
         style_param = request.query_params.get('studio_city')
         if style_param:
             queryset = queryset.filter(studio__studio_city=style_param)
         return queryset
-    
+
+
 class StudioDepartmentFilter(filters.BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
         style_param = request.query_params.get('studio_department')
@@ -159,13 +166,15 @@ class StudioDepartmentFilter(filters.BaseFilterBackend):
             queryset = queryset.filter(studio__studio_department=style_param)
         return queryset
 
+
 class StudioRegionFilter(filters.BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
         style_param = request.query_params.get('studio_region')
         if style_param:
             queryset = queryset.filter(studio__studio_region=style_param)
         return queryset
-    
+
+
 class StudioNameFilter(filters.BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
         style_param = request.query_params.get('studio_name')
@@ -173,9 +182,11 @@ class StudioNameFilter(filters.BaseFilterBackend):
             queryset = queryset.filter(studio__studio_name=style_param)
         return queryset
 
+
 class UserArtistAPIView(generics.ListCreateAPIView):
     queryset = UserArtist.objects.filter(is_superuser=False)
     serializer_class = UserArtistSerializer
-    filter_backends = [TattooStyleFilter, ArtistNameFilter, StudioCityFilter, StudioDepartmentFilter, StudioNameFilter, StudioRegionFilter, filters.SearchFilter]
+    filter_backends = [TattooStyleFilter, ArtistNameFilter, StudioCityFilter,
+                       StudioDepartmentFilter, StudioNameFilter,
+                       StudioRegionFilter, filters.SearchFilter]
     permission_classes = (AllowAny,)
-        

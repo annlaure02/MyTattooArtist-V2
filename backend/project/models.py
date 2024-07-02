@@ -1,8 +1,8 @@
 from django.db import models
 import uuid
 
-# Create your models here.
 
+# Create your models here.
 class TattooStyle(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     style_name = models.CharField(max_length=50, blank=True)
@@ -10,6 +10,7 @@ class TattooStyle(models.Model):
 
     def __str__(self):
         return self.style_name
+
 
 # Create table Studio
 class Studio(models.Model):

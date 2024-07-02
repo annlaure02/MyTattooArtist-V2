@@ -5,6 +5,7 @@ from rest_framework.permissions import AllowAny
 from .models import TattooStyle, Studio
 from .serializers import TattooStyleSerializer, StudioSerializer
 
+
 # Create your views here.
 @api_view(['GET', 'POST'])
 @permission_classes((AllowAny,))
@@ -13,7 +14,7 @@ def tattoo_style_list(request):
         tattoo = TattooStyle.objects.all()
         serializer = TattooStyleSerializer(tattoo, many=True)
         return Response(serializer.data)
-    
+
     elif request.method == 'POST':
         serializer = TattooStyleSerializer(data=request.data)
         if serializer.is_valid():
@@ -21,7 +22,8 @@ def tattoo_style_list(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-#retrieve and create studio
+
+# retrieve and create studio
 @api_view(['GET', 'POST'])
 @permission_classes((AllowAny,))
 def studio_list(request):
@@ -29,7 +31,7 @@ def studio_list(request):
         studio = Studio.objects.all()
         serializer = StudioSerializer(studio, many=True)
         return Response(serializer.data)
-    
+
     elif request.method == 'POST':
         serializer = StudioSerializer(data=request.data)
         if serializer.is_valid():
