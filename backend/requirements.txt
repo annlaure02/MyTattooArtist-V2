@@ -1,6 +1,6 @@
 asgiref==3.7.2
 #backports.zoneinfo==0.2.1 #delete if you have python >= 3.9
-Django==4.2.3
+Django>=4.2.14
 django-cors-headers==4.0.0
 django-filter==23.2
 django-resized==1.0.2
