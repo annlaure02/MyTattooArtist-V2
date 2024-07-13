@@ -84,7 +84,7 @@ function ProfileArtistPageInformations() {
           <div className='display-informations'>
             <h2><span>Prénom: </span>{artist.first_name}</h2>
             <h2><span>Nom: </span>{artist.last_name}</h2>
-            <h2><span>Status: </span>{artist.status}</h2>
+            <h2><span>Statut: </span>{artist.status}</h2>
             <h2><span>Email: </span>{artist.email}</h2>
             <h2><span>Téléphone: </span>{artist.phone}</h2>
             <h2><span>Facebook: </span><a href={artist.facebook}>{artist.facebook}</a></h2>
