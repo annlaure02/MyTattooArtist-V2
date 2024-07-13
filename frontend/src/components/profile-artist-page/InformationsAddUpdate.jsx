@@ -100,9 +100,9 @@ function InformationsAddUpdate({ dataUpdated, artist }) {
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="status">
-                  <Form.Label>Status</Form.Label>
+                  <Form.Label>Statut</Form.Label>
                   <Form.Select
-                    aria-label="Sélectionne ton status"
+                    aria-label="Sélectionne ton statut"
                     placeholder=""
                     {...register('status')}>
                     <option disabled>Sélectionner votre status</option>
