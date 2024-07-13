@@ -37,14 +37,23 @@
 
 .delete-btn {
     position: absolute;
-    top: 3px;
-    right: 13px;
+    top: 6px;
+    right: 10px;
     background: transparent;
     border: none;
     color: red;
-    font-size: 23px;
     cursor: pointer;
+    background-color: #262424;
+    border-radius: 100%;
+    height: 32px;
+    width: 32px;
+    font-size: 20px;
 }
+
+.delete-btn svg {
+    margin-bottom: 4px;
+}
+
 
 /* ---------- Responsive part ---------- */
 

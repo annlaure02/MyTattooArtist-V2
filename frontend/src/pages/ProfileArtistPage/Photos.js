@@ -112,18 +112,20 @@ function ProfileArtistPagePhotos() {
                   <img className='photo-flash-picture'
                     src={`http://127.0.0.1:8000${photo.image}`}
                     alt="" />
-                  <DeletePhotoButton albumId={photo.id} dataUpdated={handleUpdate} />
+                  <DeletePhotoButton albumId={photo.id} artistId={artistId} dataUpdated={handleUpdate} />
                 </div>
               ))}
             </div>
           )}
-          <PaginationProfileArtist
-            currentPage={currentPage}
-            nPages={nPages}
-            prevPage={prevPage}
-            nextPage={nextPage}
-            changePage={changePage}
-          />
+          {artist && artist.album && artist.album.length > 0 && (
+            <PaginationProfileArtist
+              currentPage={currentPage}
+              nPages={nPages}
+              prevPage={prevPage}
+              nextPage={nextPage}
+              changePage={changePage}
+            />
+          )}
         </div>
       </section>
     </div>

@@ -6,8 +6,8 @@ import '../../styles/private-artist-page/PhotosFlash.css';
 import ProfilePicture from '../../components/profile-artist-page/ProfilePicture';
 import ArtistName from '../../components/profile-artist-page/ArtistName';
 import Flash from '../../components/profile-artist-page/Flash';
-import DeletePhotoButton from '../../components/profile-artist-page/DeletePhotoButton';
 import PaginationProfileArtist from '../../components/profile-artist-page/PaginationProfileArtist';
+import DeleteFlashButton from '../../components/profile-artist-page/DeleteFlashButton';
 
 function ProfileArtistPageFlash() {
   const { artistId } = useParams();
@@ -107,23 +107,25 @@ function ProfileArtistPageFlash() {
         <div>
           {artist.flash && artist.flash && artist.flash.length > 0 && (
             <div className='display-photo-flash'>
-              {records.map(picture => (
-                <div key={picture.id} className="photo-flash-item">
+              {records.map(flash => (
+                <div key={flash.id} className="photo-flash-item">
                   <img className='photo-flash-picture'
-                    src={`http://127.0.0.1:8000${picture.image}`}
+                    src={`http://127.0.0.1:8000${flash.image}`}
                     alt="" />
-                  <DeletePhotoButton albumId={picture.id} dataUpdated={handleUpdate} />
+                  <DeleteFlashButton flashId={flash.id} artistId={artistId} dataUpdated={handleUpdate} />
                 </div>
               ))}
             </div>
           )}
-          <PaginationProfileArtist
-            currentPage={currentPage}
-            nPages={nPages}
-            prevPage={prevPage}
-            nextPage={nextPage}
-            changePage={changePage}
-          />
+          {artist.flash && artist.flash && artist.flash.length > 0 && (
+            <PaginationProfileArtist
+              currentPage={currentPage}
+              nPages={nPages}
+              prevPage={prevPage}
+              nextPage={nextPage}
+              changePage={changePage}
+            />
+          )}
         </div>
       </section>
     </div>
