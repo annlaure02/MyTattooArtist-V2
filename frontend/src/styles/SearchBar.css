@@ -5,7 +5,12 @@
     justify-content: center;
     margin-bottom: 40px;
 }
- /* Formatting the form */
+
+/* Formatting the form */
+.search-responsive {
+    display: none;
+}
+
 .search-bar-form {
     display: flex;
     flex-wrap: wrap;
@@ -19,7 +24,7 @@
 }
 
 /*Fromating input and select */
-.search-input, 
+.search-input,
 .search-select {
     height: 42px;
     border-radius: 20px;
@@ -87,7 +92,8 @@
 
 /* Responsive search bar max width 991px - Tablets in portrait */
 @media screen and (max-width: 991px) {
-    .search-input, 
+
+    .search-input,
     .search-select {
         height: 38px;
         border-radius: 20px;
@@ -117,18 +123,44 @@
 @media screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .search-bar-form {
         display: flex;
-        flex-wrap: column;
         justify-content: center;
         align-items: center;
-        max-width: 225px;
-        row-gap: 15px;
+        width: 250px;
         border: 2px solid #168d8f;
+        padding: 10px;
     }
     .search-input.artist-name,
     .search-select.styles,
     .search-input.citie,
     .search-select.department,
     .search-select.region {
-        min-width: 180px;
+        display: none;
+    }
+
+    .search-responsive {
+        display: contents;
+        color: #DCDCDC;
+        font-size: 22px;
+    }
+
+    .search-bar:hover .search-input.artist-name,
+    .search-bar:hover .search-select.styles,
+    .search-bar:hover .search-input.citie,
+    .search-bar:hover .search-select.department,
+    .search-bar:hover .search-select.region {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        row-gap: 15px;
+        width: 180px;
+    }
+
+    .search-bar:hover .search-bar-form {
+        border-radius: 25px;
+        z-index: 20;
+    }
+
+    .search-bar:hover .search-responsive {
+        display: none;
     }
 }
