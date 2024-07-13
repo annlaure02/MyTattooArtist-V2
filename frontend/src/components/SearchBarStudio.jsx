@@ -136,7 +136,7 @@ function SearchBarStudio({ onSearch }) {
               </option>
             ))}
           </select>
-          <button className='search-btn-submit' type='submit'>
+          <button className='search-btn-submit' type='submit' aria-label='Rechercher'>
             <Search />
           </button>
         </form>

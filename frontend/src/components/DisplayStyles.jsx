@@ -24,7 +24,7 @@ function DisplayStyles() {
       <div className='custom-page styles'>
         {styles.map((style) => (
           <div key={style.id} >
-            <Card className='custom-card display-styles'>
+            <Card className='custom-card display-styles' tabIndex={0}>
               <Card.Body>
                 <Card.Title className='card-title display-styles'>
                   {style.style_name}

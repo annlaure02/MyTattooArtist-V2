@@ -136,6 +136,7 @@ function SearchBarArtists({ onSearch, showResults }) {
     <div>
       <div className='search-bar'>
         <form className='search-bar-form' onSubmit={handleSubmit(handleSearch)}>
+          <p className='search-responsive'>Recherche</p>
           <input
             className='search-input artist-name'
             type='search'
@@ -145,6 +146,7 @@ function SearchBarArtists({ onSearch, showResults }) {
           <select
             className='search-select styles'
             placeholder='styles'
+            aria-label='styles'
             {...register('searchStyleTerm')}
           >
             <option value="" >Styles</option>
@@ -163,6 +165,7 @@ function SearchBarArtists({ onSearch, showResults }) {
           <select
             className='search-select department'
             placeholder='Département'
+            aria-label='Département'
             {...register('searchDepartment')}
           >
             <option value="" >Département</option>
@@ -175,6 +178,7 @@ function SearchBarArtists({ onSearch, showResults }) {
           <select
             className='search-select region'
             placeholder='Région'
+            aria-label='Région'
             {...register('searchRegion')}
           >
             <option value="" >Région</option>
@@ -184,7 +188,7 @@ function SearchBarArtists({ onSearch, showResults }) {
               </option>
             ))}
           </select>
-          <button className='search-btn-submit' type='submit'>
+          <button className='search-btn-submit' type='submit' aria-label='Rechercher'>
             <Search />
           </button>
         </form>
@@ -286,14 +290,14 @@ function SearchBarArtists({ onSearch, showResults }) {
       <div>
         {selectArtist && (
           <Modal
-          show={show}
-          onHide={handleClose}
-          size='xl'
-          backdrop="static"
-          dialogClassName='card-modal-open'
-          centered
-        >
-          <Modal.Header className='modal-header display-artist' closeButton></Modal.Header>
+            show={show}
+            onHide={handleClose}
+            size='xl'
+            backdrop="static"
+            dialogClassName='card-modal-open'
+            centered
+          >
+            <Modal.Header className='modal-header display-artist' closeButton></Modal.Header>
             <Modal.Body >
               <CardArtistSearchOpen artist={selectArtist} />
             </Modal.Body>
