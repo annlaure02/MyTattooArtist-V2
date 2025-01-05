@@ -1,14 +1,35 @@
 /* ------- Footer ------- */
-.footer {
+footer {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   height: 120px;
+  overflow: hidden;
+  margin-top: 15px;
 }
 
-.footer p {
+.footer-infos p {
   color: #DCDCDC;
   margin: 0;
   font-size: 20px;
   padding-bottom: 20px;
+}
+
+.light-floor {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 20px;
+  background: radial-gradient(circle, #168d8f, transparent);
+  filter: blur(10px);
+}
+
+@media screen and (max-width: 767px) {
+  .light-floor {
+    width: 250px;
+    height: 15px;
+  }
 }

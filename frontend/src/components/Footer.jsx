@@ -3,8 +3,11 @@ import '../styles/Footer.css'
 
 function Footer() {
   return (
-    <footer className='footer'>
+    <footer>
+      <div className='light-floor'></div>
+      <div className='footer-infos'>
       <p>Portfolio Project</p>
+      </div>
     </footer>
   )
 }
