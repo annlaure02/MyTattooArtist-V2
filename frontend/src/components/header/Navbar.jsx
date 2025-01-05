@@ -16,6 +16,7 @@ function Navbar() {
     <>
       <header className={menuOpen ? "menu-to-toggle active" : "menu-to-toggle"}>
         <nav className={menuOpen ? "navbar active" : "navbar"}>
+          <div className={menuOpen ? "flashlight active" : "flashlight"}></div>
           <div className={menuOpen ? "logo active" : "logo"}>
             <Link to='/' className="nav-links-logo">
               <h1 className="logo-title">
@@ -48,9 +49,9 @@ function Navbar() {
               <Login />
             </div>
           </div>
-          <button className={menuOpen ? "btn-close-toggle": 'btn-menu-toggle'} onClick={handleMenuToggle}>
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
+          <button className={menuOpen ? "btn-close-toggle" : 'btn-menu-toggle'} onClick={handleMenuToggle}>
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </button>
         </nav>
       </header>
     </>

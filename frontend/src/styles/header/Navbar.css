@@ -1,5 +1,6 @@
 /* ---------- Navbar ---------- */
 .navbar {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-content: center;
@@ -10,6 +11,34 @@
 /* Toggle Button  */
 .btn-menu-toggle {
   display: none;
+}
+
+/* Light effect */
+.flashlight {
+  position: absolute;
+  width: 200px;
+  height: 140px;
+  background: radial-gradient( ellipse at 50% 0, 
+              #168d8f,
+              #031616 50%, /* Lumière atténuée */
+              transparent 100%);
+  filter: blur(7px);
+  transform: scaleX(3); /* Diffusion en largeur */
+  top: 30px;
+  left: 45%;
+}
+
+.flashlight::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 15px;
+  background: #21d9dc;
+  border-radius: 50%; /* L'ampoule */
+  box-shadow: 0 0 20px 5px #24e5e8; 
 }
 
 /* Logo */
@@ -25,6 +54,7 @@
   color: red;
   cursor: pointer;
   margin: 0;
+  z-index: 1;
 }
 
 /* List of links */
@@ -41,6 +71,7 @@
 .nav-item {
   list-style: none;
   margin: 0;
+  z-index: 1;
 }
 
 .nav-item .nav-links {
@@ -54,10 +85,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 1;
 }
 
 .text-artist {
-  color: white;
+  color: #DCDCDC;
   font-size: 18px;
 }
 
@@ -74,6 +106,16 @@
     align-items: center;
     justify-content: center;
     position: relative;
+  }
+
+  .flashlight {
+    width: 160px;
+    left: 39%;
+  }
+  
+  .flashlight::after {
+    width: 12px;
+    height: 12px;
   }
 
   .logo {
@@ -133,6 +175,18 @@
   .navbar {
     min-height: 100px;
   }
+
+  .flashlight {
+    width: 100px;
+    height: 100px;
+    left: 39%;
+  }
+  
+  .flashlight::after {
+    width: 8px;
+    height: 8px;
+  }
+
   .navbar-menu {
     display: none;
   }
@@ -182,6 +236,14 @@
     display: block;
     height: 100%;
     border-bottom: none;
+  }
+
+  .flashlight.active {
+    display: none;
+  }
+  
+  .flashlight::after.active {
+    display: none;
   }
 
   .logo.active {
