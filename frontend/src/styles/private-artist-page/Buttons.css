@@ -14,7 +14,7 @@
 /* Pencil icon for profile picture */
 .add-profile-picture .pencil-icon-profile {
     position: absolute;
-    color: #1A1A1D;
+    color: #c6b7bb;
     bottom: 12px;
     left: 85%;
     width: 22px;
@@ -54,7 +54,7 @@
     height: 22px;
     top: 35%;
     left: 25%;
-    color: #1A1A1D;
+    color: #c6b7bb;
 }
 
 .pencil-button {
