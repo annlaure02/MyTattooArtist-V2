@@ -139,3 +139,11 @@
 .input-photo-flash {
     display: none;
 }
+
+/* ---------- Modal Delete Photos/Flashs ---------- */
+.delete-photo-flash {
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 18px;
+}

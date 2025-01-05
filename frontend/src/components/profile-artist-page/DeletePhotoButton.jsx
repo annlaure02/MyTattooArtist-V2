@@ -1,7 +1,14 @@
-import React from 'react';
-import { GiCrossMark } from 'react-icons/gi'
+import React, { useState } from 'react';
+import { GiCrossMark } from 'react-icons/gi';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import '../../styles/private-artist-page/Modal.css';
 
 function DeletePhotoButton({ albumId, artistId, dataUpdated }) {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleDelete = async () => {
     try {
@@ -29,12 +36,39 @@ function DeletePhotoButton({ albumId, artistId, dataUpdated }) {
     } catch (error) {
       console.error('An error occurred during the DELETE request:', error);
     }
+    setShow(false);
   };
 
   return (
-    <button onClick={handleDelete} className="delete-btn">
+    <>
+    <button onClick={handleShow} className="delete-btn">
       <GiCrossMark />
     </button>
+
+    <Modal
+        show={show}
+        onHide={handleClose}
+        dialogClassName='modal-informations'
+        aria-labelledby="modal to delete flash"
+        centered
+      >
+        <div className='inside-modal'>
+          <Modal.Body>
+            <p className='delete-photo-flash'>
+              Êtes-vous sûr de vouloir supprimer cette photo
+            </p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" className='btn-annuler' onClick={handleClose}>
+              Annuler
+            </Button>
+            <Button variant="danger" className='btn-enregistrer' onClick={handleDelete}>
+              Supprimer
+            </Button>
+          </Modal.Footer>
+        </div>
+      </Modal>
+    </>
   );
 }
 
