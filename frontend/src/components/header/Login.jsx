@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, /* useEffect */ } from 'react';
 import { Button, Modal, Form, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +7,8 @@ import { ArtistContext } from './ArtistAuth';
 
 function Login() {
   const [show, setShow] = useState(false);
+/*   const [csrfToken, setCsrfToken] = useState(null); // Ajout d'un état pour le CSRF token
+ */  
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -14,18 +16,31 @@ function Login() {
   const redirectArtistPage = useNavigate();
   const { login } = useContext(ArtistContext);
 
+ /*  const getCSRFToken = async () => {
+    const response = await fetch('http://127.0.0.1:8000/user_artist/api/csrf_token/', {
+      method: 'GET',
+      credentials: 'include'
+    });
+    const data = await response.json();
+    return data.csrftoken;
+  }; */
+
   const onSubmit = async (data) => {
     try {
+      /* const csrfToken = await getCSRFToken(); */
+
       const response = await fetch('http://127.0.0.1:8000/user_artist/api/login/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
-        },
+          'Content-Type': 'application/json',
+           /* 'X-CSRFToken': csrfToken // Ajout du CSRF token dans les headers */
+         },
         body: JSON.stringify(data)
       });
 
       const responseData = await response.json();
       const artistId = responseData.artistId;
+      /* console.log(responseData); */
 
       login(artistId);
 
@@ -54,9 +69,9 @@ function Login() {
       >
         <div className='inside-modal-registration-login'>
           <Modal.Header closeButton>
-              <Modal.Title>
-                Connexion
-              </Modal.Title>
+            <Modal.Title>
+              Connexion
+            </Modal.Title>
           </Modal.Header>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Modal.Body className='body-registration'>
