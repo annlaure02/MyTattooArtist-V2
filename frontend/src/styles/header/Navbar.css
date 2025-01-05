@@ -223,14 +223,14 @@
 
   /* Toggle active */
   .menu-to-toggle.active {
-    background-color: #1A1A1D;
+    background-color: black;
     display: block;
     position: absolute;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1;
-    border-bottom: 1px solid #DCDCDC;
+    border-bottom: 1px solid #168d8f;
   }
   .navbar.active {
     display: block;
@@ -254,7 +254,7 @@
     padding-bottom: 20px;
     margin: 0;
     text-align: center;
-    border-bottom: 1px solid #DCDCDC;
+    border-bottom: 1px solid #168d8f;
     }
 
   .navbar-menu.active {
@@ -272,7 +272,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    border-top: 1px solid #DCDCDC;
+    border-top: 1px solid #168d8f;
     padding-top: 20px;
     margin-bottom: 20px;
   }
