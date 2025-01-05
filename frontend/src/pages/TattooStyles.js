@@ -5,10 +5,12 @@ import Footer from '../components/Footer';
 
 function TattooStyles() {
   return (
-    <div className='container'>
-      <Navbar />
-      <DisplayStyles />
-      <Footer />
+    <div className='custom-user-page'>
+      <div className='container'>
+        <Navbar />
+        <DisplayStyles />
+        <Footer />
+      </div>
     </div>
   )
 }

@@ -13,12 +13,14 @@ function Artists() {
   };
 
   return (
-    <div className='container'>
-      <Navbar />
-      <h1 className='title-pages'>Trouve le tatoueur qui te convient</h1>
-      <SearchBarArtists onSearch={handleSearch} showResults={showResults}/>
-      {!showResults && <DisplayArtists />}
-      <Footer />
+    <div className='custom-user-page'>
+      <div className='container'>
+        <Navbar />
+        <h1 className='title-pages'>Trouve ton futur tatoueur</h1>
+        <SearchBarArtists onSearch={handleSearch} showResults={showResults} />
+        {!showResults && <DisplayArtists />}
+        <Footer />
+      </div>
     </div>
   )
 }

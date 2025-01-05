@@ -5,10 +5,12 @@ import Footer from '../components/Footer';
 
 function Studios() {
   return (
-    <div className='container'>
-      <Navbar />
-      <DisplayStudios />
-      <Footer />
+    <div className='custom-user-page'>
+      <div className='container'>
+        <Navbar />
+        <DisplayStudios />
+        <Footer />
+      </div>
     </div>
 
   )

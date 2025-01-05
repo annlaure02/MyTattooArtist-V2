@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -6,11 +8,11 @@
 }
 
 body {
-    background-image: url(../src/images/background5.png);
+    /* background-image: url(../src/images/background1.png);
     background-position: center top;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    background-attachment: scroll;
+    background-size: cover; */
     min-height: 100vh;
 }
 
@@ -18,23 +20,28 @@ p {
     font-family: 'Ysabeau Office Regular';
 }
 
+/* Custom background for user pages  */
+.custom-user-page {
+    background-color: black;
+}
+
 /* general font */
 @font-face {
     font-family: 'Ysabeau Office Regular';
-    src: local('Ysabeau Office Regular'), 
-    url('../src/fonts/Ysabeau_Office/static/YsabeauOffice-Regular.ttf') format('truetype');
+    src: local('Ysabeau Office Regular'),
+        url('../src/fonts/Ysabeau_Office/static/YsabeauOffice-Regular.ttf') format('truetype');
 }
 
 /* font for title pages */
 @font-face {
     font-family: 'MonteCarlo Regular';
-    src: local('MonteCarlo Regular'), 
-    url('../src/fonts/MonteCarlo/MonteCarlo-Regular.ttf') format('truetype');
+    src: local('MonteCarlo Regular'),
+        url('../src/fonts/MonteCarlo/MonteCarlo-Regular.ttf') format('truetype');
 }
 
 /* font for the logo title */
 @font-face {
     font-family: 'Ruthie Regular';
-    src: local('Ruthie Regular'), 
-    url('../src/fonts/Ruthie/Ruthie-Regular.ttf') format('truetype');
+    src: local('Ruthie Regular'),
+        url('../src/fonts/Ruthie/Ruthie-Regular.ttf') format('truetype');
 }
