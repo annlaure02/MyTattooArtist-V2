@@ -1,3 +1,9 @@
+.title-connection-page{
+  color: #DCDCDC;
+  text-align: center;
+  margin-top: 50px;
+}
+
 /* -------- Modal for registration and login -------- */
 .modal-registration-login {
   top: 80px;

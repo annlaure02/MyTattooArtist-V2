@@ -36,10 +36,12 @@ function Connexion() {
 
   return (
     <>
+      <h1 className='title-connection-page'>Votre compte a bien été créer</h1>
       <div className="modal show-connexion">
         <Modal.Dialog
           className='modal-registration-login'
           size="lg"
+          aria-label='Connexion'
         >
           <div className='inside-modal-registration-login'>
             <Modal.Header>
